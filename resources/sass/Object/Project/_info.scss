@@ -1,0 +1,40 @@
+.p-info {
+  &__container {
+    width: 100%;
+    padding: $space_l 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__title, &__title--setting {
+    font-size: $font-size_xl;
+    width: 50%;
+    box-sizing: border-box;
+    @include mq(){
+      font-size: $font-size_default;
+    }
+    &--br {
+      display: none;
+      @include mq() {
+        display: block;
+      }
+    }
+  }
+  &__summary {
+    width: 50%;
+    text-align: center;
+    @include mq() {
+      text-align: left;
+    }
+  }
+  &__text{
+    display: inline-block;
+    @include mq() {
+      display: block;
+    }
+    &--br {
+      @include mq(){
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+.c-outlineBtn {
+  &__container {
+    display: flex;
+    margin-bottom: $space_m;
+    align-items: center;
+    &--left {
+      justify-content: space-between;
+    }
+    &--right {
+      justify-content: flex-end;
+      @include mq() {
+        justify-content: flex-start;
+      }
+    }
+  }
+  color: $spring_orange;
+  font-weight: 900;
+  border: 1px solid #bbb;
+  border-radius: $space_s;
+  padding: 5px 10px;
+  text-align: center;
+  @include mq() {
+    font-size: $font-size_m;
+  }
+  transition: $time_s;
+  &:hover {
+    cursor: pointer;
+    background: $spring_orange;
+    color: $lightgray;
+    border: 1px solid $spring_orange;
+  }
+}

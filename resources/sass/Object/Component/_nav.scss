@@ -1,0 +1,31 @@
+.c-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+  &__item {
+    display: block;
+    box-sizing: border-box;
+    height: $header-height;
+    font-size: $font-size_s;
+    padding: 0 $space_s;
+    min-width: 40px;
+    text-align: center;
+    transition: $time_s;
+    &:hover {
+      background: #fff;
+      @include mq(md) {
+        background: none;
+      }
+    }
+  }
+  &__link {
+    display: block;
+    @include mq(md) {
+      display: inline-block;
+    }
+    height: 100%;
+    line-height: $header-height;
+    transition: $time_s;
+  }
+}

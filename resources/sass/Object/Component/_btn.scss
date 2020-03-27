@@ -1,0 +1,32 @@
+.c-btn {
+  box-sizing: border-box;
+  background: $lightgray;
+  border: none;
+  border-radius: $radius_s;
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.25);
+  font-size: $font-size_m;
+  font-family: $font-family_default;
+  padding: $space_m;
+  transition: $time_s;
+  width: $btn-width;
+  &:hover {
+    transform: scale(1.05);
+  }
+  &__container {
+    width: 100%;
+    margin: $space_l auto;
+    text-align: center;
+    &--form {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  &--twitter {
+    background: white;
+    color: $twitter;
+    border: 3px solid $twitter;
+  }
+  &--form {
+    width: 100%;
+  }
+}

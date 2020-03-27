@@ -1,0 +1,69 @@
+// ==================================
+// 変数定義
+// ==================================
+
+// 色定義
+$gray: #333;
+$lightgray: #f4f1ed;
+$corp: #222584;
+$twitter: #1DA1F2;
+$europe_light: #e8e2be;
+$europe_green: #6aa43e;
+$spring_lemon: #eeea55;
+$spring_yellow: #f8e352;
+$spring_sky: #afd0ef;
+$spring_orange: #ebc061;
+$spring_red: #d7847e;
+$spring_pink: #dd9cb4;
+$spring_green: #b3ce5b;
+
+$font-color_default: $gray;
+$font-color_sub1: $spring_sky;
+$font-color_sub2: $europe_light;
+
+$bg-color_default: $spring_sky;
+$bg-color_nav: $spring_lemon;
+$bg-color_sub1: $spring_orange;
+
+$font-family_default: 'Oswald', 'M PLUS Rounded 1c', sans-serif;
+$font-family_sub1: sans-serif;
+$font-family_corp: 'Noto Serif JP', serif;
+
+$font-size_s: 12px;
+$font-size_m: 14px;
+$font-size_default: 16px;
+$font-size_l: 18px;
+$font-size_xl: 24px;
+$font-size_xxl: 28px;
+$font-size_title: 48px;
+
+$space_s: 5px;
+$space_m: 15px;
+$space_l: 20px;
+$space_xl: 30px;
+$space_xxl: 40px;
+
+$radius_s: 4px;
+
+$header-height: 40px;
+$input-height: 50px;
+$item-height: 50px;
+$modal-height: 300px;
+
+$site-width: 980px;
+$main-width: 600px;
+$btn-width: 200px;
+$form-width: 500px;
+
+$time_s: 0.3s;
+$time_m: 0.6s;
+$time_l: 1s;
+$time_xl: 3s;
+$time_xxl: 6s;
+
+$breakpoints: (
+  "sm": "screen and (max-width: 414px)",
+  "md": "screen and (max-width: 768px)",
+  "lg": "screen and (max-width: 1000px)",
+  "xl": "screen and (max-width: 1200px)"
+) !default;

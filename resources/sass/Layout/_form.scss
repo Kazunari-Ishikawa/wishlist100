@@ -1,0 +1,9 @@
+.l-form {
+  box-sizing: border-box;
+  max-width: $form-width;
+  margin: 0 auto;
+  width: 60%;
+  @include mq('md') {
+    width: 100%;
+  }
+}

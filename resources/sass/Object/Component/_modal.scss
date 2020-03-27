@@ -1,0 +1,17 @@
+.c-modal {
+  &__container {
+    width: 60%;
+    height: 80%;
+    max-height: $modal-height;
+    background: #fff;
+    border-radius: $radius_s;
+    padding: $space_xl;
+    z-index: 5;
+  }
+  &__header {
+    font-size: $font-size_l;
+    margin-bottom: $space_l;
+  }
+
+  box-sizing: border-box;
+}

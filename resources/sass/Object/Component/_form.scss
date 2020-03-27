@@ -1,0 +1,43 @@
+.c-form {
+  background: #fff;
+  padding: $space_xl;
+  border-radius: $space_s;
+  &__unit {
+    display: block;
+    margin-bottom: $space_xl;
+  }
+  &__input, &__submit, &__select {
+    border: 1px solid #aaa;
+    background: #fff;
+    box-sizing: border-box;
+    border-radius: $radius_s;
+    display: block;
+    font-size: $font-size_default;
+    font-family: $font-family_default;
+    padding: 0 10px;
+    height: $input-height;
+    width: 100%;
+  }
+  &__submit {
+    color: white;
+    background: black;
+    border: none;
+    margin-bottom: $space_xl;
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
+    &--twitter {
+      margin-bottom: 0;
+      background: #fff;
+      color: $twitter;
+      border: 2px solid $twitter;
+    }
+  }
+  &__text {
+    margin-bottom: $space_s;
+  }
+  &--modal {
+    width: 100%;
+  }
+}

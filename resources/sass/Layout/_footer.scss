@@ -1,0 +1,14 @@
+.l-footer {
+  box-sizing: border-box;
+  padding: 0 $space_xl;
+  @include mq(){
+    padding: 0 $space_m;
+  }
+  width: 100%;
+  margin-top: $space_xxl;
+  &__copyright {
+    font-size: $font-size_s;
+    width: 100%;
+    text-align: center;
+  }
+}

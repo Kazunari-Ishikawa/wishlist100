@@ -1,0 +1,38 @@
+// ====================================
+// Base
+// ====================================
+html, body {
+  background: $bg-color_default;
+  color: $font-color_default;
+  font-size: $font-size_default;
+  font-family: $font-family_default;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  text-size-adjust: 100%;
+  max-width: 100vw;
+}
+
+a {
+  color: $font-color_default;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $font-color_sub1;
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+input, textarea {
+  border: none;
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,57 @@
+.c-spNav {
+  @include mq(md) {
+    display: block;
+    margin-right: $space_m;
+    margin-left: $space_m;
+    margin-top: 60px;
+  }
+  &__cover {
+    @include mq(md) {
+      background: rgba(255, 255, 255, 0.9);
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60vw;
+      height: 100vh;
+      transform: translateX(60vw);
+      transition: $time_m;
+      &.active {
+        transform: translateX(0);
+        z-index: 5;
+      }
+    }
+  }
+  &__item {
+    @include mq(md) {
+      font-size: $font-size_l;
+      margin-bottom: $space_l;
+      text-align: right;
+    }
+  }
+  &__icon {
+    @include mq(md) {
+      font-size: 2.2rem;
+      display: block;
+      text-align: center;
+    }
+    &Container {
+      display: none;
+      @include mq(md) {
+        display: block;
+        margin: 0 $space_m;
+        position: absolute;
+        right: 0;
+        top: 4px;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    &Text {
+      @include mq(md) {
+        font-size: $font-size_s;
+      }
+    }
+  }
+}

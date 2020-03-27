@@ -1,0 +1,19 @@
+.l-header {
+  background: $bg-color_nav;
+  box-sizing: border-box;
+  padding: 0 $space_xl;
+  @include mq(){
+    padding: 0 $space_m;
+  }
+  width: 100%;
+  height: $header-height;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+}

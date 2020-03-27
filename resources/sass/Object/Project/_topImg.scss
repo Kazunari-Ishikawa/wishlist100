@@ -1,0 +1,16 @@
+.p-topImg {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-image: url("../img/top-pic.jpg");
+  background-color: rgba($color: white, $alpha: 0.4);
+  background-blend-mode: lighten;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  margin-top: $header-height;
+}

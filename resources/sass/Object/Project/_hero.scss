@@ -1,0 +1,33 @@
+.p-hero {
+  &__title {
+    font-size: $font-size_l;
+    @include mq() {
+      font-size: $font-size_default;
+    }
+    height: $header-height;
+    line-height: $header-height;
+  }
+  &__container {
+    padding: $space_xl 0;
+  }
+  &__copy {
+    color: $corp;
+    font-size: $font-size_xl;
+    font-family: $font-family_corp;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 60px;
+    @include mq() {
+      font-size: $font-size_l;
+    }
+  }
+  &__text {
+    color: black;
+    margin: $space_xl;
+    text-align: center;
+    @include mq(sm) {
+      font-size: $font-size_m;
+      text-align-last: left;
+    }
+  }
+}
