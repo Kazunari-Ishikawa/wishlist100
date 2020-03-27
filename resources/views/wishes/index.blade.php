@@ -22,8 +22,8 @@
       <!-- ナビゲーション -->
       <ul class="c-nav c-spNav">
         <li class="c-nav__item c-spNav__item"><a href="index.html" class="c-nav__link">TOP</a></li>
-        <li class="c-nav__item c-spNav__item"><a href="register.html" class="c-nav__link">新規登録</a></li>
-        <li class="c-nav__item c-spNav__item"><a href="login.html" class="c-nav__link">ログイン</a></li>
+        <li class="c-nav__item c-spNav__item"><a href="{{route('register')}}" class="c-nav__link">新規登録</a></li>
+        <li class="c-nav__item c-spNav__item"><a href="{{route('login')}}" class="c-nav__link">ログイン</a></li>
       </ul>
     </nav>
   </header>
