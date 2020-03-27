@@ -19,10 +19,13 @@
     </div>
     <!-- ナビゲーション -->
     <ul class="c-nav c-spNav">
-      <li class="c-nav__item c-spNav__item"><a href="mypage.html" class="c-nav__link">マイページ</a></li>
+      <li class="c-nav__item c-spNav__item"><a href="{{ route('wishes.mypage') }}" class="c-nav__link">マイページ</a></li>
       <li class="c-nav__item c-spNav__item"><a href="account.html" class="c-nav__link">アカウント設定</a></li>
       <li class="c-nav__item c-spNav__item"><a href="listsetting.html" class="c-nav__link">リスト設定</a></li>
-      <li class="c-nav__item c-spNav__item"><a href="index.html" class="c-nav__link">ログアウト</a></li>
+      <li class="c-nav__item c-spNav__item">
+        <a href="{{ route('logout') }}" class="c-nav__link" onclick="event.preventDefault(); document.getElementById('js-logout-form').submit();">ログアウト</a>
+        <form action="{{route('logout')}}" id="js-logout-form" method="POST" style="display: none;">@csrf</form>
+      </li>
     </ul>
   </nav>
 </header>
