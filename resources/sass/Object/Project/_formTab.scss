@@ -11,11 +11,21 @@
     padding: $space_s;
     margin-right: $space_m;
     margin-bottom: $space_m;
-    border-bottom: 2px solid black;
-
-    & .notActive {
-      color: #aaa;
-      border-bottom: 2px solid #aaa;
+    border-bottom: 2px solid $gray;
+    &.notActive {
+      border-bottom: 2px solid $lightgray;
+    }
+    &:hover {
+      border-bottom: 2px solid $gray;
+    }
+  }
+  &__link {
+    display: block;
+    &.notActive {
+      color: $lightgray;
+    }
+    &:hover {
+      color: $gray;
     }
   }
 }

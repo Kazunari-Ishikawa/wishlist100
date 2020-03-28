@@ -6,12 +6,11 @@
 
 <!-- メインコンテンツ -->
 <main id="main" class="l-main">
+
   <section class="l-container">
     <!-- 登録フォーム -->
-    <div class="p-formTab">
-      <div class="p-formTab__item">新規登録</div>
-      <div class="p-formTab__item">ログイン</div>
-    </div>
+    <formtab-component :is-login-form="true"></formtab-component>
+
     <div class="l-form">
       <form action="{{route('login')}}" method="POST" class="c-form">
         @csrf

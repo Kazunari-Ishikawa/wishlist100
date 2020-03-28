@@ -43,11 +43,6 @@ export default {
     isLogin: Boolean,
     isActive: Boolean
   },
-  data() {
-    return {
-      activate: this.isActive
-    };
-  },
   methods: {
     clickClose() {
       this.$emit("close-menu");
