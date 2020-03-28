@@ -9,7 +9,7 @@
   <!-- インフォメーション -->
   <section id="Info" class="l-info u-main">
     <div class="p-info__container">
-      <h2 class="p-info__title">りえこさんの<br class="p-info__title--br">100のリスト</h2>
+      <h2 class="p-info__title">{{ $user->name }}さんの<br class="p-info__title--br">100のリスト</h2>
       <!-- 達成度グラフ -->
       <div class="p-info__summary">
         <p class="p-info__text">Wish List：3</p><span class="p-info__text--br"> / </span>
@@ -23,8 +23,8 @@
       <div class="p-wishList__header">
         <div class="p-wishList__listBtn">
           <div class="c-outlineBtn__container c-outlineBtn__container--left">
-            <div class="c-outlineBtn">Wish List</div>
-            <div class="c-outlineBtn">Done List</div>
+            <a href="/mypage" class="c-outlineBtn">Wish List</a>
+            <a href="/mypage/done" class="c-outlineBtn">Done List</a>
           </div>
         </div>
         <div class="p-wishList__createBtn">
