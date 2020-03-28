@@ -3,7 +3,7 @@
     <h1 class="p-hero__title">わたしの100のリスト</h1>
 
     <!-- ハンバーガーメニュー -->
-    <div class="c-triggerMenu" @click="isActive = !isActive">
+    <div class="c-triggerMenu" @click="isActive = !isActive" :class="{show: !isActive}">
       <span class="c-triggerMenu__bar"></span>
       <span class="c-triggerMenu__bar"></span>
       <span class="c-triggerMenu__bar"></span>

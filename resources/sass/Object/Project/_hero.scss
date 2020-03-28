@@ -27,7 +27,6 @@
     text-align: center;
     @include mq(sm) {
       font-size: $font-size_m;
-      text-align-last: left;
     }
   }
 }

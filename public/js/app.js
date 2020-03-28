@@ -38217,6 +38217,7 @@ var render = function() {
         "div",
         {
           staticClass: "c-triggerMenu",
+          class: { show: !_vm.isActive },
           on: {
             click: function($event) {
               _vm.isActive = !_vm.isActive
