@@ -16,10 +16,10 @@
     <!-- 登録エリア -->
     <section id="Register" class="l-container">
       <div class="c-btn__container">
-        <button class="c-btn c-btn--register">新規登録</button>
+        <a href="/register"><button class="c-btn c-btn--register">新規登録</button></a>
       </div>
       <div class="c-btn__container">
-        <button class="c-btn c-btn--login">ログイン</button>
+        <a href="/login"><button class="c-btn c-btn--register">ログイン</button></a>
       </div>
       <div class="c-btn__container">
         <button class="c-btn c-btn--twitter"><i class="fab fa-twitter"></i> Twitterで登録/ログイン</button>
