@@ -2,16 +2,7 @@
 
 @section('content')
 <!-- ヘッダー -->
-<header class="l-header">
-  <h1 class="p-hero__title">わたしの100のリスト</h1>
-  <nav class="c-nav">
-    <ul class="c-nav__list">
-      <li class="c-nav__item"><a href="{{route('index')}}" class="c-nav__link">TOP</a></li>
-      <li class="c-nav__item"><a href="{{route('register')}}" class="c-nav__link">新規登録</a></li>
-      <li class="c-nav__item"><a href="{{route('login')}}" class="c-nav__link">ログイン</a></li>
-    </ul>
-  </nav>
-</header>
+<header-component :is-login="@auth true @endauth @guest false @endguest"></header-component>
 
 <!-- メインコンテンツ -->
 <main id="main" class="l-main">
@@ -47,10 +38,6 @@
   </section>
 </main>
 
-<footer id="footer" class="l-footer">
-  <div class="l-footer__copyright">
-    <small>&copy; 2020 わたしの100のリスト All Rights Reserved.</small>
-  </div>
-</footer>
+<footer-component></footer-component>
 
 @endsection

@@ -1,6 +1,6 @@
 <template>
   <!-- スマホ・タブレット用 -->
-  <nav class="c-spNav__cover">
+  <nav class="c-spNav__cover" :class="{active: isActive}">
     <div class="c-spNav__iconContainer">
       <i class="fas fa-times c-spNav__icon"></i>
       <p class="c-spNav__iconText">CLOSE</p>
@@ -12,10 +12,10 @@
         <a href="/" class="c-nav__link">TOP</a>
       </li>
       <li class="c-nav__item c-spNav__item">
-        <a href="/login" class="c-nav__link">新規登録</a>
+        <a href="/register" class="c-nav__link">新規登録</a>
       </li>
       <li class="c-nav__item c-spNav__item">
-        <a href="/register" class="c-nav__link">ログイン</a>
+        <a href="/login" class="c-nav__link">ログイン</a>
       </li>
     </ul>
     <!-- ナビゲーション：ログイン時 -->
@@ -30,7 +30,7 @@
         <a href="setting/list" class="c-nav__link">リスト設定</a>
       </li>
       <li class="c-nav__item c-spNav__item">
-        <a href="/" class="c-nav__link" @click="doLogout">ログアウト</a>
+        <a class="c-nav__link" @click="doLogout">ログアウト</a>
         <form action="/logout" id="js-logout-form" method="POST" style="display: none;"></form>
       </li>
     </ul>
@@ -40,11 +40,20 @@
 <script>
 export default {
   props: {
-    isLogin: Boolean
+    isLogin: Boolean,
+    isActive: Boolean
   },
   methods: {
-    doLogout(e) {
-      e.preventDefault();
+    async doLogout() {
+      await axios
+        .post("/logout")
+        .then(function(response) {
+          console.log(response);
+          window.location.href = "/";
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
     }
   }
 };

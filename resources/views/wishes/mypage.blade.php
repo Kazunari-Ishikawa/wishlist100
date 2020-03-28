@@ -2,33 +2,7 @@
 
 @section('content')
 <!-- ヘッダー -->
-<header class="l-header">
-  <h1 class="p-hero__title">わたしの100のリスト</h1>
-
-  <!-- ハンバーガーメニュー -->
-  <div class="c-triggerMenu">
-    <span class="c-triggerMenu__bar"></span>
-    <span class="c-triggerMenu__bar"></span>
-    <span class="c-triggerMenu__bar"></span>
-  </div>
-
-  <nav class="c-spNav__cover">
-    <div class="c-spNav__iconContainer">
-      <i class="fas fa-times c-spNav__icon"></i>
-      <p class="c-spNav__iconText">CLOSE</p>
-    </div>
-    <!-- ナビゲーション -->
-    <ul class="c-nav c-spNav">
-      <li class="c-nav__item c-spNav__item"><a href="{{ route('wishes.mypage') }}" class="c-nav__link">マイページ</a></li>
-      <li class="c-nav__item c-spNav__item"><a href="account.html" class="c-nav__link">アカウント設定</a></li>
-      <li class="c-nav__item c-spNav__item"><a href="listsetting.html" class="c-nav__link">リスト設定</a></li>
-      <li class="c-nav__item c-spNav__item">
-        <a href="{{ route('logout') }}" class="c-nav__link" onclick="event.preventDefault(); document.getElementById('js-logout-form').submit();">ログアウト</a>
-        <form action="{{route('logout')}}" id="js-logout-form" method="POST" style="display: none;">@csrf</form>
-      </li>
-    </ul>
-  </nav>
-</header>
+<header-component :is-login="@auth true @endauth @guest false @endguest"></header-component>
 
 <!-- メインコンテンツ -->
 <main id="main" class="l-main">
@@ -39,7 +13,7 @@
       <!-- 達成度グラフ -->
       <div class="p-info__summary">
         <p class="p-info__text">Wish List：3</p><span class="p-info__text--br"> / </span>
-        <Done class="p-info__text">Done List：2</p>
+        <p class="p-info__text">Done List：2</p>
       </div>
   </section>
 
@@ -89,10 +63,6 @@
 </main>
 
 <!-- フッター -->
-<footer id="footer" class="l-footer">
-  <div class="l-footer__copyright">
-    <small>&copy; 2020 わたしの100のリスト All Rights Reserved.</small>
-  </div>
-</footer>
+<footer-component></footer-component>
 
 @endsection

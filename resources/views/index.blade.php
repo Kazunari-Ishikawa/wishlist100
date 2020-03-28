@@ -2,9 +2,8 @@
 
 @section('content')
 <div class="p-topImg">
-
   <!-- ヘッダー -->
-  <header-component></header-component>
+  <header-component :is-login="@auth true @endauth @guest false @endguest"></header-component>
 
   <!-- メインコンテンツ -->
   <main id="main" class="l-main">
