@@ -404,6 +404,7 @@ textarea {
   border: 1px solid #bbb;
   border-radius: 5px;
   padding: 5px 10px;
+  margin-right: 15px;
   text-align: center;
   transition: 0.3s;
 }
@@ -423,12 +424,6 @@ textarea {
 }
 
 @media screen and (max-width: 414px) {
-  .c-outlineBtn__container--right {
-    justify-content: flex-start;
-  }
-}
-
-@media screen and (max-width: 414px) {
   .c-outlineBtn {
     font-size: 14px;
   }
@@ -439,6 +434,20 @@ textarea {
   background: #ebc061;
   color: #f4f1ed;
   border: 1px solid #ebc061;
+}
+
+.c-outlineBtn--right {
+  margin-right: 0;
+}
+
+.c-outlineBtn__br {
+  display: none;
+}
+
+@media screen and (max-width: 414px) {
+  .c-outlineBtn__br {
+    display: block;
+  }
 }
 
 .c-modal {
@@ -685,14 +694,8 @@ textarea {
   justify-content: space-between;
 }
 
-@media screen and (max-width: 414px) {
-  .p-wishList__header {
-    display: block;
-  }
-}
-
 .p-wishList__listBtn {
-  width: 35%;
+  width: 40%;
 }
 
 @media screen and (max-width: 414px) {

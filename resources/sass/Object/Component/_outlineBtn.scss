@@ -8,9 +8,6 @@
     }
     &--right {
       justify-content: flex-end;
-      @include mq() {
-        justify-content: flex-start;
-      }
     }
   }
   color: $spring_orange;
@@ -18,6 +15,7 @@
   border: 1px solid #bbb;
   border-radius: $space_s;
   padding: 5px 10px;
+  margin-right: $space_m;
   text-align: center;
   @include mq() {
     font-size: $font-size_m;
@@ -28,5 +26,14 @@
     background: $spring_orange;
     color: $lightgray;
     border: 1px solid $spring_orange;
+  }
+  &--right {
+    margin-right: 0;
+  }
+  &__br {
+    display: none;
+    @include mq() {
+      display: block;
+    }
   }
 }

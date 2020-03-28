@@ -7,12 +7,9 @@
   &__header {
     display: flex;
     justify-content: space-between;
-    @include mq() {
-      display: block;
-    }
   }
   &__listBtn {
-    width: 35%;
+    width: 40%;
     @include mq(){
       width: 70%;
     }

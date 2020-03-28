@@ -29,7 +29,7 @@
         </div>
         <div class="p-wishList__createBtn">
           <div class="c-outlineBtn__container c-outlineBtn__container--right">
-            <div class="c-outlineBtn"><a href="create.html">新しく追加する</a></div>
+            <a href="/mypage/new" class="c-outlineBtn c-outlineBtn--right">新しく<br class="c-outlineBtn__br">追加する</a>
           </div>
         </div>
       </div>
