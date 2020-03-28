@@ -1,5 +1,5 @@
 .l-header {
-  background: $bg-color_nav;
+  background: rgba($color: $bg-color_nav, $alpha: 0.9);
   box-sizing: border-box;
   padding: 0 $space_xl;
   @include mq(){
