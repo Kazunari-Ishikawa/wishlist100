@@ -1,7 +1,7 @@
 <template>
   <!-- スマホ・タブレット用 -->
   <nav class="c-spNav__cover" :class="{active: isActive}">
-    <div class="c-spNav__iconContainer">
+    <div class="c-spNav__iconContainer" @click="clickClose">
       <i class="fas fa-times c-spNav__icon"></i>
       <p class="c-spNav__iconText">CLOSE</p>
     </div>
@@ -43,7 +43,15 @@ export default {
     isLogin: Boolean,
     isActive: Boolean
   },
+  data() {
+    return {
+      activate: this.isActive
+    };
+  },
   methods: {
+    clickClose() {
+      this.$emit("close-menu");
+    },
     async doLogout() {
       await axios
         .post("/logout")

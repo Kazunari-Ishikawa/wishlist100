@@ -11,13 +11,12 @@
       display: block;
       position: absolute;
       top: 0;
-      right: 0;
+      right: -60vw;
       width: 60vw;
       height: 100vh;
-      transform: translateX(60vw);
       transition: $time_m;
       &.active {
-        transform: translateX(0);
+        transform: translateX(-100%);
         z-index: 5;
       }
     }

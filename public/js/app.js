@@ -1955,6 +1955,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     toggleMenu: function toggleMenu() {
+      console.log("Clicked");
       this.isActive = !this.isActive;
     }
   }
@@ -2023,7 +2024,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     isLogin: Boolean,
     isActive: Boolean
   },
+  data: function data() {
+    return {
+      activate: this.isActive
+    };
+  },
   methods: {
+    clickClose: function clickClose() {
+      this.$emit("close-menu");
+    },
     doLogout: function doLogout() {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
@@ -38223,7 +38232,10 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c("Navbar", { attrs: { "is-login": _vm.isLogin } })
+      _c("Navbar", {
+        attrs: { "is-login": _vm.isLogin, "is-active": _vm.isActive },
+        on: { "close-menu": _vm.toggleMenu }
+      })
     ],
     1
   )
@@ -38254,22 +38266,33 @@ var render = function() {
     "nav",
     { staticClass: "c-spNav__cover", class: { active: _vm.isActive } },
     [
-      _vm._m(0),
+      _c(
+        "div",
+        {
+          staticClass: "c-spNav__iconContainer",
+          on: { click: _vm.clickClose }
+        },
+        [
+          _c("i", { staticClass: "fas fa-times c-spNav__icon" }),
+          _vm._v(" "),
+          _c("p", { staticClass: "c-spNav__iconText" }, [_vm._v("CLOSE")])
+        ]
+      ),
       _vm._v(" "),
       !_vm.isLogin
         ? _c("ul", { staticClass: "c-nav c-spNav" }, [
+            _vm._m(0),
+            _vm._v(" "),
             _vm._m(1),
             _vm._v(" "),
-            _vm._m(2),
-            _vm._v(" "),
-            _vm._m(3)
+            _vm._m(2)
           ])
         : _c("ul", { staticClass: "c-nav c-spNav" }, [
+            _vm._m(3),
+            _vm._v(" "),
             _vm._m(4),
             _vm._v(" "),
             _vm._m(5),
-            _vm._v(" "),
-            _vm._m(6),
             _vm._v(" "),
             _c("li", { staticClass: "c-nav__item c-spNav__item" }, [
               _c(
@@ -38292,16 +38315,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "c-spNav__iconContainer" }, [
-      _c("i", { staticClass: "fas fa-times c-spNav__icon" }),
-      _vm._v(" "),
-      _c("p", { staticClass: "c-spNav__iconText" }, [_vm._v("CLOSE")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

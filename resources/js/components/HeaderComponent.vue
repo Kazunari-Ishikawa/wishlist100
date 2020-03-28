@@ -10,7 +10,7 @@
     </div>
 
     <!-- ナビメニュー -->
-    <Navbar :is-login="isLogin" />
+    <Navbar :is-login="isLogin" :is-active="isActive" @close-menu="toggleMenu" />
   </header>
 </template>
 
@@ -33,6 +33,7 @@ export default {
   },
   methods: {
     toggleMenu() {
+      console.log("Clicked");
       this.isActive = !this.isActive;
     }
   }
