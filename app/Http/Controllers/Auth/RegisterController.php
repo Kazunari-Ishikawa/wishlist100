@@ -87,6 +87,6 @@ class RegisterController extends Controller
         $wish->user_id = $user->id;
         $wish->save();
 
-        return redirect('/mypage')->with('message__flash', '登録完了！やりたいことを書こう！');
+        return redirect('/mypage')->with('flash_message', '登録完了！やりたいことを書こう！');
     }
 }

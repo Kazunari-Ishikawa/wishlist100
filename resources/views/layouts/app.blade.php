@@ -24,6 +24,9 @@
 
 <body>
   <div id="app">
+    @if(session('flash_message'))
+    <flash-message :message="{{ json_encode(session('flash_message')) }}"></flash-message>
+    @endif
     @yield('content')
   </div>
 </body>

@@ -1,0 +1,27 @@
+.c-message {
+  &__container {
+    background: $green;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    &--flash {
+      height: $header-height;
+      justify-content: center;
+      text-align: center;
+      position: fixed;
+      top: -$header-height;
+      right: 0;
+      z-index: 5;
+      transition: $time_m;
+      &.active {
+        transform: translateY(100%);
+      }
+    }
+  }
+  &__text {
+    font-size: $font-size_l;
+    @include mq() {
+      font-size: $font-size_m;
+    }
+  }
+}
