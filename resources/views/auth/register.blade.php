@@ -27,14 +27,14 @@
           @enderror
         </label>
         <label for="password" class="c-form__unit">
-          <input type="password" name="password" id="password" class="c-form__input @error('password') is-invalid @enderror" placeholder="パスワード" value="{{old('password')}}">
+          <input type="password" name="password" id="password" class="c-form__input @error('password') is-invalid @enderror" placeholder="パスワード" value="">
           @error('password')
           <span class="c-form__message c-form__message--invalid">{{$message}}</span>
           @enderror
         </label>
-        <label for="password_re" class="c-form__unit">
-          <input type="password" name="password_re" id="password_re" class="c-form__input @error('password_re') is-invalid @enderror" placeholder="パスワード（再入力）" value="{{old('password_re')}}">
-          @error('password')
+        <label for="password-confirm" class="c-form__unit">
+          <input type="password" name="password_confirmation" id="password-confirm" class="c-form__input @error('password-confirm') is-invalid @enderror" placeholder="パスワード（再入力）" value="">
+          @error('password-confirm')
           <span class="c-form__message c-form__message--invalid">{{$message}}</span>
           @enderror
         </label>
