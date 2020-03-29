@@ -24,6 +24,8 @@ window.Vue = require('vue');
 Vue.component('HeaderComponent', require('./components/HeaderComponent.vue').default);
 Vue.component('FooterComponent', require('./components/FooterComponent.vue').default);
 Vue.component('FormtabComponent', require('./components/FormtabComponent.vue').default);
+Vue.component('WishList', require('./components/WishList.vue').default);
+Vue.component('CreateModal', require('./components/CreateModal.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
