@@ -356,6 +356,12 @@ textarea {
   margin-bottom: 30px;
 }
 
+@media screen and (max-width: 414px) {
+  .c-form__unit {
+    margin-bottom: 20px;
+  }
+}
+
 .c-form__input,
 .c-form__submit,
 .c-form__select {
@@ -376,6 +382,12 @@ textarea {
   background: black;
   border: none;
   margin-bottom: 30px;
+}
+
+@media screen and (max-width: 414px) {
+  .c-form__submit {
+    margin-bottom: 20px;
+  }
 }
 
 .c-form__submit:hover {
@@ -464,9 +476,37 @@ textarea {
   z-index: 5;
 }
 
+@media screen and (max-width: 414px) {
+  .c-modal__container {
+    padding: 15px;
+  }
+}
+
 .c-modal__header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.c-modal__text {
   font-size: 18px;
-  margin-bottom: 20px;
+  margin: 5px 0;
+}
+
+@media screen and (max-width: 414px) {
+  .c-modal__text {
+    text-align: center;
+  }
+}
+
+.c-modal__br {
+  display: none;
+}
+
+@media screen and (max-width: 414px) {
+  .c-modal__br {
+    display: block;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -844,6 +884,14 @@ textarea {
 }
 
 .u-icon--done:hover {
+  cursor: pointer;
+}
+
+.u-icon--cancel {
+  font-size: 2rem;
+}
+
+.u-icon--cancel:hover {
   cursor: pointer;
 }
 

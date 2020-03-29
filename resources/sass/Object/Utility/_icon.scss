@@ -5,4 +5,10 @@
       cursor: pointer;
     }
   }
+  &--cancel {
+    font-size: 2rem;
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
