@@ -1920,6 +1920,14 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -1954,9 +1962,55 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     isOpen: Boolean
   },
+  data: function data() {
+    return {
+      wishCategory: 0,
+      wishText: null
+    };
+  },
   methods: {
+    // モーダルを閉じる
     clickClose: function clickClose() {
       this.$emit("close-modal");
+    },
+    // やりたいことを送信する
+    postWish: function postWish() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var wish, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                wish = {
+                  category: _this.wishCategory,
+                  text: _this.wishText
+                }; // POST送信
+
+                _context.next = 3;
+                return axios.post("/mypage", wish);
+
+              case 3:
+                response = _context.sent;
+                console.log(response); // フォームの入力値を削除してモーダルを閉じる
+
+                _this.clearData();
+
+                _this.clickClose();
+
+              case 7:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    // フォーム入力値を削除する
+    clearData: function clearData() {
+      this.wishCategory = 0;
+      this.wishText = null;
     }
   }
 });
@@ -38324,7 +38378,101 @@ var render = function() {
         _vm._v(" "),
         _vm._m(0),
         _vm._v(" "),
-        _vm._m(1)
+        _c(
+          "form",
+          {
+            staticClass: "c-form--modal c-modal",
+            attrs: { action: "" },
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.postWish($event)
+              }
+            }
+          },
+          [
+            _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.wishCategory,
+                      expression: "wishCategory"
+                    }
+                  ],
+                  staticClass: "c-form__select",
+                  attrs: { name: "", id: "" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.wishCategory = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "0" } }, [
+                    _vm._v("カテゴリ無し")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "1" } }, [
+                    _vm._v("ライフスタイル")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "2" } }, [_vm._v("ホビー")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "3" } }, [
+                    _vm._v("スキルアップ")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "4" } }, [_vm._v("トラベル")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "5" } }, [_vm._v("グルメ")])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.wishText,
+                    expression: "wishText"
+                  }
+                ],
+                staticClass: "c-form__input",
+                attrs: { type: "text", placeholder: "わたしのやりたいこと" },
+                domProps: { value: _vm.wishText },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.wishText = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "c-form__submit c-form__unit",
+              attrs: { type: "submit", value: "追加する" }
+            })
+          ]
+        )
       ])
     ]
   )
@@ -38339,50 +38487,6 @@ var staticRenderFns = [
       _c("br", { staticClass: "c-modal__br" }),
       _vm._v("書こう！\n    ")
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "form",
-      { staticClass: "c-form--modal c-modal", attrs: { action: "" } },
-      [
-        _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
-          _c(
-            "select",
-            { staticClass: "c-form__select", attrs: { name: "", id: "" } },
-            [
-              _c("option", { attrs: { value: "0" } }, [_vm._v("カテゴリ無し")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "1" } }, [
-                _vm._v("ライフスタイル")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "2" } }, [_vm._v("ホビー")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "3" } }, [_vm._v("スキルアップ")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "4" } }, [_vm._v("トラベル")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "5" } }, [_vm._v("グルメ")])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
-          _c("input", {
-            staticClass: "c-form__input",
-            attrs: { type: "text", placeholder: "わたしのやりたいこと" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "c-form__submit c-form__unit",
-          attrs: { type: "submit", value: "追加する" }
-        })
-      ]
-    )
   }
 ]
 render._withStripped = true

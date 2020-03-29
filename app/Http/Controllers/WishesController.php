@@ -32,9 +32,9 @@ class WishesController extends Controller
         return virw('wishes.edit');
     }
     // 新規作成機能
-    public function create()
+    public function create(Request $reqest)
     {
-
+        \Log::info($reqest);
     }
     // 編集機能
     public function update()
