@@ -2,28 +2,18 @@
 
 @section('content')
 <!-- ヘッダー -->
-<header class="l-header">
-  <h1 class="p-hero__title">わたしの100のリスト</h1>
-  <nav class="c-nav">
-    <ul class="c-nav__list">
-      <li class="c-nav__item"><a href="mypage.html" class="c-nav__link">マイページ</a></li>
-      <li class="c-nav__item"><a href="register.html" class="c-nav__link">アカウント設定</a></li>
-      <li class="c-nav__item"><a href="login.html" class="c-nav__link">リスト設定</a></li>
-      <li class="c-nav__item"><a href="index.html" class="c-nav__link">ログアウト</a></li>
-    </ul>
-  </nav>
-</header>
+<header-component :is-login="@auth true @endauth @guest false @endguest"></header-component>
 
 <!-- メインコンテンツ -->
 <main id="main" class="l-main">
   <!-- インフォメーション -->
   <section id="Info" class="l-info u-main">
     <div class="p-info__container">
-      <h2 class="p-info__title">りえこさんの<br class="p-info__title--br">100のリスト</h2>
+      <h2 class="p-info__title">{{ $user->name }}さんの<br class="p-info__title--br">100のリスト</h2>
       <!-- 達成度グラフ -->
       <div class="p-info__summary">
         <p class="p-info__text">Wish List：3</p><span class="p-info__text--br"> / </span>
-        <Done class="p-info__text">Done List：2</p>
+        <p class="p-info__text">Done List：2</p>
       </div>
   </section>
 
@@ -66,8 +56,11 @@
 <!-- 新規登録モーダル -->
 <div class="l-modal__cover">
   <div class="c-modal__container">
-    <div class="c-modal__header">やりたいことを追加する</div>
-    <form action="" class="c-form--modal">
+    <div class="c-modal__header">
+      <i class="fas fa-times-circle u-icon--cancel"></i>
+    </div>
+    <p class="c-modal__text">やりたいことを<br class="c-modal__br">書こう！</p>
+    <form action="" class="c-form--modal c-modal">
       <label for="" class="c-form__unit">
         <select name="" id="" class="c-form__select">
           <option value="0">カテゴリ無し</option>
@@ -81,16 +74,12 @@
       <label for="" class="c-form__unit">
         <input type="text" class="c-form__input" placeholder="わたしのやりたいこと">
       </label>
-      <input type="submit" value="追加する" class="c-form__submit">
+      <input type="submit" value="追加する" class="c-form__submit c-form__unit">
     </form>
   </div>
 </div>
 
 <!-- フッター -->
-<footer id="footer" class="l-footer">
-  <div class="l-footer__copyright">
-    <small>&copy; 2020 わたしの100のリスト All Rights Reserved.</small>
-  </div>
-</footer>
+<footer-component></footer-component>
 
 @endsection

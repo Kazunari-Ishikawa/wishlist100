@@ -5,6 +5,9 @@
   &__unit {
     display: block;
     margin-bottom: $space_xl;
+    @include mq() {
+      margin-bottom: $space_l;
+    }
   }
   &__input, &__submit, &__select {
     border: 1px solid #aaa;
@@ -23,6 +26,9 @@
     background: black;
     border: none;
     margin-bottom: $space_xl;
+    @include mq() {
+      margin-bottom: $space_l;
+    }
     &:hover {
       cursor: pointer;
       opacity: 0.8;

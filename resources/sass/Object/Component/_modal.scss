@@ -1,4 +1,5 @@
 .c-modal {
+  box-sizing: border-box;
   &__container {
     width: 60%;
     height: 80%;
@@ -6,12 +7,27 @@
     background: #fff;
     border-radius: $radius_s;
     padding: $space_xl;
+    @include mq() {
+      padding: $space_m;
+    }
     z-index: 5;
   }
   &__header {
-    font-size: $font-size_l;
-    margin-bottom: $space_l;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
-
-  box-sizing: border-box;
+  &__text {
+    font-size: $font-size_l;
+    margin: $space_s 0;
+    @include mq() {
+      text-align: center;
+    }
+  }
+  &__br {
+    display: none;
+    @include mq() {
+      display: block;
+    }
+  }
 }
