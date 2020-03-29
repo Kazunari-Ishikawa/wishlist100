@@ -1951,7 +1951,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: {// isOpen: Boolean
+  props: {
+    isOpen: Boolean
+  },
+  methods: {
+    clickClose: function clickClose() {
+      this.$emit("close-modal");
+    }
   }
 });
 
@@ -2139,6 +2145,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _WishItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./WishItem */ "./resources/js/components/WishItem.vue");
+/* harmony import */ var _CreateModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CreateModal */ "./resources/js/components/CreateModal.vue");
 //
 //
 //
@@ -2163,9 +2170,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    WishItem: _WishItem__WEBPACK_IMPORTED_MODULE_0__["default"]
+    WishItem: _WishItem__WEBPACK_IMPORTED_MODULE_0__["default"],
+    CreateModal: _CreateModal__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      isOpen: false
+    };
+  },
+  methods: {
+    toggleModal: function toggleModal() {
+      this.isOpen = !this.isOpen;
+    }
   }
 });
 
@@ -38281,70 +38300,89 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.isOpen,
+          expression: "isOpen"
+        }
+      ],
+      staticClass: "l-modal__cover"
+    },
+    [
+      _c("div", { staticClass: "c-modal__container" }, [
+        _c("div", { staticClass: "c-modal__header" }, [
+          _c("i", {
+            staticClass: "fas fa-times-circle u-icon--cancel",
+            on: { click: _vm.clickClose }
+          })
+        ]),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._m(1)
+      ])
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "l-modal__cover" }, [
-      _c("div", { staticClass: "c-modal__container" }, [
-        _c("div", { staticClass: "c-modal__header" }, [
-          _c("i", { staticClass: "fas fa-times-circle u-icon--cancel" })
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "c-modal__text" }, [
-          _vm._v("\n      やりたいことを\n      "),
-          _c("br", { staticClass: "c-modal__br" }),
-          _vm._v("書こう！\n    ")
-        ]),
-        _vm._v(" "),
-        _c(
-          "form",
-          { staticClass: "c-form--modal c-modal", attrs: { action: "" } },
-          [
-            _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
-              _c(
-                "select",
-                { staticClass: "c-form__select", attrs: { name: "", id: "" } },
-                [
-                  _c("option", { attrs: { value: "0" } }, [
-                    _vm._v("カテゴリ無し")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1" } }, [
-                    _vm._v("ライフスタイル")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2" } }, [_vm._v("ホビー")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "3" } }, [
-                    _vm._v("スキルアップ")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "4" } }, [_vm._v("トラベル")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "5" } }, [_vm._v("グルメ")])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
-              _c("input", {
-                staticClass: "c-form__input",
-                attrs: { type: "text", placeholder: "わたしのやりたいこと" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "c-form__submit c-form__unit",
-              attrs: { type: "submit", value: "追加する" }
-            })
-          ]
-        )
-      ])
+    return _c("p", { staticClass: "c-modal__text" }, [
+      _vm._v("\n      やりたいことを\n      "),
+      _c("br", { staticClass: "c-modal__br" }),
+      _vm._v("書こう！\n    ")
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "form",
+      { staticClass: "c-form--modal c-modal", attrs: { action: "" } },
+      [
+        _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
+          _c(
+            "select",
+            { staticClass: "c-form__select", attrs: { name: "", id: "" } },
+            [
+              _c("option", { attrs: { value: "0" } }, [_vm._v("カテゴリ無し")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "1" } }, [
+                _vm._v("ライフスタイル")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "2" } }, [_vm._v("ホビー")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "3" } }, [_vm._v("スキルアップ")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "4" } }, [_vm._v("トラベル")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "5" } }, [_vm._v("グルメ")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
+          _c("input", {
+            staticClass: "c-form__input",
+            attrs: { type: "text", placeholder: "わたしのやりたいこと" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "c-form__submit c-form__unit",
+          attrs: { type: "submit", value: "追加する" }
+        })
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -38705,7 +38743,42 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "p-wishList" },
-    [_vm._m(0), _vm._v(" "), _c("WishItem")],
+    [
+      _c("div", { staticClass: "p-wishList__header" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-wishList__createBtn" }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "c-outlineBtn__container c-outlineBtn__container--right"
+            },
+            [
+              _c(
+                "a",
+                {
+                  staticClass: "c-outlineBtn c-outlineBtn--right",
+                  on: { click: _vm.toggleModal }
+                },
+                [
+                  _vm._v("\n          新しく\n          "),
+                  _c("br", { staticClass: "c-outlineBtn__br" }),
+                  _vm._v("追加する\n        ")
+                ]
+              )
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("WishItem"),
+      _vm._v(" "),
+      _c("CreateModal", {
+        attrs: { "is-open": _vm.isOpen },
+        on: { "close-modal": _vm.toggleModal }
+      })
+    ],
     1
   )
 }
@@ -38714,52 +38787,24 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-wishList__header" }, [
-      _c("div", { staticClass: "p-wishList__listBtn" }, [
-        _c(
-          "div",
-          {
-            staticClass: "c-outlineBtn__container c-outlineBtn__container--left"
-          },
-          [
-            _c(
-              "a",
-              { staticClass: "c-outlineBtn", attrs: { href: "/mypage" } },
-              [_vm._v("Wish List")]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              { staticClass: "c-outlineBtn", attrs: { href: "/mypage/done" } },
-              [_vm._v("Done List")]
-            )
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "p-wishList__createBtn" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "c-outlineBtn__container c-outlineBtn__container--right"
-          },
-          [
-            _c(
-              "a",
-              {
-                staticClass: "c-outlineBtn c-outlineBtn--right",
-                attrs: { href: "/mypage/new" }
-              },
-              [
-                _vm._v("\n          新しく\n          "),
-                _c("br", { staticClass: "c-outlineBtn__br" }),
-                _vm._v("追加する\n        ")
-              ]
-            )
-          ]
-        )
-      ])
+    return _c("div", { staticClass: "p-wishList__listBtn" }, [
+      _c(
+        "div",
+        {
+          staticClass: "c-outlineBtn__container c-outlineBtn__container--left"
+        },
+        [
+          _c("a", { staticClass: "c-outlineBtn", attrs: { href: "/mypage" } }, [
+            _vm._v("Wish List")
+          ]),
+          _vm._v(" "),
+          _c(
+            "a",
+            { staticClass: "c-outlineBtn", attrs: { href: "/mypage/done" } },
+            [_vm._v("Done List")]
+          )
+        ]
+      )
     ])
   }
 ]

@@ -1,8 +1,8 @@
 <template>
-  <div class="l-modal__cover">
+  <div class="l-modal__cover" v-show="isOpen">
     <div class="c-modal__container">
       <div class="c-modal__header">
-        <i class="fas fa-times-circle u-icon--cancel"></i>
+        <i class="fas fa-times-circle u-icon--cancel" @click="clickClose"></i>
       </div>
       <p class="c-modal__text">
         やりたいことを
@@ -31,7 +31,12 @@
 <script>
 export default {
   props: {
-    // isOpen: Boolean
+    isOpen: Boolean
+  },
+  methods: {
+    clickClose() {
+      this.$emit("close-modal");
+    }
   }
 };
 </script>

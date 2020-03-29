@@ -20,7 +20,6 @@
   <!-- リスト -->
   <section id="WishList" class="l-container u-main">
     <wish-list></wish-list>
-    <create-modal></create-modal>
   </section>
 
 </main>
