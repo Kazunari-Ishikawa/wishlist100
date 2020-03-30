@@ -50,9 +50,22 @@ class WishesController extends Controller
         return response($item);
     }
     // 編集機能
-    public function update()
+    public function update(CreateItemRequest $request, $id)
     {
+        \Log::info($request);
 
+        $item = Item::find($id);
+        \Log::info($item);
+        if ($request->category_id !== $item->category_id) {
+            $item->category_id = $request->category_id;
+        };
+        if ($request->text !== $item->text) {
+            $item->text = $request->text;
+        }
+        $item->save();
+        \Log::info($item);
+
+        return response($item);
     }
     // 削除機能
     public function destroy()
