@@ -68,8 +68,13 @@ class WishesController extends Controller
         return response($item);
     }
     // 削除機能
-    public function destroy()
+    public function destroy($id)
     {
+        $item = Item::find($id);
+        \Log::info($item);
 
+        $item->delete();
+
+        return response($item);
     }
 }

@@ -484,7 +484,7 @@ textarea {
 
 .c-modal__header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -924,6 +924,14 @@ textarea {
 }
 
 .u-icon--cancel:hover {
+  cursor: pointer;
+}
+
+.u-icon--delete {
+  font-size: 2rem;
+}
+
+.u-icon--delete:hover {
   cursor: pointer;
 }
 

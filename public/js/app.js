@@ -2065,6 +2065,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     openItem: Boolean
@@ -2121,6 +2122,44 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.id = null;
       this.wishCategory = 0;
       this.wishText = null;
+    },
+    // やりたいことの削除
+    deleteWish: function deleteWish() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this2.id = _this2.$attrs.value.id; // 確認を出す
+
+                if (!confirm("ほんとに削除するの？")) {
+                  _context2.next = 9;
+                  break;
+                }
+
+                console.log("削除します"); // POST送信
+
+                _context2.next = 5;
+                return axios.post("/mypage/".concat(_this2.id, "/delete"));
+
+              case 5:
+                response = _context2.sent;
+                console.log(response); // フォームの入力値を削除してモーダルを閉じる
+
+                _this2.clearData();
+
+                _this2.clickClose();
+
+              case 9:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
     }
   }
 });
@@ -38727,6 +38766,11 @@ var render = function() {
     [
       _c("div", { staticClass: "c-modal__container" }, [
         _c("div", { staticClass: "c-modal__header" }, [
+          _c("i", {
+            staticClass: "far fa-trash-alt u-icon--delete",
+            on: { click: _vm.deleteWish }
+          }),
+          _vm._v(" "),
           _c("i", {
             staticClass: "fas fa-times-circle u-icon--cancel",
             on: { click: _vm.clickClose }

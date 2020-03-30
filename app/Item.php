@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Item extends Model
 {
 
-    // protected $fillable = ['category_id', 'text'];
+    protected $fillable = ['category_id', 'text'];
 
     protected $attributes = ['done_flg' => false];
 

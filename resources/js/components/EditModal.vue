@@ -2,6 +2,7 @@
   <div class="l-modal__cover" v-show="openItem">
     <div class="c-modal__container">
       <div class="c-modal__header">
+        <i class="far fa-trash-alt u-icon--delete" @click="deleteWish"></i>
         <i class="fas fa-times-circle u-icon--cancel" @click="clickClose"></i>
       </div>
       <p class="c-modal__text">
@@ -64,6 +65,20 @@ export default {
       this.id = null;
       this.wishCategory = 0;
       this.wishText = null;
+    },
+    // やりたいことの削除
+    async deleteWish() {
+      this.id = this.$attrs.value.id;
+      // 確認を出す
+      if (confirm("ほんとに削除するの？")) {
+        console.log("削除します");
+        // POST送信
+        const response = await axios.post(`/mypage/${this.id}/delete`);
+        console.log(response);
+        // フォームの入力値を削除してモーダルを閉じる
+        this.clearData();
+        this.clickClose();
+      }
     }
   }
 };
