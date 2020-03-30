@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateItemRequest;
 use App\Item;
+use App\Wish;
 
 class WishesController extends Controller
 {
@@ -16,7 +17,10 @@ class WishesController extends Controller
     // マイページ、やりたいこと表示
     public function mypage()
     {
-        return view('wishes.mypage');
+        $items = Wish::find(\Auth::id())->items;
+        \Log::info($items);
+
+        return view('wishes.mypage', ['items' => $items]);
     }
     // マイページ、やったこと表示
     public function done_show()

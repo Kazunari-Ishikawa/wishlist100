@@ -9,7 +9,7 @@ class Wish extends Model
     /**
      * Wishが所有するItemを取得
      */
-    public function item()
+    public function items()
     {
         return $this->hasMany('App\Item');
     }

@@ -3,20 +3,20 @@
     <div class="p-wishList__header">
       <div class="p-wishList__listBtn">
         <div class="c-outlineBtn__container c-outlineBtn__container--left">
-          <a href="/mypage" class="c-outlineBtn">Wish List</a>
-          <a href="/mypage/done" class="c-outlineBtn">Done List</a>
+          <div class="c-outlineBtn">Wish List</div>
+          <div class="c-outlineBtn">Done List</div>
         </div>
       </div>
       <div class="p-wishList__createBtn">
         <div class="c-outlineBtn__container c-outlineBtn__container--right">
-          <a class="c-outlineBtn c-outlineBtn--right" @click="toggleModal">
+          <div class="c-outlineBtn c-outlineBtn--right" @click="toggleModal">
             新しく
             <br class="c-outlineBtn__br" />追加する
-          </a>
+          </div>
         </div>
       </div>
     </div>
-    <WishItem />
+    <WishItem v-for="item in items" :key="item.id" :item="item" />
     <CreateModal :is-open="isOpen" @close-modal="toggleModal" />
   </div>
 </template>
@@ -28,6 +28,9 @@ export default {
   components: {
     WishItem,
     CreateModal
+  },
+  props: {
+    items: Array
   },
   data() {
     return {
