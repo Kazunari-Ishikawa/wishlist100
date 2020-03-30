@@ -38,6 +38,10 @@ Route::group(['middleware' => 'auth'], function(){
   Route::post('/mypage', 'WishesController@create')->name('wishes.create');
   // 編集機能
   Route::post('/mypage/{id}', 'WishesController@update')->name('wishes.update');
+  // Done機能
+  Route::post('/mypage/{id}/done', 'WishesController@done');
+  // Wish機能
+  Route::post('/mypage/{id}/wish', 'WishesController@wish');
   // 削除機能
   Route::post('/mypage/{id}/delete', 'WishesController@destroy')->name('wishes.destroy');
 });

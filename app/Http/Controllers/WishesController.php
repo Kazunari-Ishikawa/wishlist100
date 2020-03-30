@@ -77,4 +77,25 @@ class WishesController extends Controller
 
         return response($item);
     }
+
+    public function done($id)
+    {
+        $item = Item::find($id);
+        \Log::info($item);
+        $item->done_flg = true;
+        $item->save();
+
+        return response($item);
+    }
+
+    public function wish($id)
+    {
+        $item = Item::find($id);
+        \Log::info($item);
+        $item->done_flg = false;
+        $item->save();
+
+        return response($item);
+    }
+
 }

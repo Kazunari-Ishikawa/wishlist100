@@ -2048,8 +2048,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    openEdit: function openEdit() {
-      this.$emit("open-edit", this.itemData);
+    changeToWish: function changeToWish() {
+      this.$emit('change-to-wish', this.itemData);
     }
   }
 });
@@ -2445,6 +2445,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     openEdit: function openEdit() {
       this.$emit("open-edit", this.itemData);
+    },
+    changeToDone: function changeToDone() {
+      this.$emit("change-to-done", this.itemData);
     }
   }
 });
@@ -2460,10 +2463,29 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _WishItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./WishItem */ "./resources/js/components/WishItem.vue");
-/* harmony import */ var _DoneItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DoneItem */ "./resources/js/components/DoneItem.vue");
-/* harmony import */ var _CreateModal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CreateModal */ "./resources/js/components/CreateModal.vue");
-/* harmony import */ var _EditModal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EditModal */ "./resources/js/components/EditModal.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _WishItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./WishItem */ "./resources/js/components/WishItem.vue");
+/* harmony import */ var _DoneItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DoneItem */ "./resources/js/components/DoneItem.vue");
+/* harmony import */ var _CreateModal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CreateModal */ "./resources/js/components/CreateModal.vue");
+/* harmony import */ var _EditModal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./EditModal */ "./resources/js/components/EditModal.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2503,10 +2525,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    WishItem: _WishItem__WEBPACK_IMPORTED_MODULE_0__["default"],
-    DoneItem: _DoneItem__WEBPACK_IMPORTED_MODULE_1__["default"],
-    CreateModal: _CreateModal__WEBPACK_IMPORTED_MODULE_2__["default"],
-    EditModal: _EditModal__WEBPACK_IMPORTED_MODULE_3__["default"]
+    WishItem: _WishItem__WEBPACK_IMPORTED_MODULE_1__["default"],
+    DoneItem: _DoneItem__WEBPACK_IMPORTED_MODULE_2__["default"],
+    CreateModal: _CreateModal__WEBPACK_IMPORTED_MODULE_3__["default"],
+    EditModal: _EditModal__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   props: {
     items: Array
@@ -2519,6 +2541,18 @@ __webpack_require__.r(__webpack_exports__);
       selectedItem: null
     };
   },
+  computed: {
+    wishItems: function wishItems() {
+      return this.items.filter(function (item) {
+        return item.done_flg === 0;
+      });
+    },
+    doneItems: function doneItems() {
+      return this.items.filter(function (item) {
+        return item.done_flg === 1;
+      });
+    }
+  },
   methods: {
     openWishList: function openWishList() {
       this.isWishList = true;
@@ -2526,7 +2560,7 @@ __webpack_require__.r(__webpack_exports__);
     openDoneList: function openDoneList() {
       this.isWishList = false;
     },
-    toggleModal: function toggleModal() {
+    toggleCreateModal: function toggleCreateModal() {
       this.isOpen = !this.isOpen;
     },
     openEdit: function openEdit(itemData) {
@@ -2535,7 +2569,58 @@ __webpack_require__.r(__webpack_exports__);
     },
     closeEdit: function closeEdit() {
       this.openItem = false;
-    }
+    },
+    changeToDone: function changeToDone(itemData) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                console.log(itemData.id);
+                _context.next = 3;
+                return axios.post("/mypage/".concat(itemData.id, "/done"));
+
+              case 3:
+                response = _context.sent;
+                console.log(response); // this.fetchWish();
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    changeToWish: function changeToWish(itemData) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                console.log(itemData.id);
+                _context2.next = 3;
+                return axios.post("/mypage/".concat(itemData.id, "/wish"));
+
+              case 3:
+                response = _context2.sent;
+                console.log(response);
+
+              case 5:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    } // async fetchWish() {
+    //   const response = await axios.get("/mypage/show");
+    //   console.log(response);
+    //   this.items = response.data.data;
+    // }
+
   }
 });
 
@@ -38807,28 +38892,22 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "p-wishList__item p-wishList__item--done",
-      on: { click: _vm.openEdit }
-    },
-    [
-      _c("i", { staticClass: "fas fa-bicycle p-wishList__icon u-icon" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "p-wishList__contents" }, [
-        _c("p", { staticClass: "p-wishList__text" }, [
-          _vm._v(_vm._s(_vm.itemData.text))
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "p-wishList__date" }, [
-          _vm._v("2019/10/12達成！")
-        ])
+  return _c("div", { staticClass: "p-wishList__item p-wishList__item--done" }, [
+    _c("i", { staticClass: "fas fa-bicycle p-wishList__icon u-icon" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "p-wishList__contents" }, [
+      _c("p", { staticClass: "p-wishList__text" }, [
+        _vm._v(_vm._s(_vm.itemData.text))
       ]),
       _vm._v(" "),
-      _c("i", { staticClass: "fas fa-undo p-wishList__icon u-icon" })
-    ]
-  )
+      _c("p", { staticClass: "p-wishList__date" }, [_vm._v("2019/10/12達成！")])
+    ]),
+    _vm._v(" "),
+    _c("i", {
+      staticClass: "fas fa-undo p-wishList__icon u-icon",
+      on: { click: _vm.changeToWish }
+    })
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -39336,25 +39415,29 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "p-wishList__item", on: { click: _vm.openEdit } },
-    [
-      _c("i", { staticClass: "fas fa-bicycle p-wishList__icon u-icon" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "p-wishList__contents" }, [
+  return _c("div", { staticClass: "p-wishList__item" }, [
+    _c("i", {
+      staticClass: "fas fa-bicycle p-wishList__icon u-icon",
+      on: { click: _vm.openEdit }
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "p-wishList__contents", on: { click: _vm.openEdit } },
+      [
         _c("p", { staticClass: "p-wishList__text" }, [
           _vm._v(_vm._s(_vm.itemData.text))
         ]),
         _vm._v(" "),
         _c("p", { staticClass: "p-wishList__date" }, [_vm._v("2019/10/12登録")])
-      ]),
-      _vm._v(" "),
-      _c("i", {
-        staticClass: "far fa-thumbs-up p-wishList__icon u-icon u-icon--done"
-      })
-    ]
-  )
+      ]
+    ),
+    _vm._v(" "),
+    _c("i", {
+      staticClass: "far fa-thumbs-up p-wishList__icon u-icon u-icon--done",
+      on: { click: _vm.changeToDone }
+    })
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -39424,7 +39507,7 @@ var render = function() {
                 "div",
                 {
                   staticClass: "c-outlineBtn c-outlineBtn--right",
-                  on: { click: _vm.toggleModal }
+                  on: { click: _vm.toggleCreateModal }
                 },
                 [
                   _vm._v("\n          新しく\n          "),
@@ -39439,21 +39522,28 @@ var render = function() {
       _vm._v(" "),
       [
         _vm.isWishList
-          ? _vm._l(_vm.items, function(item) {
+          ? _vm._l(_vm.wishItems, function(item) {
               return _c("WishItem", {
                 key: item.id,
                 attrs: { item: item },
-                on: { "open-edit": _vm.openEdit }
+                on: {
+                  "open-edit": _vm.openEdit,
+                  "change-to-done": _vm.changeToDone
+                }
               })
             })
-          : _vm._l(_vm.items, function(item) {
-              return _c("DoneItem", { key: item.id, attrs: { item: item } })
+          : _vm._l(_vm.doneItems, function(item) {
+              return _c("DoneItem", {
+                key: item.id,
+                attrs: { item: item },
+                on: { "change-to-wish": _vm.changeToWish }
+              })
             })
       ],
       _vm._v(" "),
       _c("CreateModal", {
         attrs: { "is-open": _vm.isOpen },
-        on: { "close-modal": _vm.toggleModal }
+        on: { "close-modal": _vm.toggleCreateModal }
       }),
       _vm._v(" "),
       _c("EditModal", {
