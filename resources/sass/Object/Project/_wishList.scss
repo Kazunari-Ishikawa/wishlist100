@@ -28,7 +28,7 @@
       height: 80px;
     }
     padding: $space_s;
-    margin-bottom: $space_s;
+    margin-bottom: 10px;
     display: flex;
     box-sizing: border-box;
     align-items: center;
@@ -37,6 +37,9 @@
     cursor: pointer;
     &:hover {
       transform: scale(1.03);
+    }
+    &--done {
+      background: $teal;
     }
   }
   &__contents {
