@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateItemRequest;
+use App\Item;
 
 class WishesController extends Controller
 {
@@ -32,9 +34,16 @@ class WishesController extends Controller
         return virw('wishes.edit');
     }
     // 新規作成機能
-    public function create(Request $reqest)
+    public function create(CreateItemRequest $request)
     {
-        \Log::info($reqest);
+        $item = new Item;
+        $wish = \App\Wish::find(\Auth::id());
+
+        $item->wish()->associate($wish);
+        $item->fill($request->all())->save();
+        \Log::info($item);
+
+        return response($item);
     }
     // 編集機能
     public function update()

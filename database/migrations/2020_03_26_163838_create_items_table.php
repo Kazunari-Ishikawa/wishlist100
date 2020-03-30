@@ -18,7 +18,6 @@ class CreateItemsTable extends Migration
             $table->unsignedBigInteger('wish_id');
             $table->foreign('wish_id')->references('id')->on('wishes');
             $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
             $table->string('text');
             $table->boolean('done_flg');
             $table->timestamps();

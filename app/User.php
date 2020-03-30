@@ -36,4 +36,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * userが所有するWishを取得
+     */
+    public function wish()
+    {
+        return $this->hasOne('App\Wish');
+    }
+
 }

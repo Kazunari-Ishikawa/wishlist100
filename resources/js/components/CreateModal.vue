@@ -46,8 +46,11 @@ export default {
     },
     // やりたいことを送信する
     async postWish() {
-      let wish = { category: this.wishCategory, text: this.wishText };
-
+      let wish = {
+        category_id: Number(this.wishCategory),
+        text: this.wishText
+      };
+      console.log(wish);
       // POST送信
       const response = await axios.post("/mypage", wish);
       console.log(response);

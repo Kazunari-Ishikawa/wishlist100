@@ -1984,14 +1984,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 wish = {
-                  category: _this.wishCategory,
+                  category_id: Number(_this.wishCategory),
                   text: _this.wishText
-                }; // POST送信
+                };
+                console.log(wish); // POST送信
 
-                _context.next = 3;
+                _context.next = 4;
                 return axios.post("/mypage", wish);
 
-              case 3:
+              case 4:
                 response = _context.sent;
                 console.log(response); // フォームの入力値を削除してモーダルを閉じる
 
@@ -1999,7 +2000,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this.clickClose();
 
-              case 7:
+              case 8:
               case "end":
                 return _context.stop();
             }
