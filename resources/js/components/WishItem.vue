@@ -14,10 +14,10 @@ export default {
   props: {
     item: Object
   },
-  data() {
-    return {
-      itemData: this.item
-    };
+  computed: {
+    itemData() {
+      return this.item;
+    }
   },
   methods: {
     openEdit() {

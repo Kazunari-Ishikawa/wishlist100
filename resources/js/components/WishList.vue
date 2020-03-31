@@ -36,8 +36,17 @@
       </template>
     </template>
 
-    <CreateModal :is-open="isOpenCreateModal" @close-modal="toggleCreateModal" />
-    <EditModal :is-open="isOpenEditModal" v-model="selectedItem" @close-modal="closeEditModal" />
+    <CreateModal
+      :is-open="isOpenCreateModal"
+      @close-modal="toggleCreateModal"
+      @inform-create="fetchList"
+    />
+    <EditModal
+      :is-open="isOpenEditModal"
+      v-model="selectedItem"
+      @close-modal="closeEditModal"
+      @inform-edit="fetchList"
+    />
   </div>
 </template>
 

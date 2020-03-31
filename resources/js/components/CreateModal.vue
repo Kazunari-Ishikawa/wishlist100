@@ -56,11 +56,16 @@ export default {
       // フォームの入力値を削除してモーダルを閉じる
       this.clearData();
       this.clickClose();
+      this.informCreate();
     },
     // フォーム入力値を削除する
     clearData() {
       this.wishCategory = 0;
       this.wishText = null;
+    },
+    // 登録完了を通知する
+    informCreate() {
+      this.$emit("inform-create");
     }
   }
 };

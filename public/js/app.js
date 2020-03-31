@@ -1999,7 +1999,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this.clickClose();
 
-              case 7:
+                _this.informCreate();
+
+              case 8:
               case "end":
                 return _context.stop();
             }
@@ -2011,6 +2013,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     clearData: function clearData() {
       this.wishCategory = 0;
       this.wishText = null;
+    },
+    // 登録完了を通知する
+    informCreate: function informCreate() {
+      this.$emit("inform-create");
     }
   }
 });
@@ -2146,7 +2152,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this.clickClose();
 
-              case 8:
+                _this.informEdit();
+
+              case 9:
               case "end":
                 return _context.stop();
             }
@@ -2159,6 +2167,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.id = null;
       this.wishCategory = 0;
       this.wishText = null;
+    },
+    // 編集完了を通知する
+    informEdit: function informEdit() {
+      this.$emit("inform-edit");
     },
     // やりたいことの削除
     deleteWish: function deleteWish() {
@@ -2173,7 +2185,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _this2.id = _this2.$attrs.value.id; // 確認を出す
 
                 if (!confirm("ほんとに削除するの？")) {
-                  _context2.next = 8;
+                  _context2.next = 9;
                   break;
                 }
 
@@ -2188,7 +2200,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this2.clickClose();
 
-              case 8:
+                _this2.informEdit();
+
+              case 9:
               case "end":
                 return _context2.stop();
             }
@@ -2434,10 +2448,10 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     item: Object
   },
-  data: function data() {
-    return {
-      itemData: this.item
-    };
+  computed: {
+    itemData: function itemData() {
+      return this.item;
+    }
   },
   methods: {
     openEdit: function openEdit() {
@@ -2472,6 +2486,15 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -39561,12 +39584,15 @@ var render = function() {
       _vm._v(" "),
       _c("CreateModal", {
         attrs: { "is-open": _vm.isOpenCreateModal },
-        on: { "close-modal": _vm.toggleCreateModal }
+        on: {
+          "close-modal": _vm.toggleCreateModal,
+          "inform-create": _vm.fetchList
+        }
       }),
       _vm._v(" "),
       _c("EditModal", {
         attrs: { "is-open": _vm.isOpenEditModal },
-        on: { "close-modal": _vm.closeEditModal },
+        on: { "close-modal": _vm.closeEditModal, "inform-edit": _vm.fetchList },
         model: {
           value: _vm.selectedItem,
           callback: function($$v) {

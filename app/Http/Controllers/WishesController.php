@@ -18,9 +18,15 @@ class WishesController extends Controller
     public function mypage()
     {
         $items = Wish::find(\Auth::id())->items;
-        \Log::info($items);
 
-        return view('wishes.mypage', ['items' => $items]);
+        $wish_items = $items->filter(function($item){
+            return $item->done_flg === 0;
+        })->values();
+        $done_items = $items->filter(function($item){
+            return $item->done_flg === 1;
+        })->values();
+
+        return view('wishes.mypage', ['items' => $items, 'wish_items' => $wish_items, 'done_items' => $done_items]);
     }
     // マイページ、やったこと表示
     public function done_show()
@@ -72,7 +78,7 @@ class WishesController extends Controller
     {
         $item = Item::find($id)->delete();
 
-        return response($item);
+        return response(200);
     }
     // ItemをDone状態にする
     public function done($id)

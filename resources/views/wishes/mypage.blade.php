@@ -12,8 +12,8 @@
       <h2 class="p-info__title">{{ $user->name }}さんの<br class="p-info__title--br">100のリスト</h2>
       <!-- 達成度グラフ -->
       <div class="p-info__summary">
-        <p class="p-info__text">Wish List：{{ $items->count() }}</p><span class="p-info__text--br"> / </span>
-        <p class="p-info__text">Done List：2</p>
+        <p class="p-info__text">Wish List：{{ $wish_items->count() }}</p><span class="p-info__text--br"> / </span>
+        <p class="p-info__text">Done List：{{ $done_items->count() }}</p>
       </div>
   </section>
 
