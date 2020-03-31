@@ -44,4 +44,6 @@ Route::group(['middleware' => 'auth'], function(){
   Route::post('/mypage/{id}/wish', 'WishesController@wish');
   // 削除機能
   Route::post('/mypage/{id}/delete', 'WishesController@destroy')->name('wishes.destroy');
+  // Items取得機能
+  Route::get('/mypage/fetch', 'WishesController@fetchItems');
 });

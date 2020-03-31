@@ -62,16 +62,13 @@ export default {
       isWishList: true,
       isOpenCreateModal: false,
       isOpenEditModal: false,
-      selectedItem: null
+      selectedItem: null,
+      wishItems: null,
+      doneItems: null
     };
   },
-  computed: {
-    wishItems() {
-      return this.items.filter(item => item.done_flg === 0);
-    },
-    doneItems() {
-      return this.items.filter(item => item.done_flg === 1);
-    }
+  created() {
+    this.fetchList();
   },
   methods: {
     openWishList() {
@@ -96,15 +93,20 @@ export default {
     },
 
     async changeToDone(itemData) {
-      console.log(itemData.id);
       const response = await axios.post(`/mypage/${itemData.id}/done`);
-      console.log(response);
+      this.fetchList();
     },
 
     async changeToWish(itemData) {
-      console.log(itemData.id);
       const response = await axios.post(`/mypage/${itemData.id}/wish`);
+      this.fetchList();
+    },
+
+    async fetchList() {
+      const response = await axios.get("/mypage/fetch");
       console.log(response);
+      this.wishItems = response.data.filter(item => item.done_flg === 0);
+      this.doneItems = response.data.filter(item => item.done_flg === 1);
     }
   }
 };

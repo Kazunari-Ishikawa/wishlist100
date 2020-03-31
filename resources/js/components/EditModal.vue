@@ -71,7 +71,6 @@ export default {
       this.id = this.$attrs.value.id;
       // 確認を出す
       if (confirm("ほんとに削除するの？")) {
-        console.log("削除します");
         // POST送信
         const response = await axios.post(`/mypage/${this.id}/delete`);
         console.log(response);

@@ -50,7 +50,6 @@ export default {
         category_id: Number(this.wishCategory),
         text: this.wishText
       };
-      console.log(wish);
       // POST送信
       const response = await axios.post("/mypage", wish);
       console.log(response);

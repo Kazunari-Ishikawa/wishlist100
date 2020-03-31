@@ -70,32 +70,33 @@ class WishesController extends Controller
     // 削除機能
     public function destroy($id)
     {
-        $item = Item::find($id);
-        \Log::info($item);
-
-        $item->delete();
+        $item = Item::find($id)->delete();
 
         return response($item);
     }
-
+    // ItemをDone状態にする
     public function done($id)
     {
         $item = Item::find($id);
-        \Log::info($item);
         $item->done_flg = true;
         $item->save();
 
         return response($item);
     }
-
+    // ItemをWish状態にする
     public function wish($id)
     {
         $item = Item::find($id);
-        \Log::info($item);
         $item->done_flg = false;
         $item->save();
 
         return response($item);
     }
+    // Items取得
+    public function fetchItems()
+    {
+        $items = Wish::find(\Auth::id())->items;
 
+        return response($items);
+    }
 }

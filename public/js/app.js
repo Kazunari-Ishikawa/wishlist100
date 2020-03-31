@@ -1986,13 +1986,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 wish = {
                   category_id: Number(_this.wishCategory),
                   text: _this.wishText
-                };
-                console.log(wish); // POST送信
+                }; // POST送信
 
-                _context.next = 4;
+                _context.next = 3;
                 return axios.post("/mypage", wish);
 
-              case 4:
+              case 3:
                 response = _context.sent;
                 console.log(response); // フォームの入力値を削除してモーダルを閉じる
 
@@ -2000,7 +1999,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this.clickClose();
 
-              case 8:
+              case 7:
               case "end":
                 return _context.stop();
             }
@@ -2174,16 +2173,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _this2.id = _this2.$attrs.value.id; // 確認を出す
 
                 if (!confirm("ほんとに削除するの？")) {
-                  _context2.next = 9;
+                  _context2.next = 8;
                   break;
                 }
 
-                console.log("削除します"); // POST送信
-
-                _context2.next = 5;
+                _context2.next = 4;
                 return axios.post("/mypage/".concat(_this2.id, "/delete"));
 
-              case 5:
+              case 4:
                 response = _context2.sent;
                 console.log(response); // フォームの入力値を削除してモーダルを閉じる
 
@@ -2191,7 +2188,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this2.clickClose();
 
-              case 9:
+              case 8:
               case "end":
                 return _context2.stop();
             }
@@ -2538,20 +2535,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       isWishList: true,
       isOpenCreateModal: false,
       isOpenEditModal: false,
-      selectedItem: null
+      selectedItem: null,
+      wishItems: null,
+      doneItems: null
     };
   },
-  computed: {
-    wishItems: function wishItems() {
-      return this.items.filter(function (item) {
-        return item.done_flg === 0;
-      });
-    },
-    doneItems: function doneItems() {
-      return this.items.filter(function (item) {
-        return item.done_flg === 1;
-      });
-    }
+  created: function created() {
+    this.fetchList();
   },
   methods: {
     openWishList: function openWishList() {
@@ -2571,21 +2561,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.isOpenEditModal = false;
     },
     changeToDone: function changeToDone(itemData) {
+      var _this = this;
+
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                console.log(itemData.id);
-                _context.next = 3;
+                _context.next = 2;
                 return axios.post("/mypage/".concat(itemData.id, "/done"));
 
-              case 3:
+              case 2:
                 response = _context.sent;
-                console.log(response);
 
-              case 5:
+                _this.fetchList();
+
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -2594,26 +2586,58 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     changeToWish: function changeToWish(itemData) {
+      var _this2 = this;
+
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         var response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                console.log(itemData.id);
-                _context2.next = 3;
+                _context2.next = 2;
                 return axios.post("/mypage/".concat(itemData.id, "/wish"));
 
-              case 3:
+              case 2:
                 response = _context2.sent;
-                console.log(response);
 
-              case 5:
+                _this2.fetchList();
+
+              case 4:
               case "end":
                 return _context2.stop();
             }
           }
         }, _callee2);
+      }))();
+    },
+    fetchList: function fetchList() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return axios.get("/mypage/fetch");
+
+              case 2:
+                response = _context3.sent;
+                console.log(response);
+                _this3.wishItems = response.data.filter(function (item) {
+                  return item.done_flg === 0;
+                });
+                _this3.doneItems = response.data.filter(function (item) {
+                  return item.done_flg === 1;
+                });
+
+              case 6:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
       }))();
     }
   }
