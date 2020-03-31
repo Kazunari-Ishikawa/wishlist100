@@ -2725,10 +2725,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 2:
                 response = _context3.sent;
                 console.log(response);
-                _this3.wishItems = response.data.filter(function (item) {
+                _this3.wishItems = response.data.data.filter(function (item) {
                   return item.done_flg === 0;
                 });
-                _this3.doneItems = response.data.filter(function (item) {
+                _this3.doneItems = response.data.data.filter(function (item) {
                   return item.done_flg === 1;
                 });
 
