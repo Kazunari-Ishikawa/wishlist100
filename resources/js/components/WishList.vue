@@ -115,6 +115,17 @@ export default {
       console.log(response);
       this.wishItems = response.data.filter(item => item.done_flg === 0);
       this.doneItems = response.data.filter(item => item.done_flg === 1);
+
+      this.sendWishItems();
+      this.sendDoneItems();
+    },
+
+    sendWishItems() {
+      this.$emit("send-wish-items", this.wishItems);
+    },
+
+    sendDoneItems() {
+      this.$emit("send-done-items", this.doneItems);
     }
   }
 };

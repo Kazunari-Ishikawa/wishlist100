@@ -2368,10 +2368,25 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    items: Array
+    items: Array,
+    user: Object
   },
   components: {
     WishList: _WishList__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      wishNum: null,
+      doneNum: null
+    };
+  },
+  methods: {
+    countWish: function countWish(wishItems) {
+      this.wishNum = wishItems.length;
+    },
+    countDone: function countDone(doneItems) {
+      this.doneNum = doneItems.length;
+    }
   }
 });
 
@@ -2699,13 +2714,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   return item.done_flg === 1;
                 });
 
-              case 6:
+                _this3.sendWishItems();
+
+                _this3.sendDoneItems();
+
+              case 8:
               case "end":
                 return _context3.stop();
             }
           }
         }, _callee3);
       }))();
+    },
+    sendWishItems: function sendWishItems() {
+      this.$emit("send-wish-items", this.wishItems);
+    },
+    sendDoneItems: function sendDoneItems() {
+      this.$emit("send-done-items", this.doneItems);
     }
   }
 });
@@ -39371,26 +39396,32 @@ var render = function() {
       _c("section", { staticClass: "l-info u-main", attrs: { id: "Info" } }, [
         _c("div", { staticClass: "p-info__container" }, [
           _c("h2", { staticClass: "p-info__title" }, [
-            _vm._v("\n        " + _vm._s() + "さんの\n        "),
+            _vm._v("\n        " + _vm._s(_vm.user.name) + "さんの\n        "),
             _c("br", { staticClass: "p-info__title--br" }),
             _vm._v("100のリスト\n      ")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "p-info__summary" }, [
             _c("p", { staticClass: "p-info__text" }, [
-              _vm._v("Wish List：" + _vm._s())
+              _vm._v("Wish List：" + _vm._s(_vm.wishNum))
             ]),
             _vm._v(" "),
             _c("span", { staticClass: "p-info__text--br" }, [_vm._v("/")]),
             _vm._v(" "),
             _c("p", { staticClass: "p-info__text" }, [
-              _vm._v("Done List：" + _vm._s())
+              _vm._v("Done List：" + _vm._s(_vm.doneNum))
             ])
           ])
         ])
       ]),
       _vm._v(" "),
-      _c("WishList", { attrs: { items: _vm.items } })
+      _c("WishList", {
+        attrs: { items: _vm.items },
+        on: {
+          "send-wish-items": _vm.countWish,
+          "send-done-items": _vm.countDone
+        }
+      })
     ],
     1
   )

@@ -6,7 +6,7 @@
 
 <!-- メインコンテンツ -->
 <main id="main" class="l-main">
-  <main-component :items="{{$items}}"></main-component>
+  <main-component :items="{{$items}}" :user="{{$user}}"></main-component>
 </main>
 
 <!-- フッター -->

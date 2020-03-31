@@ -17,16 +17,10 @@ class WishesController extends Controller
     // マイページ、やりたいこと表示
     public function mypage()
     {
+        $user = \Auth::user();
         $items = Wish::find(\Auth::id())->items;
 
-        $wish_items = $items->filter(function($item){
-            return $item->done_flg === 0;
-        })->values();
-        $done_items = $items->filter(function($item){
-            return $item->done_flg === 1;
-        })->values();
-
-        return view('wishes.mypage', ['items' => $items, 'wish_items' => $wish_items, 'done_items' => $done_items]);
+        return view('wishes.mypage', ['user' => $user, 'items' => $items]);
     }
     // マイページ、やったこと表示
     public function done_show()
