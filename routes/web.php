@@ -14,11 +14,7 @@
 Auth::routes();
 
 // TOPページ
-// Route::get('/', 'WishesController@index')->name('index');
-Route::get('/', function(){
-  $check = Auth::check();
-  return view('index', ['loginState' => $check]);
-});
+Route::get('/', 'WishesController@index')->name('index');
 
 Route::group(['middleware' => 'auth'], function(){
   // マイページ、やりたいこと表示

@@ -12,7 +12,7 @@ class WishesController extends Controller
     // TOPページ
     public function index()
     {
-        return view('wishes.index');
+        return view('index');
     }
     // マイページ、やりたいこと表示
     public function mypage()
