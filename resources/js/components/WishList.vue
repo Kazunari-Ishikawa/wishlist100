@@ -1,5 +1,5 @@
 <template>
-  <div class="p-wishList">
+  <section id="WishList" class="l-container p-wishList u-main">
     <div class="p-wishList__header">
       <div class="p-wishList__listBtn">
         <div class="c-outlineBtn__container c-outlineBtn__container--left">
@@ -47,7 +47,7 @@
       @close-modal="closeEditModal"
       @inform-edit="fetchList"
     />
-  </div>
+  </section>
 </template>
 
 <script>

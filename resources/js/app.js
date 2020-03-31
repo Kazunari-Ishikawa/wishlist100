@@ -24,7 +24,7 @@ window.Vue = require('vue');
 Vue.component('HeaderComponent', require('./components/HeaderComponent.vue').default);
 Vue.component('FooterComponent', require('./components/FooterComponent.vue').default);
 Vue.component('FormtabComponent', require('./components/FormtabComponent.vue').default);
-Vue.component('WishList', require('./components/WishList.vue').default);
+Vue.component('MainComponent', require('./components/MainComponent.vue').default);
 Vue.component('FlashMessage', require('./components/FlashMessage.vue').default);
 
 /**
