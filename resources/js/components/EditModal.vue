@@ -1,9 +1,9 @@
 <template>
-  <div class="l-modal__cover" v-show="openItem">
+  <div class="l-modal__cover" v-show="isOpen">
     <div class="c-modal__container">
       <div class="c-modal__header">
-        <i class="far fa-trash-alt u-icon--delete" @click="deleteWish"></i>
         <i class="fas fa-times-circle u-icon--cancel" @click="clickClose"></i>
+        <i class="far fa-trash-alt u-icon--delete" @click="deleteWish"></i>
       </div>
       <p class="c-modal__text">
         変更しちゃうの！？
@@ -32,7 +32,7 @@
 <script>
 export default {
   props: {
-    openItem: Boolean
+    isOpen: Boolean
   },
   data() {
     return {
@@ -44,7 +44,7 @@ export default {
   methods: {
     // モーダルを閉じる
     clickClose() {
-      this.$emit("close-item");
+      this.$emit("close-modal");
     },
     // やりたいことを送信する
     async postWish() {

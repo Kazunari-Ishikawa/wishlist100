@@ -23,7 +23,7 @@
           v-for="item in wishItems"
           :key="item.id"
           :item="item"
-          @open-edit="openEdit"
+          @open-edit="openEditModal"
           @change-to-done="changeToDone"
         />
       </template>
@@ -37,8 +37,8 @@
       </template>
     </template>
 
-    <CreateModal :is-open="isOpen" @close-modal="toggleCreateModal" />
-    <EditModal :open-item="openItem" v-model="selectedItem" @close-item="closeEdit" />
+    <CreateModal :is-open="isOpenCreateModal" @close-modal="toggleCreateModal" />
+    <EditModal :is-open="isOpenEditModal" v-model="selectedItem" @close-modal="closeEditModal" />
   </div>
 </template>
 
@@ -60,8 +60,8 @@ export default {
   data() {
     return {
       isWishList: true,
-      isOpen: false,
-      openItem: false,
+      isOpenCreateModal: false,
+      isOpenEditModal: false,
       selectedItem: null
     };
   },
@@ -83,16 +83,16 @@ export default {
     },
 
     toggleCreateModal() {
-      this.isOpen = !this.isOpen;
+      this.isOpenCreateModal = !this.isOpenCreateModal;
     },
 
-    openEdit(itemData) {
+    openEditModal(itemData) {
       this.selectedItem = itemData;
-      this.openItem = true;
+      this.isOpenEditModal = true;
     },
 
-    closeEdit() {
-      this.openItem = false;
+    closeEditModal() {
+      this.isOpenEditModal = false;
     },
 
     async changeToDone(itemData) {

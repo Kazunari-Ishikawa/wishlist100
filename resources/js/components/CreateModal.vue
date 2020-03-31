@@ -44,7 +44,7 @@ export default {
     clickClose() {
       this.$emit("close-modal");
     },
-    // やりたいことを送信する
+    // wishを送信する
     async postWish() {
       let wish = {
         category_id: Number(this.wishCategory),

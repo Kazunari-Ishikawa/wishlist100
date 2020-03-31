@@ -1973,7 +1973,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     clickClose: function clickClose() {
       this.$emit("close-modal");
     },
-    // やりたいことを送信する
+    // wishを送信する
     postWish: function postWish() {
       var _this = this;
 
@@ -2106,7 +2106,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    openItem: Boolean
+    isOpen: Boolean
   },
   data: function data() {
     return {
@@ -2118,7 +2118,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   methods: {
     // モーダルを閉じる
     clickClose: function clickClose() {
-      this.$emit("close-item");
+      this.$emit("close-modal");
     },
     // やりたいことを送信する
     postWish: function postWish() {
@@ -2536,8 +2536,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       isWishList: true,
-      isOpen: false,
-      openItem: false,
+      isOpenCreateModal: false,
+      isOpenEditModal: false,
       selectedItem: null
     };
   },
@@ -2561,14 +2561,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.isWishList = false;
     },
     toggleCreateModal: function toggleCreateModal() {
-      this.isOpen = !this.isOpen;
+      this.isOpenCreateModal = !this.isOpenCreateModal;
     },
-    openEdit: function openEdit(itemData) {
+    openEditModal: function openEditModal(itemData) {
       this.selectedItem = itemData;
-      this.openItem = true;
+      this.isOpenEditModal = true;
     },
-    closeEdit: function closeEdit() {
-      this.openItem = false;
+    closeEditModal: function closeEditModal() {
+      this.isOpenEditModal = false;
     },
     changeToDone: function changeToDone(itemData) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
@@ -2583,7 +2583,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 3:
                 response = _context.sent;
-                console.log(response); // this.fetchWish();
+                console.log(response);
 
               case 5:
               case "end":
@@ -2615,12 +2615,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee2);
       }))();
-    } // async fetchWish() {
-    //   const response = await axios.get("/mypage/show");
-    //   console.log(response);
-    //   this.items = response.data.data;
-    // }
-
+    }
   }
 });
 
@@ -38938,8 +38933,8 @@ var render = function() {
         {
           name: "show",
           rawName: "v-show",
-          value: _vm.openItem,
-          expression: "openItem"
+          value: _vm.isOpen,
+          expression: "isOpen"
         }
       ],
       staticClass: "l-modal__cover"
@@ -38948,13 +38943,13 @@ var render = function() {
       _c("div", { staticClass: "c-modal__container" }, [
         _c("div", { staticClass: "c-modal__header" }, [
           _c("i", {
-            staticClass: "far fa-trash-alt u-icon--delete",
-            on: { click: _vm.deleteWish }
+            staticClass: "fas fa-times-circle u-icon--cancel",
+            on: { click: _vm.clickClose }
           }),
           _vm._v(" "),
           _c("i", {
-            staticClass: "fas fa-times-circle u-icon--cancel",
-            on: { click: _vm.clickClose }
+            staticClass: "far fa-trash-alt u-icon--delete",
+            on: { click: _vm.deleteWish }
           })
         ]),
         _vm._v(" "),
@@ -39527,7 +39522,7 @@ var render = function() {
                 key: item.id,
                 attrs: { item: item },
                 on: {
-                  "open-edit": _vm.openEdit,
+                  "open-edit": _vm.openEditModal,
                   "change-to-done": _vm.changeToDone
                 }
               })
@@ -39542,13 +39537,13 @@ var render = function() {
       ],
       _vm._v(" "),
       _c("CreateModal", {
-        attrs: { "is-open": _vm.isOpen },
+        attrs: { "is-open": _vm.isOpenCreateModal },
         on: { "close-modal": _vm.toggleCreateModal }
       }),
       _vm._v(" "),
       _c("EditModal", {
-        attrs: { "open-item": _vm.openItem },
-        on: { "close-item": _vm.closeEdit },
+        attrs: { "is-open": _vm.isOpenEditModal },
+        on: { "close-modal": _vm.closeEditModal },
         model: {
           value: _vm.selectedItem,
           callback: function($$v) {
