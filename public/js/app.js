@@ -39573,11 +39573,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("li", { staticClass: "c-nav__item c-spNav__item" }, [
-      _c(
-        "a",
-        { staticClass: "c-nav__link", attrs: { href: "/setting/account" } },
-        [_vm._v("アカウント設定")]
-      )
+      _c("a", { staticClass: "c-nav__link", attrs: { href: "/settings" } }, [
+        _vm._v("アカウント設定")
+      ])
     ])
   },
   function() {
@@ -39585,7 +39583,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("li", { staticClass: "c-nav__item c-spNav__item" }, [
-      _c("a", { staticClass: "c-nav__link", attrs: { href: "setting/list" } }, [
+      _c("a", { staticClass: "c-nav__link", attrs: { href: "/settings" } }, [
         _vm._v("リスト設定")
       ])
     ])

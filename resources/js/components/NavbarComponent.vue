@@ -24,10 +24,10 @@
         <a href="/mypage" class="c-nav__link">マイページ</a>
       </li>
       <li class="c-nav__item c-spNav__item">
-        <a href="/setting/account" class="c-nav__link">アカウント設定</a>
+        <a href="/settings" class="c-nav__link">アカウント設定</a>
       </li>
       <li class="c-nav__item c-spNav__item">
-        <a href="setting/list" class="c-nav__link">リスト設定</a>
+        <a href="/settings" class="c-nav__link">リスト設定</a>
       </li>
       <li class="c-nav__item c-spNav__item">
         <a class="c-nav__link" @click="doLogout">ログアウト</a>
