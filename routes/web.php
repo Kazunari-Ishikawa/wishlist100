@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// 本番環境のみの設定
 if(app()->environment('production')) {
   URL::forceScheme('https');
 }

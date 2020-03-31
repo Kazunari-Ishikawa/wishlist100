@@ -28,6 +28,7 @@ Vue.component('FormtabComponent', require('./components/FormtabComponent.vue').d
 Vue.component('MainComponent', require('./components/MainComponent.vue').default);
 Vue.component('FlashMessage', require('./components/FlashMessage.vue').default);
 
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
