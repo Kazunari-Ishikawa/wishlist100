@@ -16,7 +16,6 @@
         </div>
       </div>
     </div>
-
     <template>
       <template v-if="isWishList">
         <WishItem

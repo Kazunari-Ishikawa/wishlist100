@@ -1,0 +1,13 @@
+.c-loader {
+  background: rgba($color: #fff, $alpha: 0.8);
+  border-radius: 4px;
+  padding: $space_s;
+  transition: $time_s;
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  display: none;
+  &.active {
+    display: inline-block;
+  }
+}

@@ -652,6 +652,21 @@ textarea {
   }
 }
 
+.c-loader {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 4px;
+  padding: 5px;
+  transition: 0.3s;
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  display: none;
+}
+
+.c-loader.active {
+  display: inline-block;
+}
+
 .p-topImg {
   background-repeat: no-repeat;
   background-position: center;
@@ -847,6 +862,10 @@ textarea {
   flex: 1 1 5%;
   margin-left: 5px;
   margin-right: 5px;
+}
+
+#WishList {
+  position: relative;
 }
 
 .p-info__container {
