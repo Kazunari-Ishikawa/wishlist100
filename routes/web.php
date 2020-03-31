@@ -11,6 +11,10 @@
 |
 */
 
+if(app()->environment('production')) {
+  URL::forceScheme('https');
+}
+
 Auth::routes();
 
 // TOPページ
