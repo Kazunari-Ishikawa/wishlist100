@@ -410,6 +410,10 @@ textarea {
   width: 100%;
 }
 
+.c-form__message--invalid {
+  color: #e3342f;
+}
+
 .c-outlineBtn {
   color: #ebc061;
   font-weight: 900;
