@@ -22,21 +22,6 @@ class WishesController extends Controller
 
         return view('wishes.mypage', ['user' => $user, 'items' => $items]);
     }
-    // マイページ、やったこと表示
-    public function done_show()
-    {
-        return view('wishes.done_show');
-    }
-    // 新規作成表示
-    public function new()
-    {
-        return view('wishes.new');
-    }
-    // やりたいこと編集表示
-    public function edit()
-    {
-        return virw('wishes.edit');
-    }
     // 新規作成機能
     public function create(CreateItemRequest $request)
     {

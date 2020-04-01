@@ -21,14 +21,8 @@ Auth::routes();
 Route::get('/', 'WishesController@index')->name('index');
 
 Route::group(['middleware' => 'auth'], function(){
-  // マイページ、やりたいこと表示
+  // マイページ、リスト表示
   Route::get('/mypage', 'WishesController@mypage')->name('wishes.mypage');
-  // マイページ、やったこと表示
-  Route::get('/mypage/done', 'WishesController@done_show')->name('wishes.done_show');
-  // 新規作成表示
-  Route::get('/mypage/new', 'WishesController@new')->name('wishes.new');
-  // やりたいこと編集表示
-  Route::get('/mypage/{id}/edit', 'WishesController@edit')->name('wishes.edit');
   // アカウント設定表示
   Route::get('/setting/account', 'SettingsController@account')->name('settings.account');
   // リスト設定表示

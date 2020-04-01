@@ -20,14 +20,11 @@ Vue.use(require('vue-moment'));
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
-Vue.component('HeaderComponent', require('./components/HeaderComponent.vue').default);
-Vue.component('FooterComponent', require('./components/FooterComponent.vue').default);
-Vue.component('FormtabComponent', require('./components/FormtabComponent.vue').default);
-Vue.component('MainComponent', require('./components/MainComponent.vue').default);
-Vue.component('FlashMessage', require('./components/FlashMessage.vue').default);
-
+import HeaderComponent from './components/HeaderComponent';
+import FooterComponent from './components/FooterComponent';
+import FormtabComponent from './components/FormtabComponent';
+import MainComponent from './components/MainComponent';
+import FlashMessage from './components/FlashMessage';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -37,4 +34,11 @@ Vue.component('FlashMessage', require('./components/FlashMessage.vue').default);
 
 new Vue({
     el: '#app',
+    components: {
+        HeaderComponent,
+        FooterComponent,
+        FormtabComponent,
+        MainComponent,
+        FlashMessage
+    }
 });

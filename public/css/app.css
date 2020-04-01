@@ -854,12 +854,18 @@ textarea {
 
 @media screen and (max-width: 414px) {
   .p-wishList__text {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
 .p-wishList__date {
-  font-size: 10px;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 414px) {
+  .p-wishList__date {
+    font-size: 14px;
+  }
 }
 
 .p-wishList__icon {

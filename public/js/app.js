@@ -1959,9 +1959,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: {
-    isOpen: Boolean
-  },
   data: function data() {
     return {
       wishCategory: 0,
@@ -1989,19 +1986,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }; // POST送信
 
                 _context.next = 3;
-                return axios.post("/mypage", wish);
+                return axios.post("/mypage", wish)["catch"](function (error) {
+                  return error;
+                });
 
               case 3:
                 response = _context.sent;
-                console.log(response); // フォームの入力値を削除してモーダルを閉じる
+                console.log(response);
 
+                if (!(response.status === 422)) {
+                  _context.next = 9;
+                  break;
+                }
+
+                _this.clearData();
+
+                _this.clickClose();
+
+                return _context.abrupt("return", false);
+
+              case 9:
+                // フォームの入力値を削除してモーダルを閉じる
                 _this.clearData();
 
                 _this.clickClose();
 
                 _this.informCreate();
 
-              case 8:
+              case 12:
               case "end":
                 return _context.stop();
             }
@@ -2129,7 +2141,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    isOpen: Boolean,
     item: Object
   },
   data: function data() {
@@ -38883,118 +38894,114 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.isOpen
-    ? _c("div", { staticClass: "l-modal__cover" }, [
-        _c("div", { staticClass: "c-modal__container" }, [
-          _c("div", { staticClass: "c-modal__header" }, [
-            _c("i", {
-              staticClass: "fas fa-times-circle u-icon--cancel",
-              on: { click: _vm.clickClose }
+  return _c("div", { staticClass: "l-modal__cover" }, [
+    _c("div", { staticClass: "c-modal__container" }, [
+      _c("div", { staticClass: "c-modal__header" }, [
+        _c("i", {
+          staticClass: "fas fa-times-circle u-icon--cancel",
+          on: { click: _vm.clickClose }
+        })
+      ]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          staticClass: "c-form--modal c-modal",
+          attrs: { action: "" },
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.postWish($event)
+            }
+          }
+        },
+        [
+          _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.wishCategory,
+                    expression: "wishCategory"
+                  }
+                ],
+                staticClass: "c-form__select",
+                attrs: { name: "", id: "" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.wishCategory = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  }
+                }
+              },
+              [
+                _c("option", { attrs: { value: "0" } }, [
+                  _vm._v("カテゴリ無し")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "1" } }, [
+                  _vm._v("ライフスタイル")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "2" } }, [_vm._v("ホビー")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "3" } }, [
+                  _vm._v("スキルアップ")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "4" } }, [_vm._v("トラベル")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "5" } }, [_vm._v("グルメ")])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.wishText,
+                  expression: "wishText"
+                }
+              ],
+              staticClass: "c-form__input",
+              attrs: { type: "text", placeholder: "わたしのやりたいこと" },
+              domProps: { value: _vm.wishText },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.wishText = $event.target.value
+                }
+              }
             })
           ]),
           _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "form",
-            {
-              staticClass: "c-form--modal c-modal",
-              attrs: { action: "" },
-              on: {
-                submit: function($event) {
-                  $event.preventDefault()
-                  return _vm.postWish($event)
-                }
-              }
-            },
-            [
-              _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.wishCategory,
-                        expression: "wishCategory"
-                      }
-                    ],
-                    staticClass: "c-form__select",
-                    attrs: { name: "", id: "" },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.wishCategory = $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      }
-                    }
-                  },
-                  [
-                    _c("option", { attrs: { value: "0" } }, [
-                      _vm._v("カテゴリ無し")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1" } }, [
-                      _vm._v("ライフスタイル")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2" } }, [_vm._v("ホビー")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "3" } }, [
-                      _vm._v("スキルアップ")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "4" } }, [
-                      _vm._v("トラベル")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "5" } }, [_vm._v("グルメ")])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.wishText,
-                      expression: "wishText"
-                    }
-                  ],
-                  staticClass: "c-form__input",
-                  attrs: { type: "text", placeholder: "わたしのやりたいこと" },
-                  domProps: { value: _vm.wishText },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.wishText = $event.target.value
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "c-form__submit c-form__unit",
-                attrs: { type: "submit", value: "追加する" }
-              })
-            ]
-          )
-        ])
-      ])
-    : _vm._e()
+          _c("input", {
+            staticClass: "c-form__submit c-form__unit",
+            attrs: { type: "submit", value: "追加する" }
+          })
+        ]
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -39090,85 +39097,81 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.isOpen
-    ? _c("div", { staticClass: "l-modal__cover" }, [
-        _c("div", { staticClass: "c-modal__container" }, [
-          _c("div", { staticClass: "c-modal__header" }, [
-            _c("i", {
-              staticClass: "fas fa-times-circle u-icon--cancel",
-              on: { click: _vm.clickClose }
-            }),
-            _vm._v(" "),
-            _c("i", {
-              staticClass: "far fa-trash-alt u-icon--delete",
-              on: { click: _vm.deleteWish }
+  return _c("div", { staticClass: "l-modal__cover" }, [
+    _c("div", { staticClass: "c-modal__container" }, [
+      _c("div", { staticClass: "c-modal__header" }, [
+        _c("i", {
+          staticClass: "fas fa-times-circle u-icon--cancel",
+          on: { click: _vm.clickClose }
+        }),
+        _vm._v(" "),
+        _c("i", {
+          staticClass: "far fa-trash-alt u-icon--delete",
+          on: { click: _vm.deleteWish }
+        })
+      ]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          staticClass: "c-form--modal c-modal",
+          attrs: { action: "", name: "editModal" },
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.postWish($event)
+            }
+          }
+        },
+        [
+          _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
+            _c(
+              "select",
+              {
+                staticClass: "c-form__select",
+                attrs: { name: "editSelect" },
+                domProps: { value: _vm.item.category_id }
+              },
+              [
+                _c("option", { attrs: { value: "0" } }, [
+                  _vm._v("カテゴリ無し")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "1" } }, [
+                  _vm._v("ライフスタイル")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "2" } }, [_vm._v("ホビー")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "3" } }, [
+                  _vm._v("スキルアップ")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "4" } }, [_vm._v("トラベル")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "5" } }, [_vm._v("グルメ")])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
+            _c("input", {
+              staticClass: "c-form__input",
+              attrs: { type: "text", name: "editInput" },
+              domProps: { value: _vm.item.text }
             })
           ]),
           _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "form",
-            {
-              staticClass: "c-form--modal c-modal",
-              attrs: { action: "", name: "editModal" },
-              on: {
-                submit: function($event) {
-                  $event.preventDefault()
-                  return _vm.postWish($event)
-                }
-              }
-            },
-            [
-              _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
-                _c(
-                  "select",
-                  {
-                    staticClass: "c-form__select",
-                    attrs: { name: "editSelect" },
-                    domProps: { value: _vm.item.category_id }
-                  },
-                  [
-                    _c("option", { attrs: { value: "0" } }, [
-                      _vm._v("カテゴリ無し")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1" } }, [
-                      _vm._v("ライフスタイル")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2" } }, [_vm._v("ホビー")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "3" } }, [
-                      _vm._v("スキルアップ")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "4" } }, [
-                      _vm._v("トラベル")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "5" } }, [_vm._v("グルメ")])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
-                _c("input", {
-                  staticClass: "c-form__input",
-                  attrs: { type: "text", name: "editInput" },
-                  domProps: { value: _vm.item.text }
-                })
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "c-form__submit c-form__unit",
-                attrs: { type: "submit", value: "変更する" }
-              })
-            ]
-          )
-        ])
-      ])
-    : _vm._e()
+          _c("input", {
+            staticClass: "c-form__submit c-form__unit",
+            attrs: { type: "submit", value: "変更する" }
+          })
+        ]
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -39732,18 +39735,24 @@ var render = function() {
             })
       ],
       _vm._v(" "),
-      _c("CreateModal", {
-        attrs: { "is-open": _vm.isOpenCreateModal },
-        on: {
-          "close-modal": _vm.toggleCreateModal,
-          "inform-create": _vm.fetchList
-        }
-      }),
+      _vm.isOpenCreateModal
+        ? _c("CreateModal", {
+            on: {
+              "close-modal": _vm.toggleCreateModal,
+              "inform-create": _vm.fetchList
+            }
+          })
+        : _vm._e(),
       _vm._v(" "),
-      _c("EditModal", {
-        attrs: { "is-open": _vm.isOpenEditModal, item: _vm.selectedItem },
-        on: { "close-modal": _vm.closeEditModal, "inform-edit": _vm.fetchList }
-      })
+      _vm.isOpenEditModal
+        ? _c("EditModal", {
+            attrs: { item: _vm.selectedItem },
+            on: {
+              "close-modal": _vm.closeEditModal,
+              "inform-edit": _vm.fetchList
+            }
+          })
+        : _vm._e()
     ],
     2
   )
@@ -56723,9 +56732,16 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_HeaderComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/HeaderComponent */ "./resources/js/components/HeaderComponent.vue");
+/* harmony import */ var _components_FooterComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/FooterComponent */ "./resources/js/components/FooterComponent.vue");
+/* harmony import */ var _components_FormtabComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/FormtabComponent */ "./resources/js/components/FormtabComponent.vue");
+/* harmony import */ var _components_MainComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/MainComponent */ "./resources/js/components/MainComponent.vue");
+/* harmony import */ var _components_FlashMessage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/FlashMessage */ "./resources/js/components/FlashMessage.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -56744,13 +56760,12 @@ Vue.use(__webpack_require__(/*! vue-moment */ "./node_modules/vue-moment/dist/vu
  */
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-Vue.component('HeaderComponent', __webpack_require__(/*! ./components/HeaderComponent.vue */ "./resources/js/components/HeaderComponent.vue")["default"]);
-Vue.component('FooterComponent', __webpack_require__(/*! ./components/FooterComponent.vue */ "./resources/js/components/FooterComponent.vue")["default"]);
-Vue.component('FormtabComponent', __webpack_require__(/*! ./components/FormtabComponent.vue */ "./resources/js/components/FormtabComponent.vue")["default"]);
-Vue.component('MainComponent', __webpack_require__(/*! ./components/MainComponent.vue */ "./resources/js/components/MainComponent.vue")["default"]);
-Vue.component('FlashMessage', __webpack_require__(/*! ./components/FlashMessage.vue */ "./resources/js/components/FlashMessage.vue")["default"]);
+
+
+
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -56758,7 +56773,14 @@ Vue.component('FlashMessage', __webpack_require__(/*! ./components/FlashMessage.
  */
 
 new Vue({
-  el: '#app'
+  el: '#app',
+  components: {
+    HeaderComponent: _components_HeaderComponent__WEBPACK_IMPORTED_MODULE_0__["default"],
+    FooterComponent: _components_FooterComponent__WEBPACK_IMPORTED_MODULE_1__["default"],
+    FormtabComponent: _components_FormtabComponent__WEBPACK_IMPORTED_MODULE_2__["default"],
+    MainComponent: _components_MainComponent__WEBPACK_IMPORTED_MODULE_3__["default"],
+    FlashMessage: _components_FlashMessage__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }
 });
 
 /***/ }),

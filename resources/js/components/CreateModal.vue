@@ -1,5 +1,5 @@
 <template>
-  <div class="l-modal__cover" v-if="isOpen">
+  <div class="l-modal__cover">
     <div class="c-modal__container">
       <div class="c-modal__header">
         <i class="fas fa-times-circle u-icon--cancel" @click="clickClose"></i>
@@ -30,9 +30,6 @@
 
 <script>
 export default {
-  props: {
-    isOpen: Boolean
-  },
   data() {
     return {
       wishCategory: 0,
@@ -51,8 +48,14 @@ export default {
         text: this.wishText
       };
       // POST送信
-      const response = await axios.post("/mypage", wish);
+      const response = await axios.post("/mypage", wish).catch(error => error);
       console.log(response);
+
+      if (response.status === 422) {
+        this.clearData();
+        this.clickClose();
+        return false;
+      }
       // フォームの入力値を削除してモーダルを閉じる
       this.clearData();
       this.clickClose();

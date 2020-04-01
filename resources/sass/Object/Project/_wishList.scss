@@ -55,12 +55,15 @@
   }
   &__text {
     font-size: $font-size_l;
-    @include mq(){
-      font-size: $font-size_m;
+    @include mq() {
+      font-size: $font-size_default;
     }
   }
   &__date {
-    font-size: 10px;
+    font-size: $font-size_default;
+    @include mq() {
+      font-size: $font-size_m;
+    }
   }
   &__icon {
     flex: 1 1 5%;
