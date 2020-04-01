@@ -1,5 +1,5 @@
 <template>
-  <div class="l-modal__cover" v-show="isOpen">
+  <div class="l-modal__cover" v-if="isOpen">
     <div class="c-modal__container">
       <div class="c-modal__header">
         <i class="fas fa-times-circle u-icon--cancel" @click="clickClose"></i>

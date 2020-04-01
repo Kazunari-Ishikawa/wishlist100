@@ -2129,13 +2129,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    isOpen: Boolean
+    isOpen: Boolean,
+    item: Object
   },
   data: function data() {
     return {
-      id: null,
-      wishCategory: 0,
-      wishText: null
+      id: null
     };
   },
   methods: {
@@ -2153,16 +2152,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _this.id = _this.$attrs.value.id;
+                _this.id = _this.item.id;
                 wish = {
-                  category_id: Number(_this.wishCategory),
-                  text: _this.wishText
-                }; // POST送信
+                  category_id: document.forms.editModal.editSelect.value,
+                  text: document.forms.editModal.editInput.value
+                };
+                console.log(wish); // POST送信
 
-                _context.next = 4;
+                _context.next = 5;
                 return axios.post("/mypage/".concat(_this.id), wish);
 
-              case 4:
+              case 5:
                 response = _context.sent;
                 console.log(response); // フォームの入力値を削除してモーダルを閉じる
 
@@ -2172,7 +2172,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this.informEdit();
 
-              case 9:
+              case 10:
               case "end":
                 return _context.stop();
             }
@@ -2200,7 +2200,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _this2.id = _this2.$attrs.value.id; // 確認を出す
+                _this2.id = _this2.item.id; // 確認を出す
 
                 if (!confirm("ほんとに削除するの？")) {
                   _context2.next = 9;
@@ -38883,128 +38883,118 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      directives: [
-        {
-          name: "show",
-          rawName: "v-show",
-          value: _vm.isOpen,
-          expression: "isOpen"
-        }
-      ],
-      staticClass: "l-modal__cover"
-    },
-    [
-      _c("div", { staticClass: "c-modal__container" }, [
-        _c("div", { staticClass: "c-modal__header" }, [
-          _c("i", {
-            staticClass: "fas fa-times-circle u-icon--cancel",
-            on: { click: _vm.clickClose }
-          })
-        ]),
-        _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "form",
-          {
-            staticClass: "c-form--modal c-modal",
-            attrs: { action: "" },
-            on: {
-              submit: function($event) {
-                $event.preventDefault()
-                return _vm.postWish($event)
+  return _vm.isOpen
+    ? _c("div", { staticClass: "l-modal__cover" }, [
+        _c("div", { staticClass: "c-modal__container" }, [
+          _c("div", { staticClass: "c-modal__header" }, [
+            _c("i", {
+              staticClass: "fas fa-times-circle u-icon--cancel",
+              on: { click: _vm.clickClose }
+            })
+          ]),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "form",
+            {
+              staticClass: "c-form--modal c-modal",
+              attrs: { action: "" },
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.postWish($event)
+                }
               }
-            }
-          },
-          [
-            _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
-              _c(
-                "select",
-                {
+            },
+            [
+              _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.wishCategory,
+                        expression: "wishCategory"
+                      }
+                    ],
+                    staticClass: "c-form__select",
+                    attrs: { name: "", id: "" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.wishCategory = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "0" } }, [
+                      _vm._v("カテゴリ無し")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1" } }, [
+                      _vm._v("ライフスタイル")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2" } }, [_vm._v("ホビー")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "3" } }, [
+                      _vm._v("スキルアップ")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "4" } }, [
+                      _vm._v("トラベル")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "5" } }, [_vm._v("グルメ")])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
+                _c("input", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.wishCategory,
-                      expression: "wishCategory"
+                      value: _vm.wishText,
+                      expression: "wishText"
                     }
                   ],
-                  staticClass: "c-form__select",
-                  attrs: { name: "", id: "" },
+                  staticClass: "c-form__input",
+                  attrs: { type: "text", placeholder: "わたしのやりたいこと" },
+                  domProps: { value: _vm.wishText },
                   on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.wishCategory = $event.target.multiple
-                        ? $$selectedVal
-                        : $$selectedVal[0]
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.wishText = $event.target.value
                     }
                   }
-                },
-                [
-                  _c("option", { attrs: { value: "0" } }, [
-                    _vm._v("カテゴリ無し")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1" } }, [
-                    _vm._v("ライフスタイル")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2" } }, [_vm._v("ホビー")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "3" } }, [
-                    _vm._v("スキルアップ")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "4" } }, [_vm._v("トラベル")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "5" } }, [_vm._v("グルメ")])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
+                })
+              ]),
+              _vm._v(" "),
               _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.wishText,
-                    expression: "wishText"
-                  }
-                ],
-                staticClass: "c-form__input",
-                attrs: { type: "text", placeholder: "わたしのやりたいこと" },
-                domProps: { value: _vm.wishText },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.wishText = $event.target.value
-                  }
-                }
+                staticClass: "c-form__submit c-form__unit",
+                attrs: { type: "submit", value: "追加する" }
               })
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "c-form__submit c-form__unit",
-              attrs: { type: "submit", value: "追加する" }
-            })
-          ]
-        )
+            ]
+          )
+        ])
       ])
-    ]
-  )
+    : _vm._e()
 }
 var staticRenderFns = [
   function() {
@@ -39100,133 +39090,85 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      directives: [
-        {
-          name: "show",
-          rawName: "v-show",
-          value: _vm.isOpen,
-          expression: "isOpen"
-        }
-      ],
-      staticClass: "l-modal__cover"
-    },
-    [
-      _c("div", { staticClass: "c-modal__container" }, [
-        _c("div", { staticClass: "c-modal__header" }, [
-          _c("i", {
-            staticClass: "fas fa-times-circle u-icon--cancel",
-            on: { click: _vm.clickClose }
-          }),
-          _vm._v(" "),
-          _c("i", {
-            staticClass: "far fa-trash-alt u-icon--delete",
-            on: { click: _vm.deleteWish }
-          })
-        ]),
-        _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "form",
-          {
-            staticClass: "c-form--modal c-modal",
-            attrs: { action: "" },
-            on: {
-              submit: function($event) {
-                $event.preventDefault()
-                return _vm.postWish($event)
-              }
-            }
-          },
-          [
-            _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.wishCategory,
-                      expression: "wishCategory"
-                    }
-                  ],
-                  staticClass: "c-form__select",
-                  attrs: { name: "", id: "" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.wishCategory = $event.target.multiple
-                        ? $$selectedVal
-                        : $$selectedVal[0]
-                    }
-                  }
-                },
-                [
-                  _c("option", { attrs: { value: "0" } }, [
-                    _vm._v("カテゴリ無し")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1" } }, [
-                    _vm._v("ライフスタイル")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2" } }, [_vm._v("ホビー")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "3" } }, [
-                    _vm._v("スキルアップ")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "4" } }, [_vm._v("トラベル")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "5" } }, [_vm._v("グルメ")])
-                ]
-              )
-            ]),
+  return _vm.isOpen
+    ? _c("div", { staticClass: "l-modal__cover" }, [
+        _c("div", { staticClass: "c-modal__container" }, [
+          _c("div", { staticClass: "c-modal__header" }, [
+            _c("i", {
+              staticClass: "fas fa-times-circle u-icon--cancel",
+              on: { click: _vm.clickClose }
+            }),
             _vm._v(" "),
-            _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.wishText,
-                    expression: "wishText"
-                  }
-                ],
-                staticClass: "c-form__input",
-                attrs: { type: "text" },
-                domProps: { value: _vm.wishText },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.wishText = $event.target.value
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "c-form__submit c-form__unit",
-              attrs: { type: "submit", value: "変更する" }
+            _c("i", {
+              staticClass: "far fa-trash-alt u-icon--delete",
+              on: { click: _vm.deleteWish }
             })
-          ]
-        )
+          ]),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "form",
+            {
+              staticClass: "c-form--modal c-modal",
+              attrs: { action: "", name: "editModal" },
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.postWish($event)
+                }
+              }
+            },
+            [
+              _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
+                _c(
+                  "select",
+                  {
+                    staticClass: "c-form__select",
+                    attrs: { name: "editSelect" },
+                    domProps: { value: _vm.item.category_id }
+                  },
+                  [
+                    _c("option", { attrs: { value: "0" } }, [
+                      _vm._v("カテゴリ無し")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1" } }, [
+                      _vm._v("ライフスタイル")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2" } }, [_vm._v("ホビー")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "3" } }, [
+                      _vm._v("スキルアップ")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "4" } }, [
+                      _vm._v("トラベル")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "5" } }, [_vm._v("グルメ")])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
+                _c("input", {
+                  staticClass: "c-form__input",
+                  attrs: { type: "text", name: "editInput" },
+                  domProps: { value: _vm.item.text }
+                })
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "c-form__submit c-form__unit",
+                attrs: { type: "submit", value: "変更する" }
+              })
+            ]
+          )
+        ])
       ])
-    ]
-  )
+    : _vm._e()
 }
 var staticRenderFns = [
   function() {
@@ -39799,15 +39741,8 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("EditModal", {
-        attrs: { "is-open": _vm.isOpenEditModal },
-        on: { "close-modal": _vm.closeEditModal, "inform-edit": _vm.fetchList },
-        model: {
-          value: _vm.selectedItem,
-          callback: function($$v) {
-            _vm.selectedItem = $$v
-          },
-          expression: "selectedItem"
-        }
+        attrs: { "is-open": _vm.isOpenEditModal, item: _vm.selectedItem },
+        on: { "close-modal": _vm.closeEditModal, "inform-edit": _vm.fetchList }
       })
     ],
     2

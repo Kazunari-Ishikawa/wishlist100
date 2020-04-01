@@ -43,7 +43,7 @@
     />
     <EditModal
       :is-open="isOpenEditModal"
-      v-model="selectedItem"
+      :item="selectedItem"
       @close-modal="closeEditModal"
       @inform-edit="fetchList"
     />

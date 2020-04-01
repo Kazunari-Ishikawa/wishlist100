@@ -1,5 +1,5 @@
 <template>
-  <div class="l-modal__cover" v-show="isOpen">
+  <div class="l-modal__cover" v-if="isOpen">
     <div class="c-modal__container">
       <div class="c-modal__header">
         <i class="fas fa-times-circle u-icon--cancel" @click="clickClose"></i>
@@ -9,9 +9,9 @@
         変更しちゃうの！？
         <br class="c-modal__br" />
       </p>
-      <form action class="c-form--modal c-modal" @submit.prevent="postWish">
+      <form action name="editModal" class="c-form--modal c-modal" @submit.prevent="postWish">
         <label for class="c-form__unit">
-          <select name id class="c-form__select" v-model="wishCategory">
+          <select class="c-form__select" name="editSelect" :value="item.category_id">
             <option value="0">カテゴリ無し</option>
             <option value="1">ライフスタイル</option>
             <option value="2">ホビー</option>
@@ -21,7 +21,7 @@
           </select>
         </label>
         <label for class="c-form__unit">
-          <input type="text" class="c-form__input" v-model="wishText" />
+          <input type="text" class="c-form__input" name="editInput" :value="item.text" />
         </label>
         <input type="submit" value="変更する" class="c-form__submit c-form__unit" />
       </form>
@@ -32,13 +32,12 @@
 <script>
 export default {
   props: {
-    isOpen: Boolean
+    isOpen: Boolean,
+    item: Object
   },
   data() {
     return {
-      id: null,
-      wishCategory: 0,
-      wishText: null
+      id: null
     };
   },
   methods: {
@@ -48,11 +47,12 @@ export default {
     },
     // やりたいことを送信する
     async postWish() {
-      this.id = this.$attrs.value.id;
+      this.id = this.item.id;
       let wish = {
-        category_id: Number(this.wishCategory),
-        text: this.wishText
+        category_id: document.forms.editModal.editSelect.value,
+        text: document.forms.editModal.editInput.value
       };
+      console.log(wish);
       // POST送信
       const response = await axios.post(`/mypage/${this.id}`, wish);
       console.log(response);
@@ -73,7 +73,7 @@ export default {
     },
     // やりたいことの削除
     async deleteWish() {
-      this.id = this.$attrs.value.id;
+      this.id = this.item.id;
       // 確認を出す
       if (confirm("ほんとに削除するの？")) {
         // POST送信
