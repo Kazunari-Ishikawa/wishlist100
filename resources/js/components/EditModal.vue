@@ -51,10 +51,8 @@ export default {
         category_id: document.forms.editModal.editSelect.value,
         text: document.forms.editModal.editInput.value
       };
-      console.log(wish);
       // POST送信
       const response = await axios.post(`/mypage/${this.id}`, wish);
-      console.log(response);
       // フォームの入力値を削除してモーダルを閉じる
       this.clearData();
       this.clickClose();
@@ -77,7 +75,6 @@ export default {
       if (confirm("ほんとに削除するの？")) {
         // POST送信
         const response = await axios.post(`/mypage/${this.id}/delete`);
-        console.log(response);
         // フォームの入力値を削除してモーダルを閉じる
         this.clearData();
         this.clickClose();

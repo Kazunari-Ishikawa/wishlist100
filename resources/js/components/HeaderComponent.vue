@@ -28,12 +28,8 @@ export default {
       isActive: false
     };
   },
-  mounted() {
-    console.log(this.isLogin);
-  },
   methods: {
     toggleMenu() {
-      console.log("Clicked");
       this.isActive = !this.isActive;
     }
   }

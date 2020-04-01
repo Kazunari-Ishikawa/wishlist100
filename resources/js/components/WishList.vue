@@ -112,7 +112,6 @@ export default {
 
     async fetchList() {
       const response = await axios.get("/mypage/fetch");
-      console.log(response);
       this.wishItems = response.data.filter(item => item.done_flg == false);
       this.doneItems = response.data.filter(item => item.done_flg == true);
 

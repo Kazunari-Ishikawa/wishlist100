@@ -51,7 +51,6 @@ export default {
       await axios
         .post("/logout")
         .then(function(response) {
-          console.log(response);
           window.location.href = "/";
         })
         .catch(function(error) {

@@ -49,7 +49,6 @@ export default {
       };
       // POST送信
       const response = await axios.post("/mypage", wish).catch(error => error);
-      console.log(response);
 
       if (response.status === 422) {
         this.clearData();
