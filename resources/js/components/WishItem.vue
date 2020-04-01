@@ -1,11 +1,20 @@
 <template>
   <div class="p-wishList__item">
-    <i class="fas fa-bicycle p-wishList__icon u-icon" @click="openEdit"></i>
+    <div class="p-wishList__icon" @click="openEdit">
+      <i class="far fa-calendar-alt u-icon" v-if="itemData.category_id == 1"></i>
+      <i class="fas fa-futbol u-icon" v-else-if="itemData.category_id == 2"></i>
+      <i class="fas fa-level-up-alt u-icon" v-else-if="itemData.category_id == 3"></i>
+      <i class="fas fa-plane u-icon" v-else-if="itemData.category_id == 4"></i>
+      <i class="fas fa-utensils u-icon" v-else-if="itemData.category_id == 5"></i>
+      <i class="far fa-grin u-icon" v-else></i>
+    </div>
     <div class="p-wishList__contents" @click="openEdit">
       <p class="p-wishList__text">{{itemData.text}}</p>
       <p class="p-wishList__date">{{itemYear}}/{{itemMonth}}/{{itemDay}}登録</p>
     </div>
-    <i class="far fa-thumbs-up p-wishList__icon u-icon u-icon--done" @click="changeToDone"></i>
+    <div class="p-wishList__icon" @click="changeToDone">
+      <i class="far fa-thumbs-up u-icon--done"></i>
+    </div>
   </div>
 </template>
 
