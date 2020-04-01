@@ -37,12 +37,12 @@
     </template>
 
     <CreateModal
-      :is-open="isOpenCreateModal"
+      v-if="isOpenCreateModal"
       @close-modal="toggleCreateModal"
       @inform-create="fetchList"
     />
     <EditModal
-      :is-open="isOpenEditModal"
+      v-if="isOpenEditModal"
       :item="selectedItem"
       @close-modal="closeEditModal"
       @inform-edit="fetchList"
