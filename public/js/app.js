@@ -56717,9 +56717,16 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_HeaderComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/HeaderComponent */ "./resources/js/components/HeaderComponent.vue");
+/* harmony import */ var _components_FooterComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/FooterComponent */ "./resources/js/components/FooterComponent.vue");
+/* harmony import */ var _components_FormtabComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/FormtabComponent */ "./resources/js/components/FormtabComponent.vue");
+/* harmony import */ var _components_MainComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/MainComponent */ "./resources/js/components/MainComponent.vue");
+/* harmony import */ var _components_FlashMessage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/FlashMessage */ "./resources/js/components/FlashMessage.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -56739,12 +56746,17 @@ Vue.use(__webpack_require__(/*! vue-moment */ "./node_modules/vue-moment/dist/vu
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// Vue.component('HeaderComponent', require('./components/HeaderComponent.vue').default);
+// Vue.component('FooterComponent', require('./components/FooterComponent.vue').default);
+// Vue.component('FormtabComponent', require('./components/FormtabComponent.vue').default);
+// Vue.component('MainComponent', require('./components/MainComponent.vue').default);
+// Vue.component('FlashMessage', require('./components/FlashMessage.vue').default);
 
-Vue.component('HeaderComponent', __webpack_require__(/*! ./components/HeaderComponent.vue */ "./resources/js/components/HeaderComponent.vue")["default"]);
-Vue.component('FooterComponent', __webpack_require__(/*! ./components/FooterComponent.vue */ "./resources/js/components/FooterComponent.vue")["default"]);
-Vue.component('FormtabComponent', __webpack_require__(/*! ./components/FormtabComponent.vue */ "./resources/js/components/FormtabComponent.vue")["default"]);
-Vue.component('MainComponent', __webpack_require__(/*! ./components/MainComponent.vue */ "./resources/js/components/MainComponent.vue")["default"]);
-Vue.component('FlashMessage', __webpack_require__(/*! ./components/FlashMessage.vue */ "./resources/js/components/FlashMessage.vue")["default"]);
+
+
+
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -56752,7 +56764,14 @@ Vue.component('FlashMessage', __webpack_require__(/*! ./components/FlashMessage.
  */
 
 new Vue({
-  el: '#app'
+  el: '#app',
+  components: {
+    HeaderComponent: _components_HeaderComponent__WEBPACK_IMPORTED_MODULE_0__["default"],
+    FooterComponent: _components_FooterComponent__WEBPACK_IMPORTED_MODULE_1__["default"],
+    FormtabComponent: _components_FormtabComponent__WEBPACK_IMPORTED_MODULE_2__["default"],
+    MainComponent: _components_MainComponent__WEBPACK_IMPORTED_MODULE_3__["default"],
+    FlashMessage: _components_FlashMessage__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }
 });
 
 /***/ }),
