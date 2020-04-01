@@ -48,8 +48,14 @@ export default {
         text: this.wishText
       };
       // POST送信
-      const response = await axios.post("/mypage", wish);
+      const response = await axios.post("/mypage", wish).catch(error => error);
       console.log(response);
+
+      if (response.status === 422) {
+        this.clearData();
+        this.clickClose();
+        return false;
+      }
       // フォームの入力値を削除してモーダルを閉じる
       this.clearData();
       this.clickClose();

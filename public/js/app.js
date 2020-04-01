@@ -1986,19 +1986,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }; // POST送信
 
                 _context.next = 3;
-                return axios.post("/mypage", wish);
+                return axios.post("/mypage", wish)["catch"](function (error) {
+                  return error;
+                });
 
               case 3:
                 response = _context.sent;
-                console.log(response); // フォームの入力値を削除してモーダルを閉じる
+                console.log(response);
 
+                if (!(response.status === 422)) {
+                  _context.next = 9;
+                  break;
+                }
+
+                _this.clearData();
+
+                _this.clickClose();
+
+                return _context.abrupt("return", false);
+
+              case 9:
+                // フォームの入力値を削除してモーダルを閉じる
                 _this.clearData();
 
                 _this.clickClose();
 
                 _this.informCreate();
 
-              case 8:
+              case 12:
               case "end":
                 return _context.stop();
             }
@@ -56745,12 +56760,6 @@ Vue.use(__webpack_require__(/*! vue-moment */ "./node_modules/vue-moment/dist/vu
  */
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-// Vue.component('HeaderComponent', require('./components/HeaderComponent.vue').default);
-// Vue.component('FooterComponent', require('./components/FooterComponent.vue').default);
-// Vue.component('FormtabComponent', require('./components/FormtabComponent.vue').default);
-// Vue.component('MainComponent', require('./components/MainComponent.vue').default);
-// Vue.component('FlashMessage', require('./components/FlashMessage.vue').default);
 
 
 
