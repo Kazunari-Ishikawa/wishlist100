@@ -9,11 +9,12 @@
         変更しちゃうの！？
         <br class="c-modal__br" />
       </p>
+
       <!-- TODO 一時的な入れ替え -->
-      <label for class="c-form__unit">
-        <input type="text" class="c-form__input" name="editInput" :value="item.text" />
-      </label>
       <form action name="editModal" class="c-form--modal c-modal" @submit.prevent="postWish">
+        <label for class="c-form__unit">
+          <input type="text" class="c-form__input" name="editInput" :value="item.text" />
+        </label>
         <label for class="c-form__unit">
           <select class="c-form__select" name="editSelect" :value="item.category_id">
             <option value="0">カテゴリ無し</option>
@@ -24,7 +25,6 @@
             <option value="5">グルメ</option>
           </select>
         </label>
-      <!-- TODO 一時的な入れ替え -->
         <input type="submit" value="変更する" class="c-form__submit c-form__unit" />
       </form>
     </div>

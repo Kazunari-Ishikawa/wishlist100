@@ -8,11 +8,13 @@
         やりたいことを
         <br class="c-modal__br" />書こう！
       </p>
+
       <!-- TODO 一時的な入れ替え -->
-      <label for class="c-form__unit">
-        <input type="text" class="c-form__input" v-model="wishText" placeholder="わたしのやりたいこと" />
-      </label>
       <form action class="c-form--modal c-modal" @submit.prevent="postWish">
+        <!-- TODO 一時的な入れ替え -->
+        <label for class="c-form__unit">
+          <input type="text" class="c-form__input" v-model="wishText" placeholder="わたしのやりたいこと" />
+        </label>
         <label for class="c-form__unit">
           <select name id class="c-form__select" v-model="wishCategory">
             <option value="0">カテゴリ無し</option>
@@ -23,7 +25,6 @@
             <option value="5">グルメ</option>
           </select>
         </label>
-        <!-- TODO 一時的な入れ替え -->
         <input type="submit" value="追加する" class="c-form__submit c-form__unit" />
       </form>
     </div>
