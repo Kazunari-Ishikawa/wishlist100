@@ -3,10 +3,6 @@
     <!-- インフォメーション -->
     <section id="Info" class="l-info u-main">
       <div class="p-info__container">
-        <h2 class="p-info__title">
-          {{ user.name }}さんの
-          <br class="p-info__title--br" />100のリスト
-        </h2>
         <!-- 達成度グラフ -->
         <div class="p-info__summary">
           <p class="p-info__text">Wish List：{{ wishNum }}</p>

@@ -1,6 +1,6 @@
 <template>
   <header class="l-header">
-    <h1 class="p-hero__title">わたしの100のリスト</h1>
+    <h1 class="p-hero__title">{{user.name}}さんの100のリスト</h1>
 
     <!-- ハンバーガーメニュー -->
     <div class="c-triggerMenu" @click="isActive = !isActive" :class="{show: !isActive}">
@@ -18,7 +18,8 @@
 import Navbar from "./NavbarComponent.vue";
 export default {
   props: {
-    isLogin: Boolean
+    isLogin: Boolean,
+    user: Object
   },
   components: {
     Navbar

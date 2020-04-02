@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- ヘッダー -->
-<header-component :is-login="@auth true @endauth @guest false @endguest"></header-component>
+<header-component :is-login="@auth true @endauth @guest false @endguest" :user="{{$user}}"></header-component>
 
 <!-- メインコンテンツ -->
 <main id="main" class="l-main">
