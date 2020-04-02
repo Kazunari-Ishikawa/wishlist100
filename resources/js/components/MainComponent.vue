@@ -3,7 +3,7 @@
     <!-- インフォメーション -->
     <section id="Info" class="l-info u-main">
       <div class="p-info__container">
-        <!-- 達成度グラフ -->
+        <!-- 項目数 -->
         <div class="p-info__summary">
           <p class="p-info__text">Wish List：{{ wishNum }}</p>
           <span class="p-info__text--br">/</span>
