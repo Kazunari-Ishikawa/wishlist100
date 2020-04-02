@@ -2,21 +2,19 @@
   &__container {
     display: flex;
     margin-bottom: $space_m;
+    @include mq() {
+      margin-bottom: $space_s;
+    }
     align-items: center;
-    &--left {
-      justify-content: space-between;
-    }
-    &--right {
-      justify-content: flex-end;
-    }
   }
   color: $spring_orange;
   font-weight: 900;
   border: 1px solid #bbb;
   border-radius: $space_s;
-  padding: 5px 10px;
-  margin-right: $space_m;
+  padding: $space_s;
+  margin-right: $space_s;
   text-align: center;
+  min-width: 50px;
   @include mq() {
     font-size: $font-size_m;
   }
@@ -27,13 +25,16 @@
     color: $lightgray;
     border: 1px solid $spring_orange;
   }
-  &--right {
-    margin-right: 0;
-  }
   &__br {
     display: none;
     @include mq() {
       display: block;
     }
+  }
+  &--right {
+    margin-right: 0;
+  }
+  &--en {
+    // padding: $space_s 10px;
   }
 }

@@ -1,9 +1,10 @@
 .p-info {
   &__container {
     width: 100%;
-    padding: $space_l 0;
+    padding: $space_m 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
   &__title, &__title--setting {
     font-size: $font-size_xl;

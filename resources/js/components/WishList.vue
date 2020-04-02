@@ -1,21 +1,22 @@
 <template>
   <section id="WishList" class="l-container p-wishList u-main">
     <div class="p-wishList__header">
-      <div class="p-wishList__listBtn">
-        <div class="c-outlineBtn__container c-outlineBtn__container--left">
-          <div class="c-outlineBtn" @click="openWishList">Wish List</div>
-          <div class="c-outlineBtn" @click="openDoneList">Done List</div>
-        </div>
+      <div class="p-wishList__header--left c-outlineBtn__container">
+        <div class="c-outlineBtn c-outlineBtn--en" @click="openWishList">Wish List</div>
+        <div class="c-outlineBtn c-outlineBtn--en" @click="openDoneList">Done List</div>
       </div>
-      <div class="p-wishList__createBtn">
-        <div class="c-outlineBtn__container c-outlineBtn__container--right">
-          <div class="c-outlineBtn c-outlineBtn--right" @click="toggleCreateModal">
-            新しく
-            <br class="c-outlineBtn__br" />追加する
-          </div>
+      <div class="p-wishList__header--right c-outlineBtn__container">
+        <div class="c-outlineBtn">
+          絞り
+          <br class="c-outlineBtn__br" />込み
+        </div>
+        <div class="c-outlineBtn c-outlineBtn--right" @click="toggleCreateModal">
+          新規
+          <br class="c-outlineBtn__br" />登録
         </div>
       </div>
     </div>
+
     <template>
       <template v-if="isWishList">
         <WishItem

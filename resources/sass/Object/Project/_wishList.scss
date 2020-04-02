@@ -7,17 +7,8 @@
   &__header {
     display: flex;
     justify-content: space-between;
-  }
-  &__listBtn {
-    width: 40%;
-    @include mq(){
-      width: 70%;
-    }
-  }
-  &__createBtn {
-    width: 40%;
-    @include mq() {
-      width: 70%;
+    &--left, &--right {
+      display: flex;
     }
   }
   &__item {
