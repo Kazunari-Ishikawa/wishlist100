@@ -1,7 +1,7 @@
 <template>
   <header class="l-header">
-    <h1 class="p-hero__title">{{user.name}}さんの100のリスト</h1>
-
+    <h1 v-if="isLogin" class="p-hero__title">{{user.name}}さんの100のリスト</h1>
+    <h1 v-else class="p-hero__title">わたしの100のリスト</h1>
     <!-- ハンバーガーメニュー -->
     <div class="c-triggerMenu" @click="isActive = !isActive" :class="{show: !isActive}">
       <span class="c-triggerMenu__bar"></span>

@@ -2385,10 +2385,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -39331,9 +39327,13 @@ var render = function() {
     "header",
     { staticClass: "l-header" },
     [
-      _c("h1", { staticClass: "p-hero__title" }, [
-        _vm._v(_vm._s(_vm.user.name) + "さんの100のリスト")
-      ]),
+      _vm.isLogin
+        ? _c("h1", { staticClass: "p-hero__title" }, [
+            _vm._v(_vm._s(_vm.user.name) + "さんの100のリスト")
+          ])
+        : _c("h1", { staticClass: "p-hero__title" }, [
+            _vm._v("わたしの100のリスト")
+          ]),
       _vm._v(" "),
       _c(
         "div",
