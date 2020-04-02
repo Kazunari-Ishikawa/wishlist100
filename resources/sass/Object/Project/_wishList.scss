@@ -12,11 +12,12 @@
   &__headerBtn {
     align-items: center;
     color: $spring_orange;
+    background: #fff;
     border: 1px solid #aaa;
     border-radius: $space_s;
     box-sizing: border-box;
     display: flex;
-    height: 60px;
+    height: 50px;
     max-width: 55%;
     min-width: 50px;
     padding: $space_s;

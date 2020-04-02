@@ -2390,6 +2390,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2402,7 +2407,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       wishNum: null,
-      doneNum: null
+      doneNum: null,
+      isWishList: true
     };
   },
   methods: {
@@ -2411,6 +2417,12 @@ __webpack_require__.r(__webpack_exports__);
     },
     countDone: function countDone(doneItems) {
       this.doneNum = doneItems.length;
+    },
+    openWishList: function openWishList() {
+      this.isWishList = true;
+    },
+    openDoneList: function openDoneList() {
+      this.isWishList = false;
     }
   }
 });
@@ -2641,10 +2653,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -2657,11 +2665,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     EditModal: _EditModal__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   props: {
-    items: Array
+    items: Array,
+    isWishList: Boolean
   },
   data: function data() {
     return {
-      isWishList: true,
       isOpenCreateModal: false,
       isOpenEditModal: false,
       selectedItem: null,
@@ -2675,12 +2683,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     this.fetchList();
   },
   methods: {
-    openWishList: function openWishList() {
-      this.isWishList = true;
-    },
-    openDoneList: function openDoneList() {
-      this.isWishList = false;
-    },
     toggleCreateModal: function toggleCreateModal() {
       this.isOpenCreateModal = !this.isOpenCreateModal;
     },
@@ -39424,7 +39426,27 @@ var render = function() {
     [
       _c("section", { staticClass: "l-info u-main", attrs: { id: "Info" } }, [
         _c("div", { staticClass: "p-info__container" }, [
-          _vm._m(0),
+          _c("div", { staticClass: "c-outlineBtn__container" }, [
+            _c(
+              "div",
+              {
+                staticClass: "c-outlineBtn",
+                class: { isShow: _vm.isWishList },
+                on: { click: _vm.openWishList }
+              },
+              [_vm._v("Wish List")]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "c-outlineBtn",
+                class: { isShow: !_vm.isWishList },
+                on: { click: _vm.openDoneList }
+              },
+              [_vm._v("Done List")]
+            )
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "p-info__summary" }, [
             _c("p", { staticClass: "p-info__text" }, [
@@ -39441,7 +39463,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("WishList", {
-        attrs: { items: _vm.items },
+        attrs: { items: _vm.items, "is-wish-list": _vm.isWishList },
         on: {
           "send-wish-items": _vm.countWish,
           "send-done-items": _vm.countDone
@@ -39451,26 +39473,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "p-wishList__header--left c-outlineBtn__container" },
-      [
-        _c("div", { staticClass: "c-outlineBtn c-outlineBtn--en" }, [
-          _vm._v("Wish List")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "c-outlineBtn c-outlineBtn--en" }, [
-          _vm._v("Done List")
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

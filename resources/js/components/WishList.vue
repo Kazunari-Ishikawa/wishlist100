@@ -1,10 +1,6 @@
 <template>
   <section id="WishList" class="l-container p-wishList u-main">
     <div class="p-wishList__header">
-      <!-- <div class="p-wishList__header--left c-outlineBtn__container">
-        <div class="c-outlineBtn c-outlineBtn--en" @click="openWishList">Wish List</div>
-        <div class="c-outlineBtn c-outlineBtn--en" @click="openDoneList">Done List</div>
-      </div>-->
       <select class="c-form__select p-wishList__headerBtn" v-model="sortId" @change="sortList">
         <option value="0">全て</option>
         <option value="1">ライフスタイル</option>
@@ -68,11 +64,11 @@ export default {
     EditModal
   },
   props: {
-    items: Array
+    items: Array,
+    isWishList: Boolean
   },
   data() {
     return {
-      isWishList: true,
       isOpenCreateModal: false,
       isOpenEditModal: false,
       selectedItem: null,
@@ -86,14 +82,6 @@ export default {
     this.fetchList();
   },
   methods: {
-    openWishList() {
-      this.isWishList = true;
-    },
-
-    openDoneList() {
-      this.isWishList = false;
-    },
-
     toggleCreateModal() {
       this.isOpenCreateModal = !this.isOpenCreateModal;
     },

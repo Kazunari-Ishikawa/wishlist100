@@ -4,9 +4,9 @@
     <section id="Info" class="l-info u-main">
       <div class="p-info__container">
         <!-- 表示リスト切り替え -->
-        <div class="p-wishList__header--left c-outlineBtn__container">
-          <div class="c-outlineBtn c-outlineBtn--en">Wish List</div>
-          <div class="c-outlineBtn c-outlineBtn--en">Done List</div>
+        <div class="c-outlineBtn__container">
+          <div class="c-outlineBtn" @click="openWishList" :class="{isShow: isWishList}">Wish List</div>
+          <div class="c-outlineBtn" @click="openDoneList" :class="{isShow: !isWishList}">Done List</div>
         </div>
         <!-- 項目数 -->
         <div class="p-info__summary">
@@ -18,7 +18,12 @@
     </section>
 
     <!-- リスト -->
-    <WishList :items="items" @send-wish-items="countWish" @send-done-items="countDone" />
+    <WishList
+      :items="items"
+      @send-wish-items="countWish"
+      @send-done-items="countDone"
+      :is-wish-list="isWishList"
+    />
   </div>
 </template>
 
@@ -32,7 +37,8 @@ export default {
   data() {
     return {
       wishNum: null,
-      doneNum: null
+      doneNum: null,
+      isWishList: true
     };
   },
   methods: {
@@ -42,6 +48,12 @@ export default {
 
     countDone(doneItems) {
       this.doneNum = doneItems.length;
+    },
+    openWishList() {
+      this.isWishList = true;
+    },
+    openDoneList() {
+      this.isWishList = false;
     }
   }
 };

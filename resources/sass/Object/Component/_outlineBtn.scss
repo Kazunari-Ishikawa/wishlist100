@@ -1,21 +1,26 @@
 .c-outlineBtn {
   &__container {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: space-between;
   }
-  color: $spring_orange;
-  font-weight: 900;
-  border: 1px solid #bbb;
+  border: 1px solid $gray;
   border-radius: $space_s;
-  padding: $space_s;
-  margin-right: $space_s;
-  text-align: center;
+  font-size: $font-size_l;
+  font-weight: 900;
+  margin-right: $space_m;
   min-width: 50px;
-  @include mq() {
-    font-size: $font-size_m;
-  }
+  padding: $space_s;
+  text-align: center;
   transition: $time_s;
+  @include mq() {
+    font-size: $font-size_default;
+  }
+  &.isShow {
+    background: $spring_orange;
+    color: $lightgray;
+    border: 1px solid $spring_orange;
+  }
   &:hover {
     cursor: pointer;
     background: $spring_orange;
@@ -28,8 +33,4 @@
       display: block;
     }
   }
-  &--right {
-    margin-right: 0;
-  }
-
 }
