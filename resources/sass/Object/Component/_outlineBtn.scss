@@ -1,11 +1,8 @@
 .c-outlineBtn {
   &__container {
     display: flex;
-    margin-bottom: $space_m;
-    @include mq() {
-      margin-bottom: $space_s;
-    }
     align-items: center;
+    justify-content: space-between;
   }
   color: $spring_orange;
   font-weight: 900;
@@ -34,7 +31,5 @@
   &--right {
     margin-right: 0;
   }
-  &--en {
-    // padding: $space_s 10px;
-  }
+
 }

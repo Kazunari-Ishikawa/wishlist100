@@ -1,28 +1,23 @@
 <template>
   <section id="WishList" class="l-container p-wishList u-main">
     <div class="p-wishList__header">
-      <div class="p-wishList__header--left c-outlineBtn__container">
+      <!-- <div class="p-wishList__header--left c-outlineBtn__container">
         <div class="c-outlineBtn c-outlineBtn--en" @click="openWishList">Wish List</div>
         <div class="c-outlineBtn c-outlineBtn--en" @click="openDoneList">Done List</div>
-      </div>
-      <div class="p-wishList__header--right c-outlineBtn__container">
-        <select
-          class="c-form__select c-outlineBtn c-outlineBtn--select"
-          name="editSelect"
-          v-model="sortId"
-          @change="sortList"
-        >
-          <option value="0">全て</option>
-          <option value="1">ライフスタイル</option>
-          <option value="2">ホビー</option>
-          <option value="3">スキルアップ</option>
-          <option value="4">トラベル</option>
-          <option value="5">グルメ</option>
-        </select>
-        <div class="c-outlineBtn c-outlineBtn--right" @click="toggleCreateModal">
-          新規
-          <br class="c-outlineBtn__br" />登録
-        </div>
+      </div>-->
+      <select class="c-form__select p-wishList__headerBtn" v-model="sortId" @change="sortList">
+        <option value="0">全て</option>
+        <option value="1">ライフスタイル</option>
+        <option value="2">ホビー</option>
+        <option value="3">スキルアップ</option>
+        <option value="4">トラベル</option>
+        <option value="5">グルメ</option>
+      </select>
+      <div class="p-wishList__headerBtn" @click="toggleCreateModal">
+        <p>
+          新しく
+          <br class="p-wishList__br" />登録する
+        </p>
       </div>
     </div>
 

@@ -3,6 +3,11 @@
     <!-- インフォメーション -->
     <section id="Info" class="l-info u-main">
       <div class="p-info__container">
+        <!-- 表示リスト切り替え -->
+        <div class="p-wishList__header--left c-outlineBtn__container">
+          <div class="c-outlineBtn c-outlineBtn--en">Wish List</div>
+          <div class="c-outlineBtn c-outlineBtn--en">Done List</div>
+        </div>
         <!-- 項目数 -->
         <div class="p-info__summary">
           <p class="p-info__text">Wish List：{{ wishNum }}</p>
