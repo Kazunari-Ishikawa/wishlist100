@@ -1958,6 +1958,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2107,6 +2109,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
 //
 //
 //
@@ -38929,6 +38933,30 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
+      _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.wishText,
+              expression: "wishText"
+            }
+          ],
+          staticClass: "c-form__input",
+          attrs: { type: "text", placeholder: "わたしのやりたいこと" },
+          domProps: { value: _vm.wishText },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.wishText = $event.target.value
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
       _c(
         "form",
         {
@@ -38992,30 +39020,6 @@ var render = function() {
                 _c("option", { attrs: { value: "5" } }, [_vm._v("グルメ")])
               ]
             )
-          ]),
-          _vm._v(" "),
-          _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.wishText,
-                  expression: "wishText"
-                }
-              ],
-              staticClass: "c-form__input",
-              attrs: { type: "text", placeholder: "わたしのやりたいこと" },
-              domProps: { value: _vm.wishText },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.wishText = $event.target.value
-                }
-              }
-            })
           ]),
           _vm._v(" "),
           _c("input", {
@@ -39137,6 +39141,14 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
+      _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
+        _c("input", {
+          staticClass: "c-form__input",
+          attrs: { type: "text", name: "editInput" },
+          domProps: { value: _vm.item.text }
+        })
+      ]),
+      _vm._v(" "),
       _c(
         "form",
         {
@@ -39178,14 +39190,6 @@ var render = function() {
                 _c("option", { attrs: { value: "5" } }, [_vm._v("グルメ")])
               ]
             )
-          ]),
-          _vm._v(" "),
-          _c("label", { staticClass: "c-form__unit", attrs: { for: "" } }, [
-            _c("input", {
-              staticClass: "c-form__input",
-              attrs: { type: "text", name: "editInput" },
-              domProps: { value: _vm.item.text }
-            })
           ]),
           _vm._v(" "),
           _c("input", {
