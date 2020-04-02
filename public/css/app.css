@@ -792,7 +792,7 @@ textarea {
 .p-wishList__item {
   background: #ebc061;
   width: 100%;
-  height: 50px;
+  min-height: 50px;
   padding: 5px;
   margin-bottom: 10px;
   display: flex;
@@ -805,7 +805,7 @@ textarea {
 
 @media screen and (max-width: 768px) {
   .p-wishList__item {
-    height: 80px;
+    min-height: 70px;
   }
 }
 

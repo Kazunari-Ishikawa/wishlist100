@@ -14,9 +14,9 @@
   &__item {
     background: $bg-color_sub1;
     width: 100%;
-    height: $item-height;
+    min-height: $item-height;
     @include mq(md) {
-      height: 80px;
+      min-height: 70px;
     }
     padding: $space_s;
     margin-bottom: 10px;

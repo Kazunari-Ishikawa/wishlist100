@@ -2639,6 +2639,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2660,7 +2669,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       isOpenEditModal: false,
       selectedItem: null,
       wishItems: null,
-      doneItems: null
+      doneItems: null,
+      sortId: 0,
+      updatedItems: this.items
     };
   },
   created: function created() {
@@ -2747,6 +2758,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 response = _context3.sent;
+                _this3.updatedItems = response.data;
+                _this3.sortId = 0;
                 _this3.wishItems = response.data.filter(function (item) {
                   return item.done_flg == false;
                 });
@@ -2758,7 +2771,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this3.sendDoneItems();
 
-              case 7:
+              case 9:
               case "end":
                 return _context3.stop();
             }
@@ -2771,6 +2784,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     sendDoneItems: function sendDoneItems() {
       this.$emit("send-done-items", this.doneItems);
+    },
+    sortList: function sortList() {
+      var _this4 = this;
+
+      if (this.sortId != 0) {
+        this.wishItems = this.updatedItems.filter(function (item) {
+          return item.category_id == _this4.sortId && item.done_flg == false;
+        });
+        this.doneItems = this.updatedItems.filter(function (item) {
+          return item.category_id == _this4.sortId && item.done_flg == true;
+        });
+      } else {
+        this.wishItems = this.updatedItems.filter(function (item) {
+          return item.done_flg == false;
+        });
+        this.doneItems = this.updatedItems.filter(function (item) {
+          return item.done_flg == true;
+        });
+      }
     }
   }
 });
@@ -39681,7 +39713,56 @@ var render = function() {
           "div",
           { staticClass: "p-wishList__header--right c-outlineBtn__container" },
           [
-            _vm._m(0),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.sortId,
+                    expression: "sortId"
+                  }
+                ],
+                staticClass: "c-form__select c-outlineBtn c-outlineBtn--select",
+                attrs: { name: "editSelect" },
+                on: {
+                  change: [
+                    function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.sortId = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                    _vm.sortList
+                  ]
+                }
+              },
+              [
+                _c("option", { attrs: { value: "0" } }, [_vm._v("全て")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "1" } }, [
+                  _vm._v("ライフスタイル")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "2" } }, [_vm._v("ホビー")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "3" } }, [
+                  _vm._v("スキルアップ")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "4" } }, [_vm._v("トラベル")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "5" } }, [_vm._v("グルメ")])
+              ]
+            ),
             _vm._v(" "),
             _c(
               "div",
@@ -39742,18 +39823,7 @@ var render = function() {
     2
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "c-outlineBtn" }, [
-      _vm._v("\n        絞り\n        "),
-      _c("br", { staticClass: "c-outlineBtn__br" }),
-      _vm._v("込み\n      ")
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
