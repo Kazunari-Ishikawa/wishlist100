@@ -1,21 +1,31 @@
 <template>
   <section id="WishList" class="l-container p-wishList u-main">
     <div class="p-wishList__header">
-      <div class="p-wishList__listBtn">
-        <div class="c-outlineBtn__container c-outlineBtn__container--left">
-          <div class="c-outlineBtn" @click="openWishList">Wish List</div>
-          <div class="c-outlineBtn" @click="openDoneList">Done List</div>
-        </div>
+      <div class="p-wishList__header--left c-outlineBtn__container">
+        <div class="c-outlineBtn c-outlineBtn--en" @click="openWishList">Wish List</div>
+        <div class="c-outlineBtn c-outlineBtn--en" @click="openDoneList">Done List</div>
       </div>
-      <div class="p-wishList__createBtn">
-        <div class="c-outlineBtn__container c-outlineBtn__container--right">
-          <div class="c-outlineBtn c-outlineBtn--right" @click="toggleCreateModal">
-            新しく
-            <br class="c-outlineBtn__br" />追加する
-          </div>
+      <div class="p-wishList__header--right c-outlineBtn__container">
+        <select
+          class="c-form__select c-outlineBtn c-outlineBtn--select"
+          name="editSelect"
+          v-model="sortId"
+          @change="sortList"
+        >
+          <option value="0">全て</option>
+          <option value="1">ライフスタイル</option>
+          <option value="2">ホビー</option>
+          <option value="3">スキルアップ</option>
+          <option value="4">トラベル</option>
+          <option value="5">グルメ</option>
+        </select>
+        <div class="c-outlineBtn c-outlineBtn--right" @click="toggleCreateModal">
+          新規
+          <br class="c-outlineBtn__br" />登録
         </div>
       </div>
     </div>
+
     <template>
       <template v-if="isWishList">
         <WishItem
@@ -72,7 +82,9 @@ export default {
       isOpenEditModal: false,
       selectedItem: null,
       wishItems: null,
-      doneItems: null
+      doneItems: null,
+      sortId: 0,
+      updatedItems: this.items
     };
   },
   created() {
@@ -112,9 +124,10 @@ export default {
 
     async fetchList() {
       const response = await axios.get("/mypage/fetch");
+      this.updatedItems = response.data;
+      this.sortId = 0;
       this.wishItems = response.data.filter(item => item.done_flg == false);
       this.doneItems = response.data.filter(item => item.done_flg == true);
-
       this.sendWishItems();
       this.sendDoneItems();
     },
@@ -125,6 +138,24 @@ export default {
 
     sendDoneItems() {
       this.$emit("send-done-items", this.doneItems);
+    },
+
+    sortList() {
+      if (this.sortId != 0) {
+        this.wishItems = this.updatedItems.filter(
+          item => item.category_id == this.sortId && item.done_flg == false
+        );
+        this.doneItems = this.updatedItems.filter(
+          item => item.category_id == this.sortId && item.done_flg == true
+        );
+      } else {
+        this.wishItems = this.updatedItems.filter(
+          item => item.done_flg == false
+        );
+        this.doneItems = this.updatedItems.filter(
+          item => item.done_flg == true
+        );
+      }
     }
   }
 };

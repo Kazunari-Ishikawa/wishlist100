@@ -419,9 +419,16 @@ textarea {
   font-weight: 900;
   border: 1px solid #bbb;
   border-radius: 5px;
+<<<<<<< HEAD
   padding: 5px 10px;
   margin-right: 15px;
   text-align: center;
+=======
+  padding: 5px;
+  margin-right: 5px;
+  text-align: center;
+  min-width: 50px;
+>>>>>>> Make-Sort-Component
   transition: 0.3s;
 }
 
@@ -431,12 +438,19 @@ textarea {
   align-items: center;
 }
 
+<<<<<<< HEAD
 .c-outlineBtn__container--left {
   justify-content: space-between;
 }
 
 .c-outlineBtn__container--right {
   justify-content: flex-end;
+=======
+@media screen and (max-width: 414px) {
+  .c-outlineBtn__container {
+    margin-bottom: 5px;
+  }
+>>>>>>> Make-Sort-Component
 }
 
 @media screen and (max-width: 414px) {
@@ -452,10 +466,13 @@ textarea {
   border: 1px solid #ebc061;
 }
 
+<<<<<<< HEAD
 .c-outlineBtn--right {
   margin-right: 0;
 }
 
+=======
+>>>>>>> Make-Sort-Component
 .c-outlineBtn__br {
   display: none;
 }
@@ -466,6 +483,13 @@ textarea {
   }
 }
 
+<<<<<<< HEAD
+=======
+.c-outlineBtn--right {
+  margin-right: 0;
+}
+
+>>>>>>> Make-Sort-Component
 .c-modal {
   box-sizing: border-box;
 }
@@ -785,6 +809,7 @@ textarea {
   justify-content: space-between;
 }
 
+<<<<<<< HEAD
 .p-wishList__listBtn {
   width: 40%;
 }
@@ -803,12 +828,21 @@ textarea {
   .p-wishList__createBtn {
     width: 70%;
   }
+=======
+.p-wishList__header--left,
+.p-wishList__header--right {
+  display: flex;
+>>>>>>> Make-Sort-Component
 }
 
 .p-wishList__item {
   background: #ebc061;
   width: 100%;
+<<<<<<< HEAD
   height: 50px;
+=======
+  min-height: 50px;
+>>>>>>> Make-Sort-Component
   padding: 5px;
   margin-bottom: 10px;
   display: flex;
@@ -821,7 +855,11 @@ textarea {
 
 @media screen and (max-width: 768px) {
   .p-wishList__item {
+<<<<<<< HEAD
     height: 80px;
+=======
+    min-height: 70px;
+>>>>>>> Make-Sort-Component
   }
 }
 
@@ -889,6 +927,10 @@ textarea {
 .p-info__title,
 .p-info__title--setting {
   font-size: 24px;
+<<<<<<< HEAD
+=======
+  width: 50%;
+>>>>>>> Make-Sort-Component
   box-sizing: border-box;
 }
 
@@ -912,6 +954,10 @@ textarea {
 }
 
 .p-info__summary {
+<<<<<<< HEAD
+=======
+  width: 50%;
+>>>>>>> Make-Sort-Component
   text-align: center;
 }
 
