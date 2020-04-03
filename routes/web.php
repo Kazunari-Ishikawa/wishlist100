@@ -24,9 +24,9 @@ Route::group(['middleware' => 'auth'], function(){
   // マイページ、リスト表示
   Route::get('/mypage', 'WishesController@mypage')->name('wishes.mypage');
   // アカウント設定表示
-  Route::get('/setting/account', 'SettingsController@account')->name('settings.account');
+  Route::get('/settings/account', 'SettingsController@account')->name('settings.account');
   // リスト設定表示
-  Route::get('/setting/list', 'SettingsController@list')->name('settings.list');
+  Route::get('/settings/list', 'SettingsController@list')->name('settings.list');
 
   // 新規作成機能
   Route::post('/mypage', 'WishesController@create')->name('wishes.create');
@@ -41,6 +41,4 @@ Route::group(['middleware' => 'auth'], function(){
   // Items取得機能
   Route::get('/mypage/fetch', 'WishesController@fetchItems');
 
-  // 準備中
-  Route::get('/settings', 'SettingsController@preparing');
 });
