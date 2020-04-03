@@ -26,7 +26,8 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composers([
-            UserComposer::class => 'wishes.*'
+            UserComposer::class => 'wishes.*',
+            UserComposer::class => 'settings.*',
         ]);
     }
 }
