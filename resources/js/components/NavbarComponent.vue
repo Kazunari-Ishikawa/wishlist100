@@ -24,10 +24,10 @@
         <a href="/mypage" class="c-nav__link">マイページ</a>
       </li>
       <li class="c-nav__item c-spNav__item">
-        <a href="/settings" class="c-nav__link">アカウント設定</a>
+        <a href="/settings/account" class="c-nav__link">アカウント設定</a>
       </li>
       <li class="c-nav__item c-spNav__item">
-        <a href="/settings" class="c-nav__link">リスト設定</a>
+        <a href="/settings/list" class="c-nav__link">リスト設定</a>
       </li>
       <li class="c-nav__item c-spNav__item">
         <a class="c-nav__link" @click="doLogout">ログアウト</a>
@@ -44,9 +44,12 @@ export default {
     isActive: Boolean
   },
   methods: {
+    // メニュー閉じを通知する
     clickClose() {
       this.$emit("close-menu");
     },
+
+    // ログアウトする
     async doLogout() {
       await axios
         .post("/logout")

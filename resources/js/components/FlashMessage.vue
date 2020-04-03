@@ -19,6 +19,7 @@ export default {
     setTimeout(this.closeMessage, 3000);
   },
   methods: {
+    // メッセージを閉じる
     closeMessage() {
       this.isActive = false;
     }

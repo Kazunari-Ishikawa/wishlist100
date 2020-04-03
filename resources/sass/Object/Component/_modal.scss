@@ -1,21 +1,21 @@
 .c-modal {
   box-sizing: border-box;
   &__container {
-    width: 60%;
-    height: 80%;
-    max-height: $modal-height;
     background: #fff;
     border-radius: $radius_s;
+    height: 80%;
+    max-height: $modal-height;
     padding: $space_xl;
     @include mq() {
       padding: $space_m;
     }
+    width: 60%;
     z-index: 5;
   }
   &__header {
+    align-items: center;
     display: flex;
     justify-content: space-between;
-    align-items: center;
   }
   &__text {
     font-size: $font-size_l;

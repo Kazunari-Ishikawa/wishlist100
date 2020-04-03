@@ -24,23 +24,21 @@ Route::group(['middleware' => 'auth'], function(){
   // マイページ、リスト表示
   Route::get('/mypage', 'WishesController@mypage')->name('wishes.mypage');
   // アカウント設定表示
-  Route::get('/setting/account', 'SettingsController@account')->name('settings.account');
+  Route::get('/settings/account', 'SettingsController@account')->name('settings.account');
   // リスト設定表示
-  Route::get('/setting/list', 'SettingsController@list')->name('settings.list');
+  Route::get('/settings/list', 'SettingsController@list')->name('settings.list');
 
   // 新規作成機能
   Route::post('/mypage', 'WishesController@create')->name('wishes.create');
   // 編集機能
   Route::post('/mypage/{id}', 'WishesController@update')->name('wishes.update');
   // Done機能
-  Route::post('/mypage/{id}/done', 'WishesController@done');
+  Route::post('/mypage/{id}/done', 'WishesController@done')->name('wishes.done');
   // Wish機能
-  Route::post('/mypage/{id}/wish', 'WishesController@wish');
+  Route::post('/mypage/{id}/wish', 'WishesController@wish')->name('wishes.wish');
   // 削除機能
   Route::post('/mypage/{id}/delete', 'WishesController@destroy')->name('wishes.destroy');
   // Items取得機能
-  Route::get('/mypage/fetch', 'WishesController@fetchItems');
+  Route::get('/mypage/fetch', 'WishesController@fetchItems')->name('wishes.fetch');
 
-  // 準備中
-  Route::get('/settings', 'SettingsController@preparing');
 });

@@ -6,15 +6,12 @@ use Illuminate\Http\Request;
 
 class SettingsController extends Controller
 {
-    public function preparing()
-    {
-        return view('settings.preparing');
-    }
+    // アカウント設定
     public function account()
     {
         return view('settings.account');
     }
-
+    // リスト設定
     public function list()
     {
         return view('settings.list');

@@ -74,55 +74,64 @@ export default {
       selectedItem: null,
       wishItems: null,
       doneItems: null,
-      sortId: 0,
-      updatedItems: this.items
+      updatedItems: this.items,
+      sortId: 0
     };
   },
   created() {
     this.fetchList();
   },
   methods: {
+    // CreateModalの開閉状態を操作する
     toggleCreateModal() {
       this.isOpenCreateModal = !this.isOpenCreateModal;
     },
 
+    // EditModalを開く
     openEditModal(itemData) {
       this.selectedItem = itemData;
       this.isOpenEditModal = true;
     },
 
+    // EditModalを閉じる
     closeEditModal() {
       this.isOpenEditModal = false;
     },
 
+    // Done状態への変更処理
     async changeToDone(itemData) {
       const response = await axios.post(`/mypage/${itemData.id}/done`);
       this.fetchList();
     },
 
+    // Wish状態への変更処理
     async changeToWish(itemData) {
       const response = await axios.post(`/mypage/${itemData.id}/wish`);
       this.fetchList();
     },
 
+    // 表示するリストをDBから取得する
     async fetchList() {
       const response = await axios.get("/mypage/fetch");
       this.updatedItems = response.data;
-      this.sortId = 0;
+      this.sortId = 0; //更新時、ソート用のカテゴリIDは0とする
       this.wishItems = response.data.filter(item => item.done_flg == false);
       this.doneItems = response.data.filter(item => item.done_flg == true);
       this.sendWishItems();
       this.sendDoneItems();
     },
 
+    // WishItemsが更新されたことを通知する
     sendWishItems() {
       this.$emit("send-wish-items", this.wishItems);
     },
 
+    // DoneItemsが更新されたことを通知する
     sendDoneItems() {
       this.$emit("send-done-items", this.doneItems);
     },
 
+    // リストをWish・Done別、カテゴリID別にソートする
     sortList() {
       if (this.sortId != 0) {
         this.wishItems = this.updatedItems.filter(

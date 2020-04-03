@@ -30,7 +30,10 @@
 <script>
 import WishList from "./WishList";
 export default {
-  props: { items: Array, user: Object },
+  props: {
+    items: Array,
+    user: Object
+  },
   components: {
     WishList
   },
@@ -42,16 +45,22 @@ export default {
     };
   },
   methods: {
+    // WishItemを数える
     countWish(wishItems) {
       this.wishNum = wishItems.length;
     },
 
+    // DoneItemを数える
     countDone(doneItems) {
       this.doneNum = doneItems.length;
     },
+
+    // Wishリストを開く
     openWishList() {
       this.isWishList = true;
     },
+
+    // DoneListを開く
     openDoneList() {
       this.isWishList = false;
     }

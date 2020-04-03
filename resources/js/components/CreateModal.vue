@@ -44,6 +44,7 @@ export default {
     clickClose() {
       this.$emit("close-modal");
     },
+
     // wishを送信する
     async postWish() {
       let wish = {
@@ -52,7 +53,6 @@ export default {
       };
       // POST送信
       const response = await axios.post("/mypage", wish).catch(error => error);
-
       if (response.status === 422) {
         this.clearData();
         this.clickClose();
@@ -63,11 +63,13 @@ export default {
       this.clickClose();
       this.informCreate();
     },
+
     // フォーム入力値を削除する
     clearData() {
       this.wishCategory = 0;
       this.wishText = null;
     },
+
     // 登録完了を通知する
     informCreate() {
       this.$emit("inform-create");

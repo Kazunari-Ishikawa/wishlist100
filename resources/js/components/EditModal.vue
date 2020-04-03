@@ -46,6 +46,7 @@ export default {
     clickClose() {
       this.$emit("close-modal");
     },
+
     // やりたいことを送信する
     async postWish() {
       this.id = this.item.id;
@@ -60,16 +61,19 @@ export default {
       this.clickClose();
       this.informEdit();
     },
+
     // フォーム入力値を削除する
     clearData() {
       this.id = null;
       this.wishCategory = 0;
       this.wishText = null;
     },
+
     // 編集完了を通知する
     informEdit() {
       this.$emit("inform-edit");
     },
+
     // やりたいことの削除
     async deleteWish() {
       this.id = this.item.id;

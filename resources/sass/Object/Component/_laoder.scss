@@ -1,12 +1,12 @@
 .c-loader {
   background: rgba($color: #fff, $alpha: 0.8);
   border-radius: 4px;
+  display: none;
+  left: 30%;
   padding: $space_s;
-  transition: $time_s;
   position: absolute;
   top: 20%;
-  left: 30%;
-  display: none;
+  transition: $time_s;
   &.active {
     display: inline-block;
   }
