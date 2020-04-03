@@ -30,6 +30,7 @@ export default {
     };
   },
   methods: {
+    // メニューを開閉する
     toggleMenu() {
       this.isActive = !this.isActive;
     }

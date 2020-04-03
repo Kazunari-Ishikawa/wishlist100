@@ -38,10 +38,12 @@ export default {
     }
   },
   methods: {
+    // Editモーダル開を通知する
     openEdit() {
       this.$emit("open-edit", this.itemData);
     },
 
+    // Done状態への変更を通知する
     changeToDone() {
       this.$emit("change-to-done", this.itemData);
     }

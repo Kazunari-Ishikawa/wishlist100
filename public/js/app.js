@@ -2085,6 +2085,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    // Wish状態への変更を通知する
     changeToWish: function changeToWish() {
       this.$emit("change-to-wish", this.itemData);
     }
@@ -2276,6 +2277,7 @@ __webpack_require__.r(__webpack_exports__);
     setTimeout(this.closeMessage, 3000);
   },
   methods: {
+    // メッセージを閉じる
     closeMessage: function closeMessage() {
       this.isActive = false;
     }
@@ -2353,6 +2355,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    // メニューを開閉する
     toggleMenu: function toggleMenu() {
       this.isActive = !this.isActive;
     }
@@ -2417,15 +2420,19 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    // WishItemを数える
     countWish: function countWish(wishItems) {
       this.wishNum = wishItems.length;
     },
+    // DoneItemを数える
     countDone: function countDone(doneItems) {
       this.doneNum = doneItems.length;
     },
+    // Wishリストを開く
     openWishList: function openWishList() {
       this.isWishList = true;
     },
+    // DoneListを開く
     openDoneList: function openDoneList() {
       this.isWishList = false;
     }
@@ -2496,9 +2503,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     isActive: Boolean
   },
   methods: {
+    // メニュー閉じを通知する
     clickClose: function clickClose() {
       this.$emit("close-menu");
     },
+    // ログアウトする
     doLogout: function doLogout() {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
@@ -2573,9 +2582,11 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    // Editモーダル開を通知する
     openEdit: function openEdit() {
       this.$emit("open-edit", this.itemData);
     },
+    // Done状態への変更を通知する
     changeToDone: function changeToDone() {
       this.$emit("change-to-done", this.itemData);
     }
@@ -2680,24 +2691,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       selectedItem: null,
       wishItems: null,
       doneItems: null,
-      sortId: 0,
-      updatedItems: this.items
+      updatedItems: this.items,
+      sortId: 0
     };
   },
   created: function created() {
     this.fetchList();
   },
   methods: {
+    // CreateModalの開閉状態を操作する
     toggleCreateModal: function toggleCreateModal() {
       this.isOpenCreateModal = !this.isOpenCreateModal;
     },
+    // EditModalを開く
     openEditModal: function openEditModal(itemData) {
       this.selectedItem = itemData;
       this.isOpenEditModal = true;
     },
+    // EditModalを閉じる
     closeEditModal: function closeEditModal() {
       this.isOpenEditModal = false;
     },
+    // Done状態への変更処理
     changeToDone: function changeToDone(itemData) {
       var _this = this;
 
@@ -2723,6 +2738,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
+    // Wish状態への変更処理
     changeToWish: function changeToWish(itemData) {
       var _this2 = this;
 
@@ -2748,6 +2764,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2);
       }))();
     },
+    // 表示するリストをDBから取得する
     fetchList: function fetchList() {
       var _this3 = this;
 
@@ -2763,7 +2780,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 2:
                 response = _context3.sent;
                 _this3.updatedItems = response.data;
-                _this3.sortId = 0;
+                _this3.sortId = 0; //更新時、ソート用のカテゴリIDは0とする
+
                 _this3.wishItems = response.data.filter(function (item) {
                   return item.done_flg == false;
                 });
@@ -2783,12 +2801,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee3);
       }))();
     },
+    // WishItemsが更新されたことを通知する
     sendWishItems: function sendWishItems() {
       this.$emit("send-wish-items", this.wishItems);
     },
+    // DoneItemsが更新されたことを通知する
     sendDoneItems: function sendDoneItems() {
       this.$emit("send-done-items", this.doneItems);
     },
+    // リストをWish・Done別、カテゴリID別にソートする
     sortList: function sortList() {
       var _this4 = this;
 

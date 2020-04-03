@@ -38,6 +38,7 @@ export default {
     }
   },
   methods: {
+    // Wish状態への変更を通知する
     changeToWish() {
       this.$emit("change-to-wish", this.itemData);
     }

@@ -44,9 +44,12 @@ export default {
     isActive: Boolean
   },
   methods: {
+    // メニュー閉じを通知する
     clickClose() {
       this.$emit("close-menu");
     },
+
+    // ログアウトする
     async doLogout() {
       await axios
         .post("/logout")
