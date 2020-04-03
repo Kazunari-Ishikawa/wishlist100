@@ -33,12 +33,12 @@ Route::group(['middleware' => 'auth'], function(){
   // 編集機能
   Route::post('/mypage/{id}', 'WishesController@update')->name('wishes.update');
   // Done機能
-  Route::post('/mypage/{id}/done', 'WishesController@done');
+  Route::post('/mypage/{id}/done', 'WishesController@done')->name('wishes.done');
   // Wish機能
-  Route::post('/mypage/{id}/wish', 'WishesController@wish');
+  Route::post('/mypage/{id}/wish', 'WishesController@wish')->name('wishes.wish');
   // 削除機能
   Route::post('/mypage/{id}/delete', 'WishesController@destroy')->name('wishes.destroy');
   // Items取得機能
-  Route::get('/mypage/fetch', 'WishesController@fetchItems');
+  Route::get('/mypage/fetch', 'WishesController@fetchItems')->name('wishes.fetch');
 
 });

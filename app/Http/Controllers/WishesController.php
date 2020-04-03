@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreateItemRequest;
 use App\Item;
 use App\Wish;
@@ -14,11 +15,11 @@ class WishesController extends Controller
     {
         return view('index');
     }
-    // マイページ、やりたいこと表示
+    // マイページ、リスト表示
     public function mypage()
     {
-        $user = \Auth::user();
-        $items = Wish::find(\Auth::id())->items;
+        $user = Auth::user();
+        $items = Wish::find(Auth::id())->items;
 
         return view('wishes.mypage', ['user' => $user, 'items' => $items]);
     }
@@ -26,7 +27,7 @@ class WishesController extends Controller
     public function create(CreateItemRequest $request)
     {
         $item = new Item;
-        $wish = \App\Wish::find(\Auth::id());
+        $wish = Wish::find(Auth::id());
 
         $item->wish()->associate($wish);
         $item->fill($request->all())->save();
@@ -36,8 +37,8 @@ class WishesController extends Controller
     // 編集機能
     public function update(CreateItemRequest $request, $id)
     {
-
         $item = Item::find($id);
+        // リクエストとDBが一致しなければ変更
         if ($request->category_id !== $item->category_id) {
             $item->category_id = $request->category_id;
         };
@@ -76,7 +77,7 @@ class WishesController extends Controller
     // Items取得
     public function fetchItems()
     {
-        $items = Wish::find(\Auth::id())->items;
+        $items = Wish::find(Auth::id())->items;
 
         return response($items);
     }
