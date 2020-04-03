@@ -1,18 +1,18 @@
 .c-message {
   &__container {
-    background: $green;
-    width: 100%;
-    display: flex;
     align-items: center;
+    background: $green;
+    display: flex;
+    width: 100%;
     &--flash {
       height: $header-height;
       justify-content: center;
-      text-align: center;
       position: fixed;
+      text-align: center;
       top: -$header-height;
+      transition: $time_m;
       right: 0;
       z-index: 5;
-      transition: $time_m;
       &.active {
         transform: translateY(100%);
       }

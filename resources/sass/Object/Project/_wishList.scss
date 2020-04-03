@@ -1,9 +1,9 @@
 .p-wishList {
-  padding: $space_l;
-  border-radius: $space_s;
   background: $lightgray;
+  border-radius: $space_s;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.25);
   box-sizing: border-box;
+  padding: $space_l;
   &__header {
     display: flex;
     justify-content: space-between;
@@ -11,44 +11,44 @@
   }
   &__headerBtn {
     align-items: center;
-    color: $spring_orange;
     background: #fff;
     border: 1px solid #aaa;
     border-radius: $space_s;
     box-sizing: border-box;
+    color: $spring_orange;
     display: flex;
     height: 50px;
     max-width: 55%;
     min-width: 50px;
     padding: $space_s;
-    transition: $time_s;
     text-align: center;
+    transition: $time_s;
     width: auto;
     @include mq() {
       font-size: $font-size_m;
     }
     &:hover {
-      cursor: pointer;
       background: $spring_orange;
-      color: $lightgray;
       border: 1px solid $spring_orange;
+      color: $lightgray;
+      cursor: pointer;
     }
   }
   &__item {
+    align-items: center;
     background: $bg-color_sub1;
-    width: 100%;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.15);
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    margin-bottom: 10px;
     min-height: $item-height;
     @include mq(md) {
       min-height: 70px;
     }
     padding: $space_s;
-    margin-bottom: 10px;
-    display: flex;
-    box-sizing: border-box;
-    align-items: center;
-    box-shadow: 3px 3px 5px rgba(0,0,0,0.15);
     transition: $time_s;
-    cursor: pointer;
+    width: 100%;
     &:hover {
       transform: scale(1.03);
     }
@@ -57,15 +57,15 @@
     }
   }
   &__contents {
-    flex: 3 1 80%;
-    margin-left: $space_s;
-    margin-right: $space_s;
-    display: flex;
     align-items: center;
-    justify-content: space-between;
+    display: flex;
     @include mq() {
       display: block;
     }
+    flex: 3 1 80%;
+    justify-content: space-between;
+    margin-left: $space_s;
+    margin-right: $space_s;
   }
   &__text {
     font-size: $font-size_l;

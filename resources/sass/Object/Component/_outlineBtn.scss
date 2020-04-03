@@ -1,31 +1,31 @@
 .c-outlineBtn {
-  &__container {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-  }
   border: 1px solid $gray;
   border-radius: $space_s;
   font-size: $font-size_l;
+  @include mq() {
+    font-size: $font-size_default;
+  }
   font-weight: 900;
   margin-right: $space_m;
   min-width: 50px;
   padding: $space_s;
   text-align: center;
   transition: $time_s;
-  @include mq() {
-    font-size: $font-size_default;
-  }
   &.isShow {
     background: $spring_orange;
-    color: $lightgray;
     border: 1px solid $spring_orange;
+    color: $lightgray;
   }
   &:hover {
-    cursor: pointer;
     background: $spring_orange;
-    color: $lightgray;
     border: 1px solid $spring_orange;
+    color: $lightgray;
+    cursor: pointer;
+  }
+  &__container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
   }
   &__br {
     display: none;

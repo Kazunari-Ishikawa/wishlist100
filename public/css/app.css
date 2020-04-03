@@ -177,19 +177,19 @@ textarea {
 }
 
 .l-header {
-  background: rgba(248, 227, 82, 0.9);
-  box-sizing: border-box;
-  padding: 0 30px;
-  width: 100%;
-  height: 40px;
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  background: rgba(248, 227, 82, 0.9);
   bottom: 0;
+  box-sizing: border-box;
+  display: flex;
+  height: 40px;
+  justify-content: space-between;
+  left: 0;
+  padding: 0 30px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
   z-index: 3;
 }
 
@@ -201,9 +201,9 @@ textarea {
 
 .l-footer {
   box-sizing: border-box;
+  margin-top: 40px;
   padding: 0 30px;
   width: 100%;
-  margin-top: 40px;
 }
 
 @media screen and (max-width: 414px) {
@@ -214,15 +214,15 @@ textarea {
 
 .l-footer__copyright {
   font-size: 12px;
-  width: 100%;
   text-align: center;
+  width: 100%;
 }
 
 .l-main {
   box-sizing: border-box;
-  width: 100%;
   margin-top: 40px;
   padding: 0 30px;
+  width: 100%;
 }
 
 @media screen and (max-width: 414px) {
@@ -233,9 +233,9 @@ textarea {
 
 .l-container {
   box-sizing: border-box;
-  width: 100%;
-  margin-right: auto;
   margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 .l-info {
@@ -244,8 +244,8 @@ textarea {
 
 .l-form {
   box-sizing: border-box;
-  max-width: 500px;
   margin: 0 auto;
+  max-width: 500px;
   width: 60%;
 }
 
@@ -256,30 +256,30 @@ textarea {
 }
 
 .l-modal__cover {
+  align-items: center;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
+  height: 100%;
   justify-content: center;
-  align-items: center;
+  left: 0;
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
   z-index: 4;
 }
 
 .c-nav {
+  align-items: center;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
   margin: 0;
 }
 
 .c-nav__item {
-  display: block;
   box-sizing: border-box;
-  height: 40px;
+  display: block;
   font-size: 12px;
+  height: 40px;
   min-width: 40px;
   text-align: center;
 }
@@ -296,9 +296,9 @@ textarea {
 
 .c-nav__link {
   display: block;
-  padding: 0 5px;
   height: 100%;
   line-height: 40px;
+  padding: 0 5px;
 }
 
 @media screen and (max-width: 768px) {
@@ -308,13 +308,13 @@ textarea {
 }
 
 .c-btn {
-  box-sizing: border-box;
   background: #f4f1ed;
   border: none;
   border-radius: 4px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
-  font-size: 14px;
+  box-sizing: border-box;
   font-family: "Oswald", "M PLUS Rounded 1c", sans-serif;
+  font-size: 14px;
   padding: 15px;
   transition: 0.3s;
   width: 200px;
@@ -325,9 +325,9 @@ textarea {
 }
 
 .c-btn__container {
-  width: 100%;
   margin: 20px auto;
   text-align: center;
+  width: 100%;
 }
 
 .c-btn__container--form {
@@ -337,8 +337,8 @@ textarea {
 
 .c-btn--twitter {
   background: white;
-  color: #1DA1F2;
   border: 3px solid #1DA1F2;
+  color: #1DA1F2;
 }
 
 .c-btn--form {
@@ -347,8 +347,8 @@ textarea {
 
 .c-form {
   background: #fff;
-  padding: 30px;
   border-radius: 5px;
+  padding: 30px;
 }
 
 .c-form__unit {
@@ -365,15 +365,15 @@ textarea {
 .c-form__input,
 .c-form__submit,
 .c-form__select {
-  border: 1px solid #aaa;
   background: #fff;
-  box-sizing: border-box;
+  border: 1px solid #aaa;
   border-radius: 4px;
+  box-sizing: border-box;
   display: block;
-  font-size: 16px;
   font-family: "Oswald", "M PLUS Rounded 1c", sans-serif;
-  padding: 0 10px;
+  font-size: 16px;
   height: 50px;
+  padding: 0 10px;
   width: 100%;
 }
 
@@ -396,10 +396,10 @@ textarea {
 }
 
 .c-form__submit--twitter {
-  margin-bottom: 0;
   background: #fff;
-  color: #1DA1F2;
   border: 2px solid #1DA1F2;
+  color: #1DA1F2;
+  margin-bottom: 0;
 }
 
 .c-form__text {
@@ -426,12 +426,6 @@ textarea {
   transition: 0.3s;
 }
 
-.c-outlineBtn__container {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-}
-
 @media screen and (max-width: 414px) {
   .c-outlineBtn {
     font-size: 16px;
@@ -440,15 +434,21 @@ textarea {
 
 .c-outlineBtn.isShow {
   background: #ebc061;
-  color: #f4f1ed;
   border: 1px solid #ebc061;
+  color: #f4f1ed;
 }
 
 .c-outlineBtn:hover {
-  cursor: pointer;
   background: #ebc061;
-  color: #f4f1ed;
   border: 1px solid #ebc061;
+  color: #f4f1ed;
+  cursor: pointer;
+}
+
+.c-outlineBtn__container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
 
 .c-outlineBtn__br {
@@ -466,12 +466,12 @@ textarea {
 }
 
 .c-modal__container {
-  width: 60%;
-  height: 80%;
-  max-height: 300px;
   background: #fff;
   border-radius: 4px;
+  height: 80%;
+  max-height: 300px;
   padding: 30px;
+  width: 60%;
   z-index: 5;
 }
 
@@ -482,9 +482,9 @@ textarea {
 }
 
 .c-modal__header {
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .c-modal__text {
@@ -511,8 +511,8 @@ textarea {
 @media screen and (max-width: 768px) {
   .c-spNav {
     display: block;
-    margin-right: 15px;
     margin-left: 15px;
+    margin-right: 15px;
     margin-top: 60px;
   }
 }
@@ -521,12 +521,12 @@ textarea {
   .c-spNav__cover {
     background: rgba(255, 255, 255, 0.9);
     display: block;
+    height: 100vh;
     position: absolute;
     top: 0;
+    transition: 0.6s;
     right: -60vw;
     width: 60vw;
-    height: 100vh;
-    transition: 0.6s;
   }
 
   .c-spNav__cover.active {
@@ -545,8 +545,8 @@ textarea {
 
 @media screen and (max-width: 768px) {
   .c-spNav__icon {
-    font-size: 2.2rem;
     display: block;
+    font-size: 2.2rem;
     text-align: center;
   }
 }
@@ -560,8 +560,8 @@ textarea {
     display: block;
     margin: 0 15px;
     position: absolute;
-    right: 0;
     top: 4px;
+    right: 0;
   }
 }
 
@@ -576,12 +576,12 @@ textarea {
 }
 
 .c-triggerMenu {
-  display: none;
-  width: 36px;
-  height: 28px;
   box-sizing: border-box;
+  display: none;
+  height: 28px;
   position: relative;
   transition: 1s;
+  width: 36px;
   z-index: 4;
 }
 
@@ -597,14 +597,14 @@ textarea {
 }
 
 .c-triggerMenu__bar {
-  box-sizing: border-box;
   background: #555;
-  display: inline-block;
-  width: 100%;
-  height: 4px;
   border-radius: 5px;
-  position: absolute;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 4px;
   left: 0;
+  position: absolute;
+  width: 100%;
 }
 
 .c-triggerMenu__bar:nth-of-type(1) {
@@ -620,21 +620,21 @@ textarea {
 }
 
 .c-message__container {
-  background: #38c172;
-  width: 100%;
-  display: flex;
   align-items: center;
+  background: #38c172;
+  display: flex;
+  width: 100%;
 }
 
 .c-message__container--flash {
   height: 40px;
   justify-content: center;
-  text-align: center;
   position: fixed;
+  text-align: center;
   top: -40px;
+  transition: 0.6s;
   right: 0;
   z-index: 5;
-  transition: 0.6s;
 }
 
 .c-message__container--flash.active {
@@ -654,12 +654,12 @@ textarea {
 .c-loader {
   background: rgba(255, 255, 255, 0.8);
   border-radius: 4px;
+  display: none;
+  left: 30%;
   padding: 5px;
-  transition: 0.3s;
   position: absolute;
   top: 20%;
-  left: 30%;
-  display: none;
+  transition: 0.3s;
 }
 
 .c-loader.active {
@@ -667,37 +667,28 @@ textarea {
 }
 
 .p-topImg {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  background-image: url(/images/top-pic.jpg?1e1db898284f7fef5f03880f7a207f69);
-  background-color: rgba(255, 255, 255, 0.4);
-  background-blend-mode: lighten;
-  width: 100%;
+  margin-top: 40px;
   min-height: 100%;
   position: relative;
   top: 0;
   left: 0;
+  width: 100%;
   z-index: 0;
-  margin-top: 40px;
 }
 
-@media screen and (max-width: 414px) {
-  body::before {
-    content: "";
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-image: url(/images/top-pic.jpg?1e1db898284f7fef5f03880f7a207f69);
-    background-color: rgba(255, 255, 255, 0.4);
-    background-blend-mode: lighten;
-    background-size: cover;
-    background-position: center;
-  }
+body::before {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url(/images/top-pic.jpg?1e1db898284f7fef5f03880f7a207f69);
+  background-color: rgba(255, 255, 255, 0.4);
+  background-blend-mode: lighten;
+  background-size: cover;
+  background-position: center;
 }
 
 .p-hero__title {
@@ -718,11 +709,11 @@ textarea {
 
 .p-hero__copy {
   color: #222584;
-  font-size: 24px;
   font-family: "Noto Serif JP", serif;
+  font-size: 24px;
   font-weight: 900;
-  text-align: center;
   margin-bottom: 60px;
+  text-align: center;
 }
 
 @media screen and (max-width: 414px) {
@@ -744,11 +735,11 @@ textarea {
 }
 
 .p-formTab {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
   max-width: 500px;
   width: 60%;
-  margin-right: auto;
-  margin-left: auto;
-  display: flex;
 }
 
 @media screen and (max-width: 768px) {
@@ -758,10 +749,10 @@ textarea {
 }
 
 .p-formTab__item {
-  padding: 5px;
-  margin-right: 15px;
-  margin-bottom: 15px;
   border-bottom: 2px solid #333;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  padding: 5px;
 }
 
 .p-formTab__item.notActive {
@@ -785,11 +776,11 @@ textarea {
 }
 
 .p-wishList {
-  padding: 20px;
-  border-radius: 5px;
   background: #f4f1ed;
+  border-radius: 5px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
+  padding: 20px;
 }
 
 .p-wishList__header {
@@ -800,18 +791,18 @@ textarea {
 
 .p-wishList__headerBtn {
   align-items: center;
-  color: #ebc061;
   background: #fff;
   border: 1px solid #aaa;
   border-radius: 5px;
   box-sizing: border-box;
+  color: #ebc061;
   display: flex;
   height: 50px;
   max-width: 55%;
   min-width: 50px;
   padding: 5px;
-  transition: 0.3s;
   text-align: center;
+  transition: 0.3s;
   width: auto;
 }
 
@@ -822,24 +813,24 @@ textarea {
 }
 
 .p-wishList__headerBtn:hover {
-  cursor: pointer;
   background: #ebc061;
-  color: #f4f1ed;
   border: 1px solid #ebc061;
+  color: #f4f1ed;
+  cursor: pointer;
 }
 
 .p-wishList__item {
+  align-items: center;
   background: #ebc061;
-  width: 100%;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  margin-bottom: 10px;
   min-height: 50px;
   padding: 5px;
-  margin-bottom: 10px;
-  display: flex;
-  box-sizing: border-box;
-  align-items: center;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.15);
   transition: 0.3s;
-  cursor: pointer;
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {
@@ -857,12 +848,12 @@ textarea {
 }
 
 .p-wishList__contents {
+  align-items: center;
+  display: flex;
   flex: 3 1 80%;
+  justify-content: space-between;
   margin-left: 5px;
   margin-right: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 @media screen and (max-width: 414px) {
@@ -912,17 +903,17 @@ textarea {
 }
 
 .p-info__container {
-  width: 100%;
-  padding: 15px 0;
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  padding: 15px 0;
+  width: 100%;
 }
 
 .p-info__title,
 .p-info__title--setting {
-  font-size: 24px;
   box-sizing: border-box;
+  font-size: 24px;
 }
 
 @media screen and (max-width: 414px) {
