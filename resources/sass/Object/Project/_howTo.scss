@@ -1,0 +1,33 @@
+.p-howTo {
+  color: #fff;
+  &__container {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    z-index: 1;
+  }
+  &__title {
+    font-size: $font-size_xxl;
+    margin-bottom: 40px;
+    text-align: center;
+    @include mq() {
+      font-size: $font-size_l;
+      margin-bottom: 20px;
+    }
+  }
+  &__list {
+  }
+  &__item {
+    font-size: $font-size_m;
+    margin-bottom: $space_xl;
+    letter-spacing: 0.4em;
+    @include mq() {
+      font-size: $font-size_s;
+    }
+  }
+}
+
+#HowTo {
+  padding-top: $header-height;
+  position: relative;
+}

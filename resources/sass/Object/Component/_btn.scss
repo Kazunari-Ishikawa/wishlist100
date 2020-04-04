@@ -29,4 +29,8 @@
   &--form {
     width: 100%;
   }
+  &--use {
+    border: 3px solid $orange;
+    color: $orange;
+  }
 }

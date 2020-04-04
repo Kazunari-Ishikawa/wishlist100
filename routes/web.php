@@ -20,6 +20,9 @@ Auth::routes();
 // TOPページ
 Route::get('/', 'WishesController@index')->name('index');
 
+// 使い方ページ
+Route::get('use', 'WishesController@use')->name('use');
+
 Route::group(['middleware' => 'auth'], function(){
   // マイページ、リスト表示
   Route::get('/mypage', 'WishesController@mypage')->name('wishes.mypage');

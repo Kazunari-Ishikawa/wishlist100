@@ -17,6 +17,9 @@
       <li class="c-nav__item c-spNav__item">
         <a href="/login" class="c-nav__link">ログイン</a>
       </li>
+      <li class="c-nav__item c-spNav__item">
+        <a href="/use" class="c-nav__link">使い方</a>
+      </li>
     </ul>
     <!-- ナビゲーション：ログイン時 -->
     <ul class="c-nav c-spNav" v-else>
@@ -26,9 +29,9 @@
       <li class="c-nav__item c-spNav__item">
         <a href="/settings/account" class="c-nav__link">アカウント設定</a>
       </li>
-      <li class="c-nav__item c-spNav__item">
+      <!-- <li class="c-nav__item c-spNav__item">
         <a href="/settings/list" class="c-nav__link">リスト設定</a>
-      </li>
+      </li>-->
       <li class="c-nav__item c-spNav__item">
         <a class="c-nav__link" @click="doLogout">ログアウト</a>
         <form action="/logout" id="js-logout-form" method="POST" style="display: none;"></form>

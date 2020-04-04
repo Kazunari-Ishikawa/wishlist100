@@ -15,6 +15,11 @@ class WishesController extends Controller
     {
         return view('index');
     }
+    // 使い方ページ
+    public function use()
+    {
+        return view('use');
+    }
     // マイページ、リスト表示
     public function mypage()
     {

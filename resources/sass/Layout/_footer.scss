@@ -1,6 +1,7 @@
 .l-footer {
   box-sizing: border-box;
   margin-top: $space_xxl;
+  margin-bottom: $space_m;
   padding: 0 $space_xl;
   @include mq(){
     padding: 0 $space_m;

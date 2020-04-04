@@ -4,24 +4,27 @@
 <!-- ヘッダー -->
 <header-component :is-login="@auth true @endauth @guest false @endguest" :user="{{$user}}"></header-component>
 
-<!-- メインコンテンツ -->
-<main id="main" class="l-main">
-  <!-- タイトル -->
-  <section id="Info" class="l-info u-main">
-    <div class="p-info__container">
-      <h2 class="p-info__title--setting">アカウント設定</h2>
-    </div>
-  </section>
+<div class="u-wrapper">
+  <!-- メインコンテンツ -->
+  <main id="main" class="l-main">
+    <!-- タイトル -->
+    <section id="Info" class="l-info u-main">
+      <div class="p-info__container">
+        <h2 class="p-info__title--setting">アカウント設定</h2>
+      </div>
+    </section>
 
-  <section class="l-container u-main">
-    <!-- 設定画面 -->
-    <form action="" class="c-form">
+    <section class="l-container u-main">
+      <h1>準備中です！</h1>
+
+      <!-- 設定画面 -->
+      {{-- <form action="" class="c-form">
       @csrf
       <label for="name" class="c-form__unit">
         <input type="text" name="name" id="name" class="c-form__input @error('name') is-invalid @enderror" value="{{ old('name', $user->name) }}" placeholder="ユーザー名">
-        @error('name')
-        <span class="c-form__message c-form__message--invalid">{{ $message }}</span>
-        @enderror
+      @error('name')
+      <span class="c-form__message c-form__message--invalid">{{ $message }}</span>
+      @enderror
       </label>
       <label for="email" class="c-form__unit">
         <input type="text" name="email" id="email" class="c-form__input @error('email') is-invalid @enderror" value="{{ old('email', $user->email) }}" placeholder="Email">
@@ -42,11 +45,12 @@
         @enderror
       </label>
       <input type="submit" value="変更" class="c-form__submit">
-    </form>
-  </section>
-</main>
+      </form> --}}
+    </section>
+  </main>
 
-<!-- フッター -->
-<footer-component></footer-component>
+  <!-- フッター -->
+  <footer-component></footer-component>
 
+</div>
 @endsection
