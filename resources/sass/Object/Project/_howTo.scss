@@ -1,21 +1,19 @@
 .p-howTo {
   color: #fff;
   &__container {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    z-index: 1;
+    background: rgba($color: $body-bg, $alpha: 0.5);
+    margin: $space_m auto;
+    padding: $space_xl;
+    width: 70%;
   }
   &__title {
     font-size: $font-size_xxl;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     text-align: center;
     @include mq() {
       font-size: $font-size_l;
       margin-bottom: 20px;
     }
-  }
-  &__list {
   }
   &__item {
     font-size: $font-size_m;
@@ -24,10 +22,8 @@
     @include mq() {
       font-size: $font-size_s;
     }
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
-}
-
-#HowTo {
-  padding-top: $header-height;
-  position: relative;
 }

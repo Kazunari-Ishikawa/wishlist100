@@ -27,12 +27,12 @@
             <span class="c-form__message c-form__message--invalid">{{$message}}</span>
             @enderror
           </label>
-          <p class="c-form__text"><a href="#">パスワードを忘れた？</a></p>
-          <p class="c-form__text"><a href="{{ route('register') }}">まだ登録していない？</a></p>
+          {{-- <p class="c-form__text"><a href="#">パスワードを忘れた？</a></p>
+          <p class="c-form__text"><a href="{{ route('register') }}">まだ登録していない？</a></p> --}}
           <input type="submit" value="ログイン" class="c-form__submit c-btn">
-          <div class="c-btn__container--form">
+          {{-- <div class="c-btn__container--form">
             <button class="c-btn c-btn--twitter c-btn--form"><i class="fab fa-twitter"></i> Twitterでログイン</button>
-          </div>
+          </div> --}}
         </form>
       </div>
     </section>
