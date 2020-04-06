@@ -3,7 +3,7 @@
     <!-- インフォメーション -->
     <section id="Info" class="l-info u-main">
       <div class="p-info__container">
-        <!-- 表示リスト切り替え -->
+        <!-- 表示リスト切り替えタブ -->
         <div class="c-outlineBtn__container">
           <div class="c-outlineBtn" @click="openWishList" :class="{isShow: isWishList}">Wish List</div>
           <div class="c-outlineBtn" @click="openDoneList" :class="{isShow: !isWishList}">Done List</div>
