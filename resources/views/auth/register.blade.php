@@ -40,9 +40,9 @@
             @enderror
           </label>
           <input type="submit" value="登録" class="c-form__submit c-btn">
-          <div class="c-btn__container--form">
+          {{-- <div class="c-btn__container--form">
             <button class="c-btn c-btn--twitter c-btn--form"><i class="fab fa-twitter"></i> Twitterで登録</button>
-          </div>
+          </div> --}}
         </form>
       </div>
     </section>
