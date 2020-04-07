@@ -81,8 +81,6 @@ class RegisterController extends Controller
      */
     protected function registered(Request $request, $user)
     {
-        \Log::info($user);
-        \Log::info($request);
         $wish = new Wish;
         $wish->user_id = $user->id;
         $wish->save();

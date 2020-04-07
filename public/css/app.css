@@ -355,6 +355,7 @@ textarea {
   background: #fff;
   border-radius: 5px;
   padding: 30px;
+  margin-bottom: 15px;
 }
 
 .c-form__unit {
@@ -387,13 +388,6 @@ textarea {
   color: white;
   background: black;
   border: none;
-  margin-bottom: 30px;
-}
-
-@media screen and (max-width: 414px) {
-  .c-form__submit {
-    margin-bottom: 20px;
-  }
 }
 
 .c-form__submit:hover {
@@ -418,6 +412,21 @@ textarea {
 
 .c-form__message--invalid {
   color: #e3342f;
+}
+
+.c-form__withdraw {
+  background: #fff;
+  border-radius: 4px;
+  color: black;
+  display: block;
+  margin: 15px 0;
+  padding: 5px;
+  width: 30%;
+}
+
+.c-form__withdraw:hover {
+  cursor: pointer;
+  color: #afd0ef;
 }
 
 .c-outlineBtn {
