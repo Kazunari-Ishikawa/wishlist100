@@ -2,6 +2,7 @@
   background: #fff;
   border-radius: $space_s;
   padding: $space_xl;
+  margin-bottom: $space_m;
   &__unit {
     display: block;
     margin-bottom: $space_xl;
@@ -25,10 +26,10 @@
     color: white;
     background: black;
     border: none;
-    margin-bottom: $space_xl;
-    @include mq() {
-      margin-bottom: $space_l;
-    }
+    // margin-bottom: $space_xl;
+    // @include mq() {
+    //   margin-bottom: $space_l;
+    // }
     &:hover {
       cursor: pointer;
       opacity: 0.8;
@@ -49,6 +50,19 @@
   &__message {
     &--invalid {
       color: $red;
+    }
+  }
+  &__withdraw {
+    background: #fff;
+    border-radius: 4px;
+    color: black;
+    display: block;
+    margin: $space_m 0;
+    padding: $space_s;
+    width: 30%;
+    &:hover {
+      cursor: pointer;
+      color: $font-color_sub1;
     }
   }
 }
