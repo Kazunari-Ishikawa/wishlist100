@@ -44,4 +44,11 @@ Route::group(['middleware' => 'auth'], function(){
   // Items取得機能
   Route::get('/mypage/fetch', 'WishesController@fetchItems')->name('wishes.fetch');
 
+  // アカウント変更機能
+  Route::post('settings/account/{id}', 'SettingsController@update')->name('account.update');
+  // パスワード変更機能
+  Route::post('settings/account/{id}/pass', 'SettingsController@change_pass')->name('account.password');
+  // アカウント退会機能
+  Route::post('settings/account/{id}/delete', 'SettingsController@withdraw')->name('account.withdraw');
+
 });
