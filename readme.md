@@ -6,8 +6,14 @@ https://wishlist100.herokuapp.com
 
 ## 動作環境
 
-PHP: 7.1.3以上
+PHP: 7.1.3以上  
 PostgreSQL: 12.3
+
+
+### 使用言語、フレームワーク
+
+PHP:Laravel 5.8.38  
+JavaScript: Vue.js 2.5.17
 
 
 ## 背景
